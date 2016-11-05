@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="SPL\inc\stm32f4xx_adc.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7378" topLine="119" />
+		</Cursor>
+	</File>
+	<File name="SPL\inc\stm32f4xx_gpio.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2331" topLine="38" />
+		</Cursor>
+	</File>
+	<File name="SPL\inc\stm32f4xx_rcc.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16507" topLine="323" />
+		</Cursor>
+	</File>
+	<File name="SPL\inc\stm32f4xx_usart.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="18868" topLine="425" />
+		</Cursor>
+	</File>
+	<File name="SPL\src\misc.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8716" topLine="115" />
+		</Cursor>
+	</File>
+	<File name="SPL\src\stm32f4xx_usart.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="54002" topLine="1359" />
+		</Cursor>
+	</File>
+	<File name="inc\stm32f4xx.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="92700" topLine="1967" />
+		</Cursor>
+	</File>
+	<File name="src\main.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="699" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="53" />
+			<Collapse line="124" />
+			<Collapse line="195" />
+			<Collapse line="434" />
+			<Collapse line="499" />
+		</Folding>
+	</File>
+	<File name="src\startup_stm32f4xx.S" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9439" topLine="222" />
+		</Cursor>
+	</File>
+</EmBlocks_layout_file>
