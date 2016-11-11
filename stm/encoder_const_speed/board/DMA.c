@@ -5,7 +5,7 @@
 
 __IO uint16_t ADCConvertedValues[BUFFERSIZE];
 
-static void DMA_Configuration(void)
+ void DMA_Configuration(void)
 {
   DMA_InitTypeDef DMA_InitStructure;
 
@@ -33,7 +33,7 @@ static void DMA_Configuration(void)
   DMA_Cmd(DMA2_Stream0, ENABLE);
 }
 
-static void DMA_Configuratio_new(void)
+ void DMA_Configuration_new(void)
 {
   DMA_InitTypeDef DMA_InitStructure;
   DMA_DeInit(DMA2_Stream4);  //Set DMA registers to default values

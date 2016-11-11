@@ -120,7 +120,7 @@ int main(void) {
   GPIO_Configuration();
   NVIC_Configuration();
   TIM2_Configuration();
-  DMA_Configuratio_new();
+  DMA_Configuration_new();
   ADC_Configuration_new();
   TM_Delay_Init();
   init_USART1_1(27500*3); // initialize USART1 @ 9600 baud \\TC: Transmission complete

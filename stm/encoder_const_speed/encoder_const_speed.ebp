@@ -192,6 +192,21 @@
 		<Unit filename="SPL\src\stm32f4xx_wwdg.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="board\ADC.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="board\DMA.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="board\TIM.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="board\USART.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="board\encoders.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="cmsis\arm_common_tables.h" />
 		<Unit filename="cmsis\arm_math.h" />
 		<Unit filename="cmsis\core_cm4.h" />
@@ -203,24 +218,13 @@
 		<Unit filename="inc\encoders.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="inc\encoders.h" />
 		<Unit filename="inc\main.h" />
 		<Unit filename="inc\stm32f4xx.h" />
 		<Unit filename="inc\stm32f4xx_conf.h" />
 		<Unit filename="inc\system_stm32f4xx.h" />
 		<Unit filename="inc\usart.h" />
 		<Unit filename="readme.txt" />
-		<Unit filename="src\ADC.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\DMA.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\TIM.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\USART.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
