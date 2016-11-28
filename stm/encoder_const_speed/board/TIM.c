@@ -19,3 +19,43 @@ void TIM2_Configuration(void)
   /* TIM2 enable counter */
   TIM_Cmd(TIM2, ENABLE);
 }
+
+void TIM6_Config(void)
+{
+    TIM_TimeBaseInitTypeDef timerInitStructure;
+    timerInitStructure.TIM_Prescaler = 84000;
+    timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+    timerInitStructure.TIM_Period = 1000;   //1khz
+    timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    timerInitStructure.TIM_RepetitionCounter = 0;
+    TIM_TimeBaseInit(TIM6, &timerInitStructure);
+    TIM_SetCounter(TIM6,0);
+    TIM_Cmd(TIM6, ENABLE);
+    TIM_ITConfig(TIM6, TIM_IT_Update, ENABLE);
+    NVIC_InitTypeDef nvicStructure;
+    nvicStructure.NVIC_IRQChannel = TIM6_DAC_IRQn;
+    nvicStructure.NVIC_IRQChannelPreemptionPriority = 4;
+    nvicStructure.NVIC_IRQChannelSubPriority = 1;
+    nvicStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&nvicStructure);
+}
+
+void TIM7_Config(void)
+{
+    TIM_TimeBaseInitTypeDef timerInitStructure;
+    timerInitStructure.TIM_Prescaler = 20;
+    timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+    timerInitStructure.TIM_Period = 10;   //1khz
+    timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    timerInitStructure.TIM_RepetitionCounter = 0;
+    TIM_TimeBaseInit(TIM7, &timerInitStructure);
+    TIM_SetCounter(TIM7,0);
+    TIM_Cmd(TIM7, ENABLE);
+    TIM_ITConfig(TIM7, TIM_IT_Update, ENABLE);
+    NVIC_InitTypeDef nvicStructure;
+    nvicStructure.NVIC_IRQChannel = TIM7_IRQn;
+    nvicStructure.NVIC_IRQChannelPreemptionPriority = 4;
+    nvicStructure.NVIC_IRQChannelSubPriority = 1;
+    nvicStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&nvicStructure);
+}

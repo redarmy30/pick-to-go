@@ -18,23 +18,20 @@
 #define MAX_STRLEN 12 // this is the maximum string length of our string in characters
 
 
- /*
-   * definitions for the quadrature encoder pins
-   */
-// Left Motor Channels
-
-
-
-
 volatile char received_string[MAX_STRLEN+1]; // this will hold the recieved string
 uint32_t multiplier;
 int counter=0;
 int counter1=0;
-int speed=200;
-int speed1=200;
+int speed=0;
+int speed1=0;
 int s = 255;
 int sp = 90;
 char test;
+int flag = 0;
+int Last_tick=0;
+int passed_tick = 0 ;
+int task=0;
+
 
 
 void TM_Delay_Init(void) {
@@ -74,19 +71,47 @@ void Delay(__IO uint32_t nCount) {
  /* Enable peripheral clocks */
 
 void RCC_Configuration(void)
-{
+{ /*
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+  RCC_AHB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);*/
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_CRC, ENABLE);   // PORTA
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); // PORTA
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); // PORTB
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE); // PORTC
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE); // PORTD
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE); // PORTE
+
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1,  ENABLE); // TIM1
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,  ENABLE); // TIM2
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,  ENABLE); // TIM3
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,  ENABLE); // TIM4
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5,  ENABLE); // TIM4
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6,  ENABLE); // TIM6
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM7,  ENABLE); // TIM7
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM8,  ENABLE); // TIM8
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM9,  ENABLE); // TIM9
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10, ENABLE); // TIM10
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM11, ENABLE); // TIM11
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM12, ENABLE); // TIM12
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM13, ENABLE); // TIM13
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1,  ENABLE); // ADC1
+
+
+  RCC_APB1PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE); // USART1
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,ENABLE); // USART3
+
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1,  ENABLE); // DMA1
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2,  ENABLE); // DMA2
+
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG,ENABLE); // SYSCFG
 }
 void GPIO_Configuration(void)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
-
-  /* ADC Channel 11 -> PC1
-  */
-
   GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2 | GPIO_Pin_1;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL ;\
@@ -107,32 +132,32 @@ void NVIC_Configuration(void)
 
 
 
-
-
-
-
-
-
-
 int main(void) {
-  encodersInit();
+
   RCC_Configuration();
   GPIO_Configuration();
   NVIC_Configuration();
+  TIM6_Config();
+  TIM7_Config();
   TIM2_Configuration();
   DMA_Configuration_new();
   ADC_Configuration_new();
-  TM_Delay_Init();
+
+  //TM_Delay_Init();
   init_USART1_1(27500*3); // initialize USART1 @ 9600 baud \\TC: Transmission complete
   init_USART6_1(27500*3);//26315
+  encodersInit();
+
   int speeadc1 = 0;
   int speeadc2 = 0;
   int speeadc3 = 0;
-
-
+  speed = -70;
+  speed1 = -70;
+  task = 16;
+  flag = 1;
   while (1)
   {
-    encodersRead();
+    speeadc3 = TIM_GetCounter(TIM6);
   }
 }
 
@@ -158,8 +183,7 @@ void USART1_IRQHandler(void){
             if (ADCConvertedValues[1]>3700 & (ADCConvertedValues[0]>1000 & ADCConvertedValues[0]<3000)  ) {speed1+=70; speed+=70;}
             if (ADCConvertedValues[1]<600 & (ADCConvertedValues[0]>1000 & ADCConvertedValues[0]<3000 )  ) {speed1-=70;speed-=70;}
            */
-            speed = 0;
-            speed1 = 0;
+
 
         }
         if (counter == 1)
@@ -198,7 +222,6 @@ void USART1_IRQHandler(void){
         if (counter>7)
         {counter=0;}
     }
-
 
 }
 
@@ -265,13 +288,49 @@ void DMA2_Stream0_IRQHandler(void) // Called at 1 KHz for 200 KHz sample rate, L
 
     // Add code here to process first half of buffer (ping)
   }
-
   /* Test on DMA Stream Transfer Complete interrupt */
   if(DMA_GetITStatus(DMA2_Stream0, DMA_IT_TCIF0))
   {
     /* Clear DMA Stream Transfer Complete interrupt pending bit */
     DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_TCIF0);
-
-
   }
+}
+float wheelspeed = 0;
+
+
+void TIM6_DAC_IRQHandler(void)
+{
+    if (TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
+    {
+        TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
+        encodersRead();
+        wheelspeed = leftCount *0.18/16;
+    }
+}
+
+void TIM7_IRQHandler(void)
+{
+    if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)
+    {
+        encodersRead();
+        TIM_ClearITPendingBit(TIM7, TIM_IT_Update);
+        if (!flag) {speed = 0;}
+        else
+        {
+          if (passed_tick== 0)
+          {
+           Last_tick = leftTotal;
+           passed_tick = 1;
+          }
+         else
+             sp = abs(-leftTotal+Last_tick);
+             {  if (sp < 20)
+                    passed_tick += sp;
+                Last_tick = leftTotal;
+                speed = -200;
+             }
+
+         if (passed_tick >= task+1) {speed = 0 ; flag = 0; passed_tick=0;}
+        }
+    }
 }

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1478854007 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
+1479921554 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
 	<stm32f4xx.h>
 	<misc.h>
 	<stm32f4xx_usart.h>
@@ -254,7 +254,7 @@
 	"stm32f4xx_wwdg.h"
 	"stm32f4xx_rcc.h"
 
-1478697088 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\startup_stm32f4xx.s
+1479918077 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\startup_stm32f4xx.s
 
 1478697088 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\system_stm32f4xx.c
 	"stm32f4xx.h"
@@ -276,7 +276,7 @@
 1478770808 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\tim.c
 	"TIM.h"
 
-1478771198 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\tim.h
+1479986759 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\tim.h
 	"stm32f4xx.h"
 
 1478769727 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\usart.c
@@ -285,11 +285,13 @@
 1478770617 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\usart.h
 	"stm32f4xx.h"
 
-1478770624 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\main.h
+1479814482 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\main.h
 	"stm32f4xx.h"
 
-1478771648 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\encoders.h
+1479986752 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\encoders.h
 	"stm32f4xx.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_conf.h"
 
 1478853356 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\encoders.c
 	"encoders.h"
@@ -301,13 +303,13 @@
 1478853975 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\dma.c
 	"DMA.h"
 
-1478770808 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
+1479921177 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
 	"TIM.h"
 
 1478769727 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\usart.c
 	"USART.h"
 
-1478853356 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\encoders.c
+1479987000 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\encoders.c
 	"encoders.h"
 	"main.h"
 

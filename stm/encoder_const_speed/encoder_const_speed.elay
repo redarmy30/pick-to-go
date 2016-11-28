@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="SPL\inc\stm32f4xx_dac.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3755" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="SPL\inc\stm32f4xx_dbgmcu.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2247" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="SPL\inc\stm32f4xx_gpio.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10544" topLine="223" />
+		</Cursor>
+	</File>
+	<File name="SPL\inc\stm32f4xx_rcc.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14709" topLine="279" />
+		</Cursor>
+	</File>
+	<File name="SPL\inc\stm32f4xx_tim.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1883" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="SPL\src\stm32f4xx_gpio.c" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17993" topLine="463" />
+		</Cursor>
+	</File>
+	<File name="SPL\src\stm32f4xx_rcc.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="64794" topLine="1509" />
+		</Cursor>
+	</File>
+	<File name="SPL\src\stm32f4xx_tim.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="90518" topLine="2434" />
+		</Cursor>
+	</File>
+	<File name="board\TIM.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="board\USART.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3624" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="board\encoders.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3672" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="inc\TIM.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="33" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="inc\encoders.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="61" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="inc\main.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1180" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="inc\stm32f4xx.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13133" topLine="146" />
+		</Cursor>
+	</File>
+	<File name="src\main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8858" topLine="281" />
+		</Cursor>
+	</File>
+	<File name="src\startup_stm32f4xx.S" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9439" topLine="187" />
+		</Cursor>
+	</File>
+</EmBlocks_layout_file>

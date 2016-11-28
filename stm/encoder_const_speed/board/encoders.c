@@ -1,9 +1,17 @@
 #include "encoders.h"
 #include "main.h"
 
+void timEncoderConfigure(TIM_TypeDef * TIM)
+{
+  TIM->PSC   = 0x0;
+  TIM->ARR   = 0xFFFF;
+  TIM->CR1   = TIM_CR1_ARPE     | TIM_CR1_CEN;
+  TIM->SMCR  = TIM_SMCR_SMS_0   | TIM_SMCR_SMS_1;
+  TIM->CCMR1 = TIM_CCMR1_CC1S_0 | TIM_CCMR1_CC2S_0;
+  TIM->CNT   = 0;
+}
 
-
-void encodersInit (void){
+void encodersInit1 (void){
   GPIO_InitTypeDef GPIO_InitStructure;
   // turn on the clocks for each of the ports needed
   RCC_AHB1PeriphClockCmd (ENCLA_GPIO_CLK, ENABLE);
@@ -33,7 +41,7 @@ void encodersInit (void){
 
   // Timer peripheral clock enable
   RCC_APB1PeriphClockCmd (ENCL_TIMER_CLK, ENABLE);
-  RCC_APB1PeriphClockCmd (ENCR_TIMER_CLK, ENABLE);
+  RCC_APB2PeriphClockCmd (ENCR_TIMER_CLK, ENABLE);
 
   // set them up as encoder inputs
   // set both inputs to rising polarity to let it use both edges
@@ -41,7 +49,7 @@ void encodersInit (void){
                               TIM_ICPolarity_Rising,
                               TIM_ICPolarity_Rising);
   TIM_SetAutoreload (ENCL_TIMER, 0xffff);
-  TIM_EncoderInterfaceConfig (ENCR_TIMER, TIM_EncoderMode_TI12,
+  TIM_EncoderInterfaceConfig (ENCR_TIMER, TIM_EncoderMode_TI1,
                               TIM_ICPolarity_Rising,
                               TIM_ICPolarity_Rising);
   TIM_SetAutoreload (ENCR_TIMER, 0xffff);
@@ -52,6 +60,40 @@ void encodersInit (void){
   encodersReset();
 }
 
+void encodersInit (void){
+GPIO_InitTypeDef GPIO_InitStructure;
+RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3|RCC_APB2Periph_TIM1, ENABLE);
+
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7 ;
+GPIO_Init(GPIOA, &GPIO_InitStructure);
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9|GPIO_Pin_11;
+GPIO_Init(GPIOE, &GPIO_InitStructure);
+
+GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_TIM3);
+GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_TIM3);
+//GPIO_PinAFConfig(GPIOE, GPIO_PinSource9, GPIO_AF_TIM1);
+//GPIO_PinAFConfig(GPIOE, GPIO_PinSource11, GPIO_AF_TIM1);
+
+TIM_SetAutoreload (TIM3, 0xffffffff);
+TIM_SetAutoreload (TIM1, 0xffffffff);
+/* Configure the timer */
+//TIM_EncoderInterfaceConfig(TIM1, TIM_EncoderMode_TI1, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+TIM_EncoderInterfaceConfig(TIM3, TIM_EncoderMode_TI1, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+/* TIM2/5 counter enable */
+
+//TIM_Cmd(TIM1, ENABLE);
+TIM_Cmd(TIM3, ENABLE);
+  conf_pin(pin_id(PORTE,9), 2, PUSH_PULL, 0, PULL_UP);   //Ёнкодер 4 A
+  conf_af(pin_id(PORTE,9), AF1);
+  conf_pin(pin_id(PORTE,11), 2, PUSH_PULL, 0, PULL_UP);   //Ёнкодер 4 B
+  conf_af(pin_id(PORTE,11), AF1);
+  timEncoderConfigure(TIM1);
+  encodersReset();
+}
+
+
 void encodersReset (void)
 {
   __disable_irq();
@@ -61,8 +103,8 @@ void encodersReset (void)
   rightTotal = 0;
   fwdTotal = 0;
   rotTotal = 0;
-  TIM_SetCounter (ENCL_TIMER, 0);
-  TIM_SetCounter (ENCR_TIMER, 0);
+  TIM_SetCounter (TIM1, 0);
+  TIM_SetCounter (TIM3, 0);
   encodersRead();
   __enable_irq();
 }
@@ -74,9 +116,9 @@ void encodersReset (void)
 void encodersRead (void)
 {
   oldLeftEncoder = leftEncoder;
-  leftEncoder = TIM_GetCounter (ENCL_TIMER) ;
+  leftEncoder = TIM_GetCounter (TIM1) ;
   oldRightEncoder = rightEncoder;
-  rightEncoder = -TIM_GetCounter (ENCR_TIMER) ;
+  rightEncoder = -TIM_GetCounter (TIM3) ;
   leftCount = leftEncoder - oldLeftEncoder;
   rightCount = rightEncoder - oldRightEncoder;
   fwdCount = leftCount + rightCount;
@@ -87,5 +129,16 @@ void encodersRead (void)
   rightTotal += rightCount;
 }
 
+
+
+
+
+
+
+ /* conf_pin(pin_id(PORTE,9), 2, PUSH_PULL, 0, PULL_UP);   //Ёнкодер 4 A
+  conf_af(ENCODER4A_PIN, AF1);
+  conf_pin(pin_id(PORTE,11), 2, PUSH_PULL, 0, PULL_UP);   //Ёнкодер 4 B
+  conf_af(ENCODER4B_PIN, AF1);
+*/
 
 
