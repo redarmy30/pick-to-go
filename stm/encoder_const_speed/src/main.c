@@ -31,7 +31,9 @@ int flag = 0;
 int Last_tick=0;
 int passed_tick = 0 ;
 int task=0;
-
+  int speeadc1 = 0;
+  int speeadc2 = 0;
+  int speeadc3 = 0;
 
 
 void TM_Delay_Init(void) {
@@ -139,7 +141,8 @@ int main(void) {
   NVIC_Configuration();
   TIM6_Config();
   TIM7_Config();
-  TIM2_Configuration();
+  //TIM2_Configuration();
+  Inithall();
   DMA_Configuration_new();
   ADC_Configuration_new();
 
@@ -148,16 +151,14 @@ int main(void) {
   init_USART6_1(27500*3);//26315
   encodersInit();
 
-  int speeadc1 = 0;
-  int speeadc2 = 0;
-  int speeadc3 = 0;
+
   speed = -70;
   speed1 = -70;
   task = 16;
   flag = 1;
   while (1)
   {
-    speeadc3 = TIM_GetCounter(TIM6);
+   // speeadc3 = TIM_GetCounter(TIM2);
   }
 }
 
@@ -320,17 +321,36 @@ void TIM7_IRQHandler(void)
           if (passed_tick== 0)
           {
            Last_tick = leftTotal;
-           passed_tick = 1;
+          // passed_tick = 1;
           }
          else
              sp = abs(-leftTotal+Last_tick);
              {  if (sp < 20)
-                    passed_tick += sp;
+                    //passed_tick += sp;
                 Last_tick = leftTotal;
-                speed = -200;
+                //speed = -200;
              }
 
-         if (passed_tick >= task+1) {speed = 0 ; flag = 0; passed_tick=0;}
+         //if (passed_tick >= task+1) {speed = 0 ; flag = 0; passed_tick=0;}
         }
     }
 }
+void TIM2_IRQHandler(void)
+{
+
+    speeadc3 = TIM2->CCR1;
+
+    TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
+
+
+    if (!flag) {speed1 = 0;}
+        else
+        {
+            passed_tick=passed_tick+ 1;
+            speed1 = -200;
+
+
+         if (passed_tick >= task+1) {speed1 = 0 ; flag = 0; passed_tick=0;}
+        }
+}
+
