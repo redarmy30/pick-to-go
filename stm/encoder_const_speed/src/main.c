@@ -18,13 +18,31 @@
 
 #define MAX_STRLEN 12 // this is the maximum string length of our string in characters
 
+typedef struct{
+ float speed;
+ float dir;
+ float distance;
+ int speedtoircuit;
+ } wheel;
 
+
+typedef struct{
+ int pidenable;
+ int traekenable;
+ int speed[2];
+ wheel leftwheel;
+ wheel rightwheel;
+ float center[3];
+ float task[3];
+} robotstate;
+
+robotstate telega ={.pidenable = 1, .traekenable = 1, .speed = {0,0}, .center = {0,0,0} , .task={0,0,0}, .leftwheel ={0,0,0,0} , .rightwheel = {0,0,0,0} };
 float distance[2] = {0,0};
 float regulatorOut[2];
 //float motorSpeed[2];
 int pidflag = 0;
 uint32_t multiplier;
-int speed[2] = {0,0};
+
 int counter=1;
 int counter1=1;
 int speed1=0;
@@ -164,20 +182,14 @@ int main(void) {
   init_USART1_1(27500*3); // initialize USART1 @ 9600 baud \\TC: Transmission complete
   init_USART6_1(27500*3);//26315
   encodersInit();
-
-
-//  speed = -0;
-  speed1 = -0;
-  task = 16.0;
-  flag = 0;
   while (1)
   {
     if (flagrot == 1) {rotateMe(&task);}
     if (flagmove == 1) {GoForward(&task);}
     flagrot = 0;
     flagmove = 0;
-    //if (flag_testspeed) {setspeed(timetestspeed);}
-    //if (flag_stopspeed) {stopspeed(timetestspeed);}
+    telega.speed[0]=telega.speed[0];
+
   }
 }
 
@@ -217,19 +229,19 @@ void USART1_IRQHandler(void){
         }
         if (counter == 3)
         {
-            USART_SendData(USART1 , speed[0] & 0xFF);
+            USART_SendData(USART1 , telega.leftwheel.speedtoircuit & 0xFF);
         }
         if (counter == 4)
         {
-            USART_SendData(USART1,(speed[0] >> 8) & 0xFF);
+            USART_SendData(USART1,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
         }
         if (counter == 5)
         {
-            USART_SendData(USART1,speed[0] & 0xFF);
+            USART_SendData(USART1,telega.leftwheel.speedtoircuit & 0xFF);
         }
         if (counter == 6)
         {
-            USART_SendData(USART1,(speed[0] >> 8) & 0xFF);
+            USART_SendData(USART1,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
         }
         if (counter == 7)
         {
@@ -267,19 +279,19 @@ void USART6_IRQHandler(void){
         }
         if (counter1 == 3)
         {
-            USART_SendData(USART6,speed[1] & 0xFF);
+            USART_SendData(USART6,telega.rightwheel.speedtoircuit & 0xFF);
         }
         if (counter1 == 4)
         {
-            USART_SendData(USART6,(speed[1] >> 8) & 0xFF);
+            USART_SendData(USART6,(telega.rightwheel.speedtoircuit >> 8) & 0xFF);
         }
         if (counter1 == 5)
         {
-            USART_SendData(USART6,speed[1] & 0xFF);
+            USART_SendData(USART6,telega.rightwheel.speedtoircuit & 0xFF);
         }
         if (counter1 == 6)
         {
-            USART_SendData(USART6,(speed[1] >> 8) & 0xFF);
+            USART_SendData(USART6,(telega.rightwheel.speedtoircuit >> 8) & 0xFF);
         }
         if (counter1 == 7)
         {
@@ -323,15 +335,15 @@ void TIM6_DAC_IRQHandler(void)
     {
         TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
         encodersRead();
-        if (traekt == 1)
+        if (telega.traekenable == 1)
         {
-            distance[0] -=leftCount;
-            if (abs(distance[0])<2) {regulatorOut[0] = 0;}
-            distance[1] -=rightCount;
-            if (abs(distance[1])<2) {regulatorOut[1] = 0;}
+            telega.leftwheel.distance -=leftCount;
+            if (abs(telega.leftwheel.distance)<2) {regulatorOut[0] = 0;}
+            telega.leftwheel.distance -=rightCount;
+            if (abs(telega.leftwheel.distance)<2) {regulatorOut[1] = 0;}
         }
-        motorSpeed[0] = leftCount*10 ;//*6/17*10;
-        motorSpeed[1] = rightCount*10 ;//* 6/17*10;
+        telega.leftwheel.speed = leftCount*10 ;//*6/17*10;
+        telega.rightwheel.speed = rightCount*10 ;//* 6/17*10;
         pidLowLevel1();
 
        /* while (wheelspeedleft>abs(350) | wheelspeedright>abs(350) )
@@ -432,7 +444,7 @@ void TIM2_IRQHandler(void)
 
 int last_s = 0;
 int last_sp = 0;
-
+/*
 void setspeed(int number){
     int number_clone = number;
     while ((number>0) & (number_clone>0) )
@@ -477,12 +489,7 @@ void stopspeed(int number){
     speed[0]=0;
     speed[1]=0;
     flag_stopspeed = 0;
-}
-
-
-
-
-
+}*/
 
 void pidCalc1(PidStruct *pid_control)  //рассчет ПИД
 {
@@ -525,19 +532,18 @@ void pidCalc1(PidStruct *pid_control)  //рассчет ПИД
   }
 }
 
-
-
 void pidLowLevel1(void) //вычисление ПИД регулятора колес
 {
 //Low level pid target values are set here__________________________________
   char i;
-  for(i =0; i < 4; i++)
+  for(i =0; i < 2; i++)
   {
     wheelsPidStruct[i].target = regulatorOut[i];//передача требуемых значений от траекторного регулятора
     wheelsPidStruct[i].current = motorSpeed[i]; // текущие занчения скоростей колес
     if (pidflag ==1 ){
     pidCalc1(&wheelsPidStruct[i]);
-    speed[i] = wheelsPidStruct[i].output;
+    if (i==0) {telega.leftwheel.speed = wheelsPidStruct[i].output;}
+    if (i==1) {telega.rightwheel.speed = wheelsPidStruct[i].output;}
     }
     //if (curState.pidEnabled) setVoltage(WHEELS[i], wheelsPidStruct[i].output);
   }
@@ -575,26 +581,20 @@ typedef struct
 }pathPointStr;
 
 
-
-
-
-
-
 void rotateMe (float  *angle) {
 
-distance[0] = (*angle)/57.2958*(0.73/2)*86*6.28;//      fi*57.3*L/2
+telega.leftwheel.distance = (*angle)/57.2958*(DISTANCEBTWWHEELS/2)*TICKSPERROTATION*2*PI;//      fi*57.3*L/2
 
-distance[1] = distance[0];
+telega.rightwheel.distance= telega.leftwheel.distance;
 regulatorOut[0]=20;
 regulatorOut[1]=20;
 }
 
+
 void GoForward(float *point)
 {
-    distance[0] = (*point) / 0.19 / 3.14 * 85; //   mb wrong //R*2*pi* (ticsperrotation)
-    distance[1] = -distance[0];
-    regulatorOut[0]=20;
-    regulatorOut[1]=-20;
+    telega.leftwheel.distance  = (*point) / WHEELDIAM / PI * TICKSPERROTATION; //   mb wrong //R*2*pi* (ticsperrotation)
+    telega.rightwheel.distance = -telega.leftwheel.distance ;
+    regulatorOut[0]=((*point > 0) - (*point < 0)) * 20; //sign(x)*20;
+    regulatorOut[1]=-((*point > 0) - (*point < 0)) * 20;
 }
-
-
