@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1480613568 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
+1480694843 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
 	<stm32f4xx.h>
 	<misc.h>
 	<stm32f4xx_usart.h>
@@ -304,7 +304,7 @@
 1478853975 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\dma.c
 	"DMA.h"
 
-1480613336 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
+1480682994 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
 	"TIM.h"
 
 1478769727 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\usart.c
@@ -324,4 +324,6 @@
 
 1480592444 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\pid.h
 	"stm32f4xx.h"
+
+1480672313 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\kinematics.c
 

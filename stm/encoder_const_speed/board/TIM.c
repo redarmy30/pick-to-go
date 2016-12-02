@@ -23,7 +23,7 @@ void TIM2_Configuration(void)
 void TIM6_Config(void)
 {
     TIM_TimeBaseInitTypeDef timerInitStructure;
-    timerInitStructure.TIM_Prescaler = 840; //       84mhz/84 = 0.1mhz
+    timerInitStructure.TIM_Prescaler = 840; //       84mhz/840 = 0.1mhz
     timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
     timerInitStructure.TIM_Period = 1000;   //0.1khz
     timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
@@ -43,9 +43,9 @@ void TIM6_Config(void)
 void TIM7_Config(void)
 {
     TIM_TimeBaseInitTypeDef timerInitStructure;
-    timerInitStructure.TIM_Prescaler = 20;
+    timerInitStructure.TIM_Prescaler = 84;
     timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    timerInitStructure.TIM_Period = 10;   //1khz
+    timerInitStructure.TIM_Period = 2000;   // 0.1MHz
     timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
     timerInitStructure.TIM_RepetitionCounter = 0;
     TIM_TimeBaseInit(TIM7, &timerInitStructure);

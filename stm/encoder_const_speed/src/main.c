@@ -19,7 +19,7 @@
 #define MAX_STRLEN 12 // this is the maximum string length of our string in characters
 
 
-
+float distance[2] = {0,0};
 float regulatorOut[2];
 //float motorSpeed[2];
 int pidflag = 0;
@@ -36,9 +36,11 @@ int hall2=0;
 int hall2_0=0;
 int direction = 0;
 int flag = 0;
+int flagrot = 0;
+int flagmove = 0;
 int Last_tick=0;
 int passed_tick = 0 ;
-int task=0;
+float task = 0;
 int task_speed = 0;
 int speeadc1 = 0;
 int speeadc2 = 0;
@@ -46,6 +48,7 @@ int speeadc3 = 0;
 int flag_testspeed=0;
 int flag_stopspeed=0;
 int timetestspeed = 0;
+int traekt;
 
 void TM_Delay_Init(void) {
     RCC_ClocksTypeDef RCC_Clocks;
@@ -165,10 +168,14 @@ int main(void) {
 
 //  speed = -0;
   speed1 = -0;
-  task = 16;
-  flag = 1;
+  task = 16.0;
+  flag = 0;
   while (1)
   {
+    if (flagrot == 1) {rotateMe(&task);}
+    if (flagmove == 1) {GoForward(&task);}
+    flagrot = 0;
+    flagmove = 0;
     //if (flag_testspeed) {setspeed(timetestspeed);}
     //if (flag_stopspeed) {stopspeed(timetestspeed);}
   }
@@ -316,6 +323,13 @@ void TIM6_DAC_IRQHandler(void)
     {
         TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
         encodersRead();
+        if (traekt == 1)
+        {
+            distance[0] -=leftCount;
+            if (abs(distance[0])<2) {regulatorOut[0] = 0;}
+            distance[1] -=rightCount;
+            if (abs(distance[1])<2) {regulatorOut[1] = 0;}
+        }
         motorSpeed[0] = leftCount*10 ;//*6/17*10;
         motorSpeed[1] = rightCount*10 ;//* 6/17*10;
         pidLowLevel1();
@@ -336,6 +350,7 @@ void TIM7_IRQHandler(void)
     if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)
     {
         //encodersRead();
+
         TIM_ClearITPendingBit(TIM7, TIM_IT_Update);
         /*if (!flag)
             {
@@ -547,6 +562,17 @@ void initRegulators1(void){  // инициализация регуляторо�
 
 
 
+typedef struct
+{
+  float center [3];
+  char (*movTask)(void);
+  char (*endTask)(void);
+  float endTaskP1;
+  float (*speedVelTipe);
+  float (*speedRotTipe);
+  char step;
+  float lengthTrace;
+}pathPointStr;
 
 
 
@@ -554,7 +580,21 @@ void initRegulators1(void){  // инициализация регуляторо�
 
 
 
+void rotateMe (float  *angle) {
 
+distance[0] = (*angle)/57.2958*(0.73/2)*86*6.28;//      fi*57.3*L/2
 
+distance[1] = distance[0];
+regulatorOut[0]=20;
+regulatorOut[1]=20;
+}
+
+void GoForward(float *point)
+{
+    distance[0] = (*point) / 0.19 / 3.14 * 85; //   mb wrong //R*2*pi* (ticsperrotation)
+    distance[1] = -distance[0];
+    regulatorOut[0]=20;
+    regulatorOut[1]=-20;
+}
 
 
