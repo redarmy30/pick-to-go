@@ -12,29 +12,40 @@
 #include "TIM.h"
 #include "ADC.h"
 #include "USART.h"
+#include "PID.h"
 
 #define MAX_STRLEN 12 // this is the maximum string length of our string in characters
 
 #define MAX_STRLEN 12 // this is the maximum string length of our string in characters
 
 
-volatile char received_string[MAX_STRLEN+1]; // this will hold the recieved string
+
+float regulatorOut[2];
+//float motorSpeed[2];
+int pidflag = 0;
 uint32_t multiplier;
-int counter=0;
-int counter1=0;
-int speed=0;
+int speed[2] = {0,0};
+int counter=1;
+int counter1=1;
 int speed1=0;
 int s = 255;
 int sp = 90;
-char test;
+int hall1=0;
+int hall1_0=0;
+int hall2=0;
+int hall2_0=0;
+int direction = 0;
 int flag = 0;
 int Last_tick=0;
 int passed_tick = 0 ;
 int task=0;
-  int speeadc1 = 0;
-  int speeadc2 = 0;
-  int speeadc3 = 0;
-
+int task_speed = 0;
+int speeadc1 = 0;
+int speeadc2 = 0;
+int speeadc3 = 0;
+int flag_testspeed=0;
+int flag_stopspeed=0;
+int timetestspeed = 0;
 
 void TM_Delay_Init(void) {
     RCC_ClocksTypeDef RCC_Clocks;
@@ -135,7 +146,7 @@ void NVIC_Configuration(void)
 
 
 int main(void) {
-
+  initRegulators1();
   RCC_Configuration();
   GPIO_Configuration();
   NVIC_Configuration();
@@ -152,13 +163,14 @@ int main(void) {
   encodersInit();
 
 
-  speed = -70;
-  speed1 = -70;
+//  speed = -0;
+  speed1 = -0;
   task = 16;
   flag = 1;
   while (1)
   {
-   // speeadc3 = TIM_GetCounter(TIM2);
+    //if (flag_testspeed) {setspeed(timetestspeed);}
+    //if (flag_stopspeed) {stopspeed(timetestspeed);}
   }
 }
 
@@ -190,6 +202,7 @@ void USART1_IRQHandler(void){
         if (counter == 1)
         {
             USART_SendData(USART1,(~s)& 0xFF);
+
         }
         if (counter == 2)
         {
@@ -197,19 +210,19 @@ void USART1_IRQHandler(void){
         }
         if (counter == 3)
         {
-            USART_SendData(USART1,speed & 0xFF);
+            USART_SendData(USART1 , speed[0] & 0xFF);
         }
         if (counter == 4)
         {
-            USART_SendData(USART1,(speed >> 8) & 0xFF);
+            USART_SendData(USART1,(speed[0] >> 8) & 0xFF);
         }
         if (counter == 5)
         {
-            USART_SendData(USART1,speed & 0xFF);
+            USART_SendData(USART1,speed[0] & 0xFF);
         }
         if (counter == 6)
         {
-            USART_SendData(USART1,(speed >> 8) & 0xFF);
+            USART_SendData(USART1,(speed[0] >> 8) & 0xFF);
         }
         if (counter == 7)
         {
@@ -247,26 +260,26 @@ void USART6_IRQHandler(void){
         }
         if (counter1 == 3)
         {
-            USART_SendData(USART6,speed1 & 0xFF);
+            USART_SendData(USART6,speed[1] & 0xFF);
         }
         if (counter1 == 4)
         {
-            USART_SendData(USART6,(speed1 >> 8) & 0xFF);
+            USART_SendData(USART6,(speed[1] >> 8) & 0xFF);
         }
         if (counter1 == 5)
         {
-            USART_SendData(USART6,speed1 & 0xFF);
+            USART_SendData(USART6,speed[1] & 0xFF);
         }
         if (counter1 == 6)
         {
-            USART_SendData(USART6,(speed1 >> 8) & 0xFF);
+            USART_SendData(USART6,(speed[1] >> 8) & 0xFF);
         }
         if (counter1 == 7)
         {
             USART_SendData(USART6,85);
 
-            if (sp==92) sp=90;
-            if (sp==90) sp=92;
+            if (sp==92) {sp=90;}
+            else  {sp=92;}
         }
         //USART_ClearITPendingBit(USART1,USART_IT_TC);
         counter1++;
@@ -296,8 +309,6 @@ void DMA2_Stream0_IRQHandler(void) // Called at 1 KHz for 200 KHz sample rate, L
     DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_TCIF0);
   }
 }
-float wheelspeed = 0;
-
 
 void TIM6_DAC_IRQHandler(void)
 {
@@ -305,7 +316,18 @@ void TIM6_DAC_IRQHandler(void)
     {
         TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
         encodersRead();
-        wheelspeed = leftCount *0.18/16;
+        motorSpeed[0] = leftCount*10 ;//*6/17*10;
+        motorSpeed[1] = rightCount*10 ;//* 6/17*10;
+        pidLowLevel1();
+
+       /* while (wheelspeedleft>abs(350) | wheelspeedright>abs(350) )
+        {
+            speed = 20;
+            speed1 = 20;
+            encodersRead();
+            wheelspeedleft = leftCount ;//*6/17*10;
+            wheelspeedright = rightCount;// * 6/17*10;
+        }*/
     }
 }
 
@@ -313,9 +335,13 @@ void TIM7_IRQHandler(void)
 {
     if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)
     {
-        encodersRead();
+        //encodersRead();
         TIM_ClearITPendingBit(TIM7, TIM_IT_Update);
-        if (!flag) {speed = 0;}
+        /*if (!flag)
+            {
+                //speed = 0;
+                ;
+            }
         else
         {
           if (passed_tick== 0)
@@ -324,7 +350,7 @@ void TIM7_IRQHandler(void)
           // passed_tick = 1;
           }
          else
-             sp = abs(-leftTotal+Last_tick);
+             //sp = abs(-leftTotal+Last_tick);
              {  if (sp < 20)
                     //passed_tick += sp;
                 Last_tick = leftTotal;
@@ -333,24 +359,202 @@ void TIM7_IRQHandler(void)
 
          //if (passed_tick >= task+1) {speed = 0 ; flag = 0; passed_tick=0;}
         }
+    */
     }
 }
+
+// 1 tic == 21.6 mm
 void TIM2_IRQHandler(void)
 {
 
+    if (TIM_GetITStatus(TIM2, TIM_IT_CC1) != RESET)
+  {
     speeadc3 = TIM2->CCR1;
+    speeadc2 = TIM2->CCR2;
+    hall1_0 = hall1;
+    hall1 = GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0);
+    hall2_0 = hall2;
+    hall2 = GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_1);
+    if (hall1!=hall1_0)
+    {
+        if (hall1 == 1)
+        {
+            if (hall2 ==0) {direction = 1;}
+            else {direction =-1;}
+        }
+    }
+
+    //GPIOA->LCKR;//(GPIOÀ->IDR & GPIO_IDR_IDR0);
+    if (hall1==1) {
+                ;
+    }
+  }
+
+
+
 
     TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
 
 
-    if (!flag) {speed1 = 0;}
+    if (!flag) {
+                    //speed1 = 0;
+                }
         else
         {
             passed_tick=passed_tick+ 1;
-            speed1 = -200;
+            speed1 = task_speed;
 
 
-         if (passed_tick >= task+1) {speed1 = 0 ; flag = 0; passed_tick=0;}
-        }
+            if (passed_tick >= task+1) {
+                                       // speed1 = 0 ;
+                flag = 0;
+                passed_tick=0;
+            }
+         }
 }
+
+
+
+int last_s = 0;
+int last_sp = 0;
+
+void setspeed(int number){
+    int number_clone = number;
+    while ((number>0) & (number_clone>0) )
+    {
+        if (number>0)
+        {
+                if (last_s !=s) {number--; speed[0] = 100;}
+                last_s = s;
+        }
+        if (number_clone>0){
+            if (last_sp !=sp)
+            {
+                number_clone--;
+                speed[1] = -100;
+            }    last_sp= sp;
+
+        }
+    }
+speed[0]=0;
+speed[1]=0;
+flag_testspeed = 0;
+}
+
+void stopspeed(int number){
+    int number_clone = number;
+    while ( (number>0) & (number_clone>0) )
+    {
+        if (number>0)
+        {
+                if (last_s !=s) {number--; speed[0] = -100;}
+                last_s = s;
+        }
+        if (number_clone>0){
+            if (last_sp !=sp)
+            {
+                number_clone--;
+                speed[1] = 100;
+            }    last_sp= sp;
+
+        }
+    }
+    speed[0]=0;
+    speed[1]=0;
+    flag_stopspeed = 0;
+}
+
+
+
+
+
+
+void pidCalc1(PidStruct *pid_control)  //рассчет ПИД
+{
+  float error, dif_error;
+  error = pid_control->target - pid_control->current;
+  dif_error = error - pid_control->prev_error;
+  pid_control->prev_error = error;
+  pid_control->sum_error += error;
+
+  if (pid_control->sum_error > pid_control->max_sum_error)
+    pid_control->sum_error = pid_control->max_sum_error;
+  if (pid_control->sum_error < -pid_control->max_sum_error)
+    pid_control->sum_error = -pid_control->max_sum_error;
+
+  if (pid_control->pid_on)
+  {
+    pid_control->output = ((float)(pid_control->p_k * error)+(pid_control->i_k * pid_control->sum_error)+
+            (pid_control->d_k * dif_error));
+
+
+    if (pid_control->output > pid_control->max_output)
+      pid_control->output = pid_control->max_output;
+    else if (pid_control->output < -pid_control->max_output)
+      pid_control->output = -pid_control->max_output;
+
+    if (pid_control->output < pid_control->min_output && pid_control->output > -pid_control->min_output)
+      pid_control->output = 0;
+
+    if ((pid_control->output <= pid_control->pid_output_end) &&(
+        pid_control->output >= -pid_control->pid_output_end) &&(
+        error <= pid_control->pid_error_end) && (error >= -pid_control->pid_error_end))
+      pid_control->pid_finish = 1;
+    else
+      pid_control->pid_finish = 0;
+  }
+  else
+  {
+    pid_control->output = 0;
+    pid_control->pid_finish = 0;
+  }
+}
+
+
+
+void pidLowLevel1(void) //вычисление ПИД регулятора колес
+{
+//Low level pid target values are set here__________________________________
+  char i;
+  for(i =0; i < 4; i++)
+  {
+    wheelsPidStruct[i].target = regulatorOut[i];//передача требуемых значений от траекторного регулятора
+    wheelsPidStruct[i].current = motorSpeed[i]; // текущие занчения скоростей колес
+    if (pidflag ==1 ){
+    pidCalc1(&wheelsPidStruct[i]);
+    speed[i] = wheelsPidStruct[i].output;
+    }
+    //if (curState.pidEnabled) setVoltage(WHEELS[i], wheelsPidStruct[i].output);
+  }
+  //speed[1] = 0;
+}
+
+void initRegulators1(void){  // инициализация регуляторов
+  int i = 0;
+  for (i = 0; i<=2; i++)  // пиды колес
+  {
+  	wheelsPidStruct[i].p_k = 1.00; //5.0
+  	wheelsPidStruct[i].i_k = 2.05; //1
+  	wheelsPidStruct[i].d_k = 0.5; //0.5
+  	wheelsPidStruct[i].pid_on = 1;
+  	wheelsPidStruct[i].pid_error_end  = 3;
+  	wheelsPidStruct[i].pid_output_end = 1000;
+  	wheelsPidStruct[i].max_sum_error =3000.0;
+  	wheelsPidStruct[i].max_output = 1000;
+  	wheelsPidStruct[i].min_output = 0.01;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

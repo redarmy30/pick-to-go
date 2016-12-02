@@ -12,4 +12,4 @@ obj\debug\src\main.o: src\main.c inc/stm32f4xx.h cmsis/core_cm4.h \
  SPL\inc/stm32f4xx_spi.h SPL\inc/stm32f4xx_syscfg.h \
  SPL\inc/stm32f4xx_tim.h SPL\inc/stm32f4xx_usart.h \
  SPL\inc/stm32f4xx_wwdg.h SPL\inc/misc.h inc/USART.h inc/stm32f4xx.h \
- inc/main.h inc/encoders.h inc/DMA.h inc/TIM.h inc/ADC.h
+ inc/main.h inc/encoders.h inc/DMA.h inc/TIM.h inc/ADC.h inc/PID.h

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1480335232 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
+1480613568 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
 	<stm32f4xx.h>
 	<misc.h>
 	<stm32f4xx_usart.h>
@@ -12,6 +12,7 @@
 	"TIM.h"
 	"ADC.h"
 	"USART.h"
+	"PID.h"
 
 1478697088 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\stm32f4xx.h
 	"core_cm4.h"
@@ -303,19 +304,24 @@
 1478853975 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\dma.c
 	"DMA.h"
 
-1479921177 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
+1480613336 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
 	"TIM.h"
 
 1478769727 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\usart.c
 	"USART.h"
 
-1479987343 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\encoders.c
+1480612476 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\encoders.c
 	"encoders.h"
 	"main.h"
 
 1480334392 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\hall.c
 	"hall.h"
 
-1480327268 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\hall.h
+1480587941 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\hall.h
+	"stm32f4xx.h"
+
+1480589296 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\pid.c
+
+1480592444 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\pid.h
 	"stm32f4xx.h"
 

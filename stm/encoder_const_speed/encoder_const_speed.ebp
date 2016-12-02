@@ -198,6 +198,9 @@
 		<Unit filename="board\DMA.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="board\PID.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="board\TIM.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -217,6 +220,7 @@
 		<Unit filename="cmsis\core_cmFunc.h" />
 		<Unit filename="cmsis\core_cmInstr.h" />
 		<Unit filename="inc\DMA.h" />
+		<Unit filename="inc\PID.h" />
 		<Unit filename="inc\TIM.h" />
 		<Unit filename="inc\encoders.c">
 			<Option compilerVar="CC" />

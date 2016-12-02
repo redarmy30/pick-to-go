@@ -73,23 +73,31 @@ GPIO_Init(GPIOE, &GPIO_InitStructure);
 
 GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_TIM3);
 GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_TIM3);
-//GPIO_PinAFConfig(GPIOE, GPIO_PinSource9, GPIO_AF_TIM1);
-//GPIO_PinAFConfig(GPIOE, GPIO_PinSource11, GPIO_AF_TIM1);
+GPIO_PinAFConfig(GPIOE, GPIO_PinSource9, GPIO_AF_TIM1);
+GPIO_PinAFConfig(GPIOE, GPIO_PinSource11, GPIO_AF_TIM1);
 
 TIM_SetAutoreload (TIM3, 0xffffffff);
 TIM_SetAutoreload (TIM1, 0xffffffff);
 /* Configure the timer */
-//TIM_EncoderInterfaceConfig(TIM1, TIM_EncoderMode_TI1, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
-TIM_EncoderInterfaceConfig(TIM3, TIM_EncoderMode_TI1, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+TIM_EncoderInterfaceConfig(TIM1, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+TIM_EncoderInterfaceConfig(TIM3, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+TIM_ICInitTypeDef TIM_ICInitStructure;
+TIM_ICInitStructure.TIM_Channel = TIM_Channel_1;
+TIM_ICInitStructure.TIM_ICFilter = 0xF;
+TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_BothEdge;
+TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;
+TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_TRC;
+TIM_ICInit(TIM1, &TIM_ICInitStructure);
+TIM_ICInit(TIM3, &TIM_ICInitStructure);
 /* TIM2/5 counter enable */
 
-//TIM_Cmd(TIM1, ENABLE);
+TIM_Cmd(TIM1, ENABLE);
 TIM_Cmd(TIM3, ENABLE);
-  conf_pin(pin_id(PORTE,9), 2, PUSH_PULL, 0, PULL_UP);   //Ёнкодер 4 A
+/*  conf_pin(pin_id(PORTE,9), 2, PUSH_PULL, 0, PULL_UP);   //Ёнкодер 4 A
   conf_af(pin_id(PORTE,9), AF1);
   conf_pin(pin_id(PORTE,11), 2, PUSH_PULL, 0, PULL_UP);   //Ёнкодер 4 B
   conf_af(pin_id(PORTE,11), AF1);
-  timEncoderConfigure(TIM1);
+  timEncoderConfigure(TIM1);*/
   encodersReset();
 }
 

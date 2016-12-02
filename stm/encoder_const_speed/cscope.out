@@ -1,4 +1,4 @@
-cscope 15 $HOME\Documents\robocvproject\stm\encoder_const_speed"               0001007707
+cscope 15 $HOME\Documents\robocvproject\stm\encoder_const_speed"               0001020621
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\misc.h
 
 24 #i‚de‡
@@ -84757,6 +84757,246 @@ ENABLE
 	}
 }
 
+23 
+	$TIM6_C⁄fig
+()
+
+25 
+TIM_TimeBa£InôTy≥Def
+ 
+timîInôSåu˘uª
+;
+
+26 
+timîInôSåu˘uª
+.
+TIM_PªsˇÀr
+ = 840;
+
+27 
+timîInôSåu˘uª
+.
+TIM_Cou¡îMode
+ = 
+TIM_Cou¡îMode_Up
+;
+
+28 
+timîInôSåu˘uª
+.
+TIM_Pîiod
+ = 10000;
+
+29 
+timîInôSåu˘uª
+.
+TIM_ClockDivisi⁄
+ = 
+TIM_CKD_DIV1
+;
+
+30 
+timîInôSåu˘uª
+.
+TIM_Rïëôi⁄Cou¡î
+ = 0;
+
+31 
+	`TIM_TimeBa£Inô
+(
+TIM6
+, &
+timîInôSåu˘uª
+);
+
+32 
+	`TIM_SëCou¡î
+(
+TIM6
+,0);
+
+33 
+	`TIM_Cmd
+(
+TIM6
+, 
+ENABLE
+);
+
+34 
+	`TIM_ITC⁄fig
+(
+TIM6
+, 
+TIM_IT_Upd©e
+, 
+ENABLE
+);
+
+35 
+NVIC_InôTy≥Def
+ 
+nvicSåu˘uª
+;
+
+36 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√l
+ = 
+TIM6_DAC_IRQn
+;
+
+37 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√lPªem±i⁄Pri‹ôy
+ = 4;
+
+38 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√lSubPri‹ôy
+ = 1;
+
+39 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√lCmd
+ = 
+ENABLE
+;
+
+40 
+	`NVIC_Inô
+(&
+nvicSåu˘uª
+);
+
+41 
+	}
+}
+
+43 
+	$TIM7_C⁄fig
+()
+
+45 
+TIM_TimeBa£InôTy≥Def
+ 
+timîInôSåu˘uª
+;
+
+46 
+timîInôSåu˘uª
+.
+TIM_PªsˇÀr
+ = 20;
+
+47 
+timîInôSåu˘uª
+.
+TIM_Cou¡îMode
+ = 
+TIM_Cou¡îMode_Up
+;
+
+48 
+timîInôSåu˘uª
+.
+TIM_Pîiod
+ = 10;
+
+49 
+timîInôSåu˘uª
+.
+TIM_ClockDivisi⁄
+ = 
+TIM_CKD_DIV1
+;
+
+50 
+timîInôSåu˘uª
+.
+TIM_Rïëôi⁄Cou¡î
+ = 0;
+
+51 
+	`TIM_TimeBa£Inô
+(
+TIM7
+, &
+timîInôSåu˘uª
+);
+
+52 
+	`TIM_SëCou¡î
+(
+TIM7
+,0);
+
+53 
+	`TIM_Cmd
+(
+TIM7
+, 
+ENABLE
+);
+
+54 
+	`TIM_ITC⁄fig
+(
+TIM7
+, 
+TIM_IT_Upd©e
+, 
+ENABLE
+);
+
+55 
+NVIC_InôTy≥Def
+ 
+nvicSåu˘uª
+;
+
+56 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√l
+ = 
+TIM7_IRQn
+;
+
+57 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√lPªem±i⁄Pri‹ôy
+ = 4;
+
+58 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√lSubPri‹ôy
+ = 1;
+
+59 
+nvicSåu˘uª
+.
+NVIC_IRQCh™√lCmd
+ = 
+ENABLE
+;
+
+60 
+	`NVIC_Inô
+(&
+nvicSåu˘uª
+);
+
+61 
+	}
+}
+
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\USART.c
 
 1 
@@ -85517,17 +85757,77 @@ s
 	~"maö.h
 "
 
-6 
-	$ícodîsInô
- (){
+4 
+	$timEncodîC⁄figuª
+(
+TIM_Ty≥Def
+ * 
+TIM
+)
+
+6 
+TIM
+->
+PSC
+ = 0x0;
 
 7 
+TIM
+->
+ARR
+ = 0xFFFF;
+
+8 
+TIM
+->
+CR1
+ = 
+TIM_CR1_ARPE
+ | 
+TIM_CR1_CEN
+;
+
+9 
+TIM
+->
+SMCR
+ = 
+TIM_SMCR_SMS_0
+ | 
+TIM_SMCR_SMS_1
+;
+
+10 
+TIM
+->
+CCMR1
+ = 
+TIM_CCMR1_CC1S_0
+ | 
+TIM_CCMR1_CC2S_0
+;
+
+11 
+TIM
+->
+CNT
+ = 0;
+
+12 
+	}
+}
+
+14 
+	$ícodîsInô1
+ (){
+
+15 
 GPIO_InôTy≥Def
  
 GPIO_InôSåu˘uª
 ;
 
-9 
+17 
 	`RCC_AHB1PîùhClockCmd
  (
 ENCLA_GPIO_CLK
@@ -85535,7 +85835,7 @@ ENCLA_GPIO_CLK
 ENABLE
 );
 
-10 
+18 
 	`RCC_AHB1PîùhClockCmd
  (
 ENCLB_GPIO_CLK
@@ -85543,7 +85843,7 @@ ENCLB_GPIO_CLK
 ENABLE
 );
 
-11 
+19 
 	`RCC_AHB1PîùhClockCmd
  (
 ENCRA_GPIO_CLK
@@ -85551,7 +85851,7 @@ ENCRA_GPIO_CLK
 ENABLE
 );
 
-12 
+20 
 	`RCC_AHB1PîùhClockCmd
  (
 ENCRB_GPIO_CLK
@@ -85559,13 +85859,13 @@ ENCRB_GPIO_CLK
 ENABLE
 );
 
-16 
+24 
 	`GPIO_Såu˘Inô
  (&
 GPIO_InôSåu˘uª
 );
 
-17 
+25 
 GPIO_InôSåu˘uª
 .
 GPIO_Mode
@@ -85573,7 +85873,7 @@ GPIO_Mode
 GPIO_Mode_AF
 ;
 
-18 
+26 
 GPIO_InôSåu˘uª
 .
 GPIO_PuPd
@@ -85581,7 +85881,7 @@ GPIO_PuPd
 GPIO_PuPd_UP
 ;
 
-19 
+27 
 GPIO_InôSåu˘uª
 .
 GPIO_Pö
@@ -85589,7 +85889,7 @@ GPIO_Pö
 ENCLA_PIN
 ;
 
-20 
+28 
 	`GPIO_Inô
  (
 ENCLA_GPIO_PORT
@@ -85597,7 +85897,7 @@ ENCLA_GPIO_PORT
 GPIO_InôSåu˘uª
 );
 
-21 
+29 
 GPIO_InôSåu˘uª
 .
 GPIO_Pö
@@ -85605,7 +85905,7 @@ GPIO_Pö
 ENCLB_PIN
 ;
 
-22 
+30 
 	`GPIO_Inô
  (
 ENCLB_GPIO_PORT
@@ -85613,7 +85913,7 @@ ENCLB_GPIO_PORT
 GPIO_InôSåu˘uª
 );
 
-23 
+31 
 GPIO_InôSåu˘uª
 .
 GPIO_Pö
@@ -85621,7 +85921,7 @@ GPIO_Pö
 ENCRA_PIN
 ;
 
-24 
+32 
 	`GPIO_Inô
  (
 ENCRA_GPIO_PORT
@@ -85629,7 +85929,7 @@ ENCRA_GPIO_PORT
 GPIO_InôSåu˘uª
 );
 
-25 
+33 
 GPIO_InôSåu˘uª
 .
 GPIO_Pö
@@ -85637,7 +85937,7 @@ GPIO_Pö
 ENCRB_PIN
 ;
 
-26 
+34 
 	`GPIO_Inô
  (
 ENCRB_GPIO_PORT
@@ -85645,7 +85945,7 @@ ENCRB_GPIO_PORT
 GPIO_InôSåu˘uª
 );
 
-29 
+37 
 	`GPIO_PöAFC⁄fig
  (
 ENCLA_GPIO_PORT
@@ -85655,7 +85955,7 @@ ENCLA_SOURCE
 ENCLA_AF
 );
 
-30 
+38 
 	`GPIO_PöAFC⁄fig
  (
 ENCLB_GPIO_PORT
@@ -85665,7 +85965,7 @@ ENCLB_SOURCE
 ENCLB_AF
 );
 
-31 
+39 
 	`GPIO_PöAFC⁄fig
  (
 ENCRA_GPIO_PORT
@@ -85675,7 +85975,7 @@ ENCRA_SOURCE
 ENCRA_AF
 );
 
-32 
+40 
 	`GPIO_PöAFC⁄fig
  (
 ENCRB_GPIO_PORT
@@ -85685,7 +85985,7 @@ ENCRB_SOURCE
 ENCRB_AF
 );
 
-35 
+43 
 	`RCC_APB1PîùhClockCmd
  (
 ENCL_TIMER_CLK
@@ -85693,15 +85993,15 @@ ENCL_TIMER_CLK
 ENABLE
 );
 
-36 
-	`RCC_APB1PîùhClockCmd
+44 
+	`RCC_APB2PîùhClockCmd
  (
 ENCR_TIMER_CLK
 , 
 ENABLE
 );
 
-40 
+48 
 	`TIM_EncodîI¡îÁ˚C⁄fig
  (
 ENCL_TIMER
@@ -85709,51 +86009,51 @@ ENCL_TIMER
 TIM_EncodîMode_TI12
 ,
 
-41 
+49 
 TIM_ICPﬁ¨ôy_Risög
 ,
-
-42 
-TIM_ICPﬁ¨ôy_Risög
-);
-
-43 
-	`TIM_SëAut‹ñﬂd
- (
-ENCL_TIMER
-, 0xffff);
-
-44 
-	`TIM_EncodîI¡îÁ˚C⁄fig
- (
-ENCR_TIMER
-, 
-TIM_EncodîMode_TI12
-,
-
-45 
-TIM_ICPﬁ¨ôy_Risög
-,
-
-46 
-TIM_ICPﬁ¨ôy_Risög
-);
-
-47 
-	`TIM_SëAut‹ñﬂd
- (
-ENCR_TIMER
-, 0xffff);
 
 50 
-	`TIM_Cmd
- (
-ENCL_TIMER
-, 
-ENABLE
+TIM_ICPﬁ¨ôy_Risög
 );
 
 51 
+	`TIM_SëAut‹ñﬂd
+ (
+ENCL_TIMER
+, 0xffff);
+
+52 
+	`TIM_EncodîI¡îÁ˚C⁄fig
+ (
+ENCR_TIMER
+, 
+TIM_EncodîMode_TI1
+,
+
+53 
+TIM_ICPﬁ¨ôy_Risög
+,
+
+54 
+TIM_ICPﬁ¨ôy_Risög
+);
+
+55 
+	`TIM_SëAut‹ñﬂd
+ (
+ENCR_TIMER
+, 0xffff);
+
+58 
+	`TIM_Cmd
+ (
+ENCL_TIMER
+, 
+ENABLE
+);
+
+59 
 	`TIM_Cmd
  (
 ENCR_TIMER
@@ -85761,103 +86061,283 @@ ENCR_TIMER
 ENABLE
 );
 
-52 
+60 
 	`ícodîsRe£t
 ();
 
-53 
+61 
 	}
 }
 
-55 
+63 
+	$ícodîsInô
+ (){
+
+64 
+GPIO_InôTy≥Def
+ 
+GPIO_InôSåu˘uª
+;
+
+65 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM3
+|
+RCC_APB2Pîùh_TIM1
+, 
+ENABLE
+);
+
+67 
+GPIO_InôSåu˘uª
+.
+GPIO_Mode
+ = 
+GPIO_Mode_AF
+;
+
+68 
+GPIO_InôSåu˘uª
+.
+GPIO_PuPd
+ = 
+GPIO_PuPd_UP
+;
+
+69 
+GPIO_InôSåu˘uª
+.
+GPIO_Pö
+ = 
+GPIO_Pö_6
+ | 
+GPIO_Pö_7
+ ;
+
+70 
+	`GPIO_Inô
+(
+GPIOA
+, &
+GPIO_InôSåu˘uª
+);
+
+71 
+GPIO_InôSåu˘uª
+.
+GPIO_Pö
+ = 
+GPIO_Pö_9
+|
+GPIO_Pö_11
+;
+
+72 
+	`GPIO_Inô
+(
+GPIOE
+, &
+GPIO_InôSåu˘uª
+);
+
+74 
+	`GPIO_PöAFC⁄fig
+(
+GPIOA
+, 
+GPIO_PöSour˚6
+, 
+GPIO_AF_TIM3
+);
+
+75 
+	`GPIO_PöAFC⁄fig
+(
+GPIOA
+, 
+GPIO_PöSour˚7
+, 
+GPIO_AF_TIM3
+);
+
+79 
+	`TIM_SëAut‹ñﬂd
+ (
+TIM3
+, 0xffffffff);
+
+80 
+	`TIM_SëAut‹ñﬂd
+ (
+TIM1
+, 0xffffffff);
+
+83 
+	`TIM_EncodîI¡îÁ˚C⁄fig
+(
+TIM3
+, 
+TIM_EncodîMode_TI1
+, 
+TIM_ICPﬁ¨ôy_Risög
+, TIM_ICPolarity_Rising);
+
+87 
+	`TIM_Cmd
+(
+TIM3
+, 
+ENABLE
+);
+
+88 
+	`c⁄f_pö
+(
+	`pö_id
+(
+PORTE
+,9), 2, 
+PUSH_PULL
+, 0, 
+PULL_UP
+);
+
+89 
+	`c⁄f_af
+(
+	`pö_id
+(
+PORTE
+,9), 
+AF1
+);
+
+90 
+	`c⁄f_pö
+(
+	`pö_id
+(
+PORTE
+,11), 2, 
+PUSH_PULL
+, 0, 
+PULL_UP
+);
+
+91 
+	`c⁄f_af
+(
+	`pö_id
+(
+PORTE
+,11), 
+AF1
+);
+
+92 
+	`timEncodîC⁄figuª
+(
+TIM1
+);
+
+93 
+	`ícodîsRe£t
+();
+
+94 
+	}
+}
+
+97 
 	$ícodîsRe£t
  ()
 
-57 
+99 
 	`__dißbÀ_úq
 ();
 
-58 
+100 
 ﬁdLe·Encodî
  = 0;
 
-59 
+101 
 ﬁdRightEncodî
  = 0;
 
-60 
+102 
 À·TŸÆ
  = 0;
 
-61 
+103 
 rightTŸÆ
  = 0;
 
-62 
+104 
 fwdTŸÆ
  = 0;
 
-63 
+105 
 rŸTŸÆ
  = 0;
 
-64 
+106 
 	`TIM_SëCou¡î
  (
-ENCL_TIMER
+TIM1
 , 0);
 
-65 
+107 
 	`TIM_SëCou¡î
  (
-ENCR_TIMER
+TIM3
 , 0);
 
-66 
+108 
 	`ícodîsRód
 ();
 
-67 
+109 
 	`__íabÀ_úq
 ();
 
-68 
+110 
 	}
 }
 
-74 
+116 
 	$ícodîsRód
  ()
 
-76 
+118 
 ﬁdLe·Encodî
  = 
 À·Encodî
 ;
 
-77 
+119 
 À·Encodî
  = 
 	`TIM_GëCou¡î
  (
-ENCL_TIMER
+TIM1
 ) ;
 
-78 
+120 
 ﬁdRightEncodî
  = 
 rightEncodî
 ;
 
-79 
+121 
 rightEncodî
  = -
 	`TIM_GëCou¡î
  (
-ENCR_TIMER
+TIM3
 ) ;
 
-80 
+122 
 À·Cou¡
  = 
 À·Encodî
@@ -85865,7 +86345,7 @@ ENCR_TIMER
 ﬁdLe·Encodî
 ;
 
-81 
+123 
 rightCou¡
  = 
 rightEncodî
@@ -85873,7 +86353,7 @@ rightEncodî
 ﬁdRightEncodî
 ;
 
-82 
+124 
 fwdCou¡
  = 
 À·Cou¡
@@ -85881,7 +86361,7 @@ fwdCou¡
 rightCou¡
 ;
 
-83 
+125 
 rŸCou¡
  = - (
 À·Cou¡
@@ -85889,31 +86369,361 @@ rŸCou¡
 rightCou¡
 );
 
-84 
+126 
 fwdTŸÆ
  +
 fwdCou¡
 ;
 
-85 
+127 
 rŸTŸÆ
  +
 rŸCou¡
 ;
 
-86 
+128 
 À·TŸÆ
  +
 À·Cou¡
 ;
 
-87 
+129 
 rightTŸÆ
  +
 rightCou¡
 ;
 
-88 
+130 
+	}
+}
+
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\hall.c
+
+2 
+	~"hÆl.h
+"
+
+5 
+	$InôhÆl
+(){
+
+8 
+GPIO_InôTy≥Def
+ 
+GPIO_InôSåu˘uª
+;
+
+9 
+TIM_TimeBa£InôTy≥Def
+ 
+TIM_InôSåu˘uª
+;
+
+10 
+TIM_ICInôTy≥Def
+ 
+TIM_ICInôSåu˘uª
+;
+
+11 
+NVIC_InôTy≥Def
+ 
+NVIC_InôSåu˘uª
+;
+
+13 
+	`RCC_AHB1PîùhClockCmd
+(
+RCC_AHB1Pîùh_GPIOC
+, 
+ENABLE
+);
+
+15 
+GPIO_InôSåu˘uª
+.
+GPIO_Pö
+ = 
+GPIO_Pö_13
+;
+
+16 
+GPIO_InôSåu˘uª
+.
+GPIO_Mode
+ = 
+GPIO_Mode_OUT
+;
+
+17 
+GPIO_InôSåu˘uª
+.
+GPIO_PuPd
+ = 
+GPIO_PuPd_NOPULL
+;
+
+18 
+GPIO_InôSåu˘uª
+.
+GPIO_OTy≥
+ = 
+GPIO_OTy≥_PP
+;
+
+19 
+GPIO_InôSåu˘uª
+.
+GPIO_S≥ed
+ = 
+GPIO_S≥ed_100MHz
+;
+
+21 
+	`GPIO_Inô
+(
+GPIOC
+, &
+GPIO_InôSåu˘uª
+);
+
+24 
+	`RCC_AHB1PîùhClockCmd
+(
+RCC_AHB1Pîùh_GPIOA
+, 
+ENABLE
+);
+
+27 
+GPIO_InôSåu˘uª
+.
+GPIO_Pö
+ = 
+GPIO_Pö_0
+ | 
+GPIO_Pö_1
+ | 
+GPIO_Pö_2
+;
+
+28 
+GPIO_InôSåu˘uª
+.
+GPIO_Mode
+ = 
+GPIO_Mode_AF
+;
+
+33 
+	`GPIO_Inô
+(
+GPIOA
+, &
+GPIO_InôSåu˘uª
+);
+
+35 
+	`GPIO_PöAFC⁄fig
+(
+GPIOA
+, 
+GPIO_PöSour˚0
+, 
+GPIO_AF_TIM2
+);
+
+36 
+	`GPIO_PöAFC⁄fig
+(
+GPIOA
+, 
+GPIO_PöSour˚1
+, 
+GPIO_AF_TIM2
+);
+
+37 
+	`GPIO_PöAFC⁄fig
+(
+GPIOA
+, 
+GPIO_PöSour˚2
+, 
+GPIO_AF_TIM2
+);
+
+40 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM2
+, 
+ENABLE
+);
+
+44 
+TIM_InôSåu˘uª
+.
+TIM_PªsˇÀr
+ = 126;
+
+45 
+TIM_InôSåu˘uª
+.
+TIM_Cou¡îMode
+ = 
+TIM_Cou¡îMode_Up
+;
+
+46 
+TIM_InôSåu˘uª
+.
+TIM_Pîiod
+ = 65535;
+
+47 
+TIM_InôSåu˘uª
+.
+TIM_ClockDivisi⁄
+ = 0;
+
+48 
+TIM_InôSåu˘uª
+.
+TIM_Rïëôi⁄Cou¡î
+ = 0;
+
+50 
+	`TIM_TimeBa£Inô
+(
+TIM2
+, &
+TIM_InôSåu˘uª
+);
+
+52 
+	`TIM_Sñe˘HÆlSís‹
+(
+TIM2
+, 
+ENABLE
+);
+
+54 
+	`TIM_Sñe˘I≈utTriggî
+(
+TIM2
+, 
+TIM_TS_TI1F_ED
+);
+
+55 
+	`TIM_Sñe˘SœveMode
+(
+TIM2
+, 
+TIM_SœveMode_Re£t
+);
+
+58 
+TIM_ICInôSåu˘uª
+.
+TIM_Ch™√l
+ = 
+TIM_Ch™√l_1
+;
+
+59 
+TIM_ICInôSåu˘uª
+.
+TIM_ICFûãr
+ = 0xF;
+
+60 
+TIM_ICInôSåu˘uª
+.
+TIM_ICPﬁ¨ôy
+ = 
+TIM_ICPﬁ¨ôy_BŸhEdge
+;
+
+61 
+TIM_ICInôSåu˘uª
+.
+TIM_ICPªsˇÀr
+ = 
+TIM_ICPSC_DIV1
+;
+
+62 
+TIM_ICInôSåu˘uª
+.
+TIM_ICSñe˘i⁄
+ = 
+TIM_ICSñe˘i⁄_TRC
+;
+
+64 
+	`TIM_ICInô
+(
+TIM2
+, &
+TIM_ICInôSåu˘uª
+);
+
+67 
+	`TIM_ITC⁄fig
+(
+TIM2
+, 
+TIM_IT_CC1
+, 
+ENABLE
+);
+
+69 
+NVIC_InôSåu˘uª
+.
+NVIC_IRQCh™√l
+ = 
+TIM2_IRQn
+;
+
+70 
+NVIC_InôSåu˘uª
+.
+NVIC_IRQCh™√lPªem±i⁄Pri‹ôy
+ = 1;
+
+71 
+NVIC_InôSåu˘uª
+.
+NVIC_IRQCh™√lSubPri‹ôy
+ = 1;
+
+72 
+NVIC_InôSåu˘uª
+.
+NVIC_IRQCh™√lCmd
+ = 
+ENABLE
+;
+
+73 
+	`NVIC_Inô
+(&
+NVIC_InôSåu˘uª
+);
+
+76 
+	`TIM_Cmd
+(
+TIM2
+, 
+ENABLE
+);
+
+77 
 	}
 }
 
@@ -109433,12 +110243,20 @@ TIM_H
 
 	)
 
-5 
+14 
 	~"°m32f4xx.h
 "
 
-6 
+15 
 TIM2_C⁄figuøti⁄
+();
+
+16 
+TIM6_C⁄fig
+();
+
+17 
+TIM7_C⁄fig
 ();
 
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\encoders.c
@@ -109459,93 +110277,855 @@ ENC_H
 	~"°m32f4xx.h
 "
 
-8 vﬁ©ûê
+9 
+	~"°m32f4xx_rcc.h
+"
+
+10 
+	~"°m32f4xx_c⁄f.h
+"
+
+12 
+	#PORTA
+ 0
+
+	)
+
+13 
+	#PORTB
+ 1
+
+	)
+
+14 
+	#PORTC
+ 2
+
+	)
+
+15 
+	#PORTD
+ 3
+
+	)
+
+16 
+	#PORTE
+ 4
+
+	)
+
+18 
+	#AF0
+ 0
+
+	)
+
+19 
+	#AF1
+ 1
+
+	)
+
+20 
+	#AF2
+ 2
+
+	)
+
+21 
+	#AF3
+ 3
+
+	)
+
+22 
+	#AF4
+ 4
+
+	)
+
+23 
+	#AF5
+ 5
+
+	)
+
+24 
+	#AF6
+ 6
+
+	)
+
+25 
+	#AF7
+ 7
+
+	)
+
+26 
+	#AF8
+ 8
+
+	)
+
+27 
+	#AF9
+ 9
+
+	)
+
+28 
+	#AF10
+ 10
+
+	)
+
+29 
+	#AF11
+ 11
+
+	)
+
+30 
+	#AF12
+ 12
+
+	)
+
+31 
+	#AF13
+ 13
+
+	)
+
+32 
+	#AF14
+ 14
+
+	)
+
+33 
+	#AF15
+ 15
+
+	)
+
+36 
+	#INPUT
+ 0
+
+	)
+
+37 
+	#GENERAL
+ 1
+
+	)
+
+38 
+	#ALTERNATE
+ 2
+
+	)
+
+39 
+	#ANALOG
+ 3
+
+	)
+
+42 
+	#PUSH_PULL
+ 0
+
+	)
+
+43 
+	#OPEN_DRAIN
+ 1
+
+	)
+
+46 
+	#LOW_S
+ 0
+
+47 
+	#MEDIUM_S
+ 1
+
+48 
+	#FAST_S
+ 2
+
+49 
+	#HIGH_S
+ 3
+
+50 
+
+	)
+
+52 
+	#NO_PULL_UP
+ 0
+
+	)
+
+53 
+	#PULL_UP
+ 1
+
+	)
+
+54 
+	#PULL_DOWN
+ 2
+
+	)
+
+56 
+	#GPIO_BASE
+ (
+AHB1PERIPH_BASE
+ + 0x0000)
+
+	)
+
+57 
+	#GPIO
+ ((*Ë
+GPIO_BASE
+)
+
+	)
+
+60 
+	#pö_id
+(
+PIN_PORT
+, 
+PIN
+Ë–(PIN_PORT<<4)|PIN )
+
+	)
+
+61 
+	#GPIO_off£t
+ ((
+uöt32_t
+)0x00000400)
+
+	)
+
+62 
+	#GPIO_ba£
+(
+pö
+Ë(
+GPIO_BASE
+ +’ö>>4)*
+GPIO_off£t
+ )
+
+	)
+
+65 
+	#pö_mode
+(
+pö
+, 
+mode
+Ë((
+uöt32_t
+Ë–modeË<<(’ö&0xF)<<1))
+
+	)
+
+66 
+	#pö_ty≥
+(
+pö
+, 
+ty≥
+Ë((
+uöt32_t
+Ë–ty≥Ë<<(’ö&0xF)))
+
+	)
+
+67 
+	#pö_•ìd
+(
+pö
+, 
+•ìd
+Ë((
+uöt32_t
+Ë–•ìdË<<(’ö&0xF)<<1))
+
+	)
+
+68 
+	#pö_puŒ
+(
+pö
+, 
+puŒ
+Ë((
+uöt32_t
+Ë–puŒË<<(’ö&0xF)<<1))
+
+	)
+
+69 
+	#pö_af
+(
+pö
+,
+af
+Ë((
+uöt32_t
+Ë◊fË<<(’ö&0x7)<<2))
+
+	)
+
+72 
+	#˛ór_mode
+(
+pö
+Ë(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’ö))Ë&~
+	`pö_mode
+’ö, 0x3))
+
+	)
+
+73 
+	#˛ór_ty≥
+(
+pö
+Ë(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’ö)+ 0x04)Ë&~
+	`pö_ty≥
+’ö, 0x1))
+
+	)
+
+74 
+	#˛ór_•ìd
+(
+pö
+Ë(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’öË+ 0x08)Ë&~
+	`pö_•ìd
+’ö, 0x3))
+
+	)
+
+75 
+	#˛ór_puŒ
+(
+pö
+Ë(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’öË+ 0x0C)Ë&~
+	`pö_puŒ
+’ö, 0x3))
+
+	)
+
+78 
+	#˛ór_c⁄f
+(
+pö
+) ( \
+
+79 
+	`˛ór_mode
+(
+pö
+); \
+
+80 
+	`˛ór_ty≥
+(
+pö
+); \
+
+81 
+	`˛ór_•ìd
+(
+pö
+); \
+
+82 
+	`˛ór_puŒ
+(
+pö
+Ë; )
+
+	)
+
+85 
+	#£t_mode
+(
+pö
+,
+mode
+Ë(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’ö))Ë|
+	`pö_mode
+’ö, mode))
+
+	)
+
+86 
+	#£t_ty≥
+(
+pö
+,
+ty≥
+Ë(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’ö)+ 0x04)Ë|
+	`pö_mode
+’ö,Åy≥))
+
+	)
+
+87 
+	#£t_•ìd
+(
+pö
+,
+•ìd
+)(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’ö)+ 0x08)Ë|
+	`pö_mode
+’ö, s≥ed))
+
+	)
+
+88 
+	#£t_puŒ
+(
+pö
+,
+puŒ
+Ë(*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+’ö)+ 0x0C)Ë|
+	`pö_mode
+’ö,ÖuŒ)))
+
+	)
+
+91 
+	#£t_c⁄f
+(
+pö
+, 
+mode
+,
+ty≥
+,
+•ìd
+,
+puŒ
+) (\
+
+92 
+	`£t_mode
+(
+pö
+,
+mode
+);\
+
+93 
+	`£t_ty≥
+(
+pö
+,
+ty≥
+); \
+
+94 
+	`£t_•ìd
+(
+pö
+,
+•ìd
+);\
+
+95 
+	`£t_puŒ
+(
+pö
+,
+puŒ
+); \
+
+96 )
+
+	)
+
+99 
+	#c⁄f_mode
+(
+pö
+, 
+mode
+Ë{*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(pin)+0x00)) = \
+
+100 ((*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(
+pö
+)+0x00))&(~
+	`pö_mode
+’ö, 0x3)))|pö_mode’ö, 
+mode
+));}
+
+	)
+
+101 
+	#c⁄f_ty≥
+(
+pö
+, 
+ty≥
+Ë{*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(pin)+0x04)) = \
+
+102 ((*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(
+pö
+)+0x04))&(~
+	`pö_ty≥
+’ö, 0x1)))|pö_ty≥’ö, 
+ty≥
+));}
+
+	)
+
+103 
+	#c⁄f_•ìd
+(
+pö
+,
+•ìd
+Ë{*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(pin)+0x08)) = \
+
+104 ((*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(
+pö
+)+0x08))&(~
+	`pö_•ìd
+’ö, 0x3)))|pö_•ìd’ö,
+•ìd
+));}
+
+	)
+
+105 
+	#c⁄f_puŒ
+(
+pö
+, 
+puŒ
+Ë{*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(pin)+0x0C)) = \
+
+106 ((*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(
+pö
+)+0x0C))&(~
+	`pö_puŒ
+’ö, 0x3)))|pö_puŒ’ö, 
+puŒ
+));}
+
+	)
+
+109 
+	#c⁄f_pö
+(
+pö
+, 
+mode
+, 
+ty≥
+, 
+•ìd
+, 
+puŒ
+) {\
+
+110 
+	`c⁄f_mode
+(
+pö
+, 
+mode
+) \
+
+111 
+	`c⁄f_ty≥
+(
+pö
+, 
+ty≥
+) \
+
+112 
+	`c⁄f_•ìd
+(
+pö
+, 
+•ìd
+) \
+
+113 
+	`c⁄f_puŒ
+(
+pö
+, 
+puŒ
+Ë}
+
+	)
+
+116 
+	#c⁄f_af
+(
+pö
+, 
+af
+Ë{*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(pin)+0x20+((pin&0x08)>>1))) = \
+
+117 ((*((
+uöt32_t
+ *Ë(
+	`GPIO_ba£
+(
+pö
+)+0x20+(’ö&0x08)>>1)))&(~
+	`pö_af
+’ö,0xF)))|pö_af’ö,
+af
+));}
+
+	)
+
+120 
+	#£t_pö
+(
+pö
+Ë(*((
+uöt32_t
+ *)((
+	`GPIO_ba£
+’ö)Ë+ 0x18))((uöt32_t)1<<((uöt32_tÌö&0x0000000f)))
+
+	)
+
+123 
+	#ª£t_pö
+(
+pö
+Ë(*((
+uöt32_t
+ *)(
+	`GPIO_ba£
+’öË+ 0x18))(uöt32_t)1<<(((uöt32_tÌö&0xf)+0x00000010))
+
+	)
+
+127 
+	#pö_vÆ
+(
+pö
+Ë((*((
+uöt32_t
+ *)(
+	`GPIO_ba£
+’öË+ 0x10)))&((uöt32_t)1<<’ö&0xf)))
+
+	)
+
+130 
+	#pö_out
+(
+pö
+Ë((*((
+uöt32_t
+ *)(
+	`GPIO_ba£
+’öË+ 0x14)))&((uöt32_t)1<<’ö&0xf)))
+
+	)
+
+132 vﬁ©ûê
 öt16_t
  
 	gÀ·Cou¡
 ;
 
-9 vﬁ©ûê
+133 vﬁ©ûê
 öt16_t
  
 	grightCou¡
 ;
 
-10 vﬁ©ûê
+134 vﬁ©ûê
 öt16_t
  
 	gfwdCou¡
 ;
 
-11 vﬁ©ûê
+135 vﬁ©ûê
 öt16_t
  
 	grŸCou¡
 ;
 
-13 vﬁ©ûê
+137 vﬁ©ûê
 	gÀ·TŸÆ
 ;
 
-14 vﬁ©ûê
+138 vﬁ©ûê
 	grightTŸÆ
 ;
 
-15 vﬁ©ûê
+139 vﬁ©ûê
 	gfwdTŸÆ
 ;
 
-16 vﬁ©ûê
+140 vﬁ©ûê
 	grŸTŸÆ
 ;
 
-19 vﬁ©ûê
+143 vﬁ©ûê
 öt16_t
  
 	gﬁdLe·Encodî
 ;
 
-20 vﬁ©ûê
+144 vﬁ©ûê
 öt16_t
  
 	gﬁdRightEncodî
 ;
 
-21 vﬁ©ûê
+145 vﬁ©ûê
 öt16_t
  
 	gÀ·Encodî
 ;
 
-22 vﬁ©ûê
+146 vﬁ©ûê
 öt16_t
  
 	grightEncodî
 ;
 
-23 vﬁ©ûê
+147 vﬁ©ûê
 öt16_t
  
 	gícodîSum
 ;
 
-24 vﬁ©ûê
+148 vﬁ©ûê
 öt16_t
  
 	gícodîDiff
 ;
 
-26 
+150 
 ícodîsInô
  ();
 
-27 
+151 
 ícodîsRe£t
  ();
 
-28 
+152 
 ícodîsRód
  ();
+
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\hall.h
+
+1 #i‚de‡
+HALL_H
+
+
+2 
+	#HALL_H
+
+
+	)
+
+4 
+	~"°m32f4xx.h
+"
+
+5 
+InôhÆl
+();
 
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\main.h
 
@@ -109646,7 +111226,7 @@ GPIO_AF_TIM3
 18 
 	#ENCRA_PIN
  
-GPIO_Pö_8
+GPIO_Pö_9
 
 
 	)
@@ -109654,7 +111234,7 @@ GPIO_Pö_8
 19 
 	#ENCRA_GPIO_PORT
  
-GPIOB
+GPIOE
 
 
 	)
@@ -109662,7 +111242,7 @@ GPIOB
 20 
 	#ENCRA_GPIO_CLK
  
-RCC_AHB1Pîùh_GPIOB
+RCC_AHB1Pîùh_GPIOE
 
 
 	)
@@ -109670,7 +111250,7 @@ RCC_AHB1Pîùh_GPIOB
 21 
 	#ENCRA_SOURCE
  
-GPIO_PöSour˚6
+GPIO_PöSour˚9
 
 
 	)
@@ -109678,7 +111258,7 @@ GPIO_PöSour˚6
 22 
 	#ENCRA_AF
  
-GPIO_AF_TIM4
+GPIO_AF_TIM1
 
 
 	)
@@ -109686,7 +111266,7 @@ GPIO_AF_TIM4
 24 
 	#ENCRB_PIN
  
-GPIO_Pö_9
+GPIO_Pö_11
 
 
 	)
@@ -109694,7 +111274,7 @@ GPIO_Pö_9
 25 
 	#ENCRB_GPIO_PORT
  
-GPIOB
+GPIOE
 
 
 	)
@@ -109702,7 +111282,7 @@ GPIOB
 26 
 	#ENCRB_GPIO_CLK
  
-RCC_AHB1Pîùh_GPIOB
+RCC_AHB1Pîùh_GPIOE
 
 
 	)
@@ -109710,7 +111290,7 @@ RCC_AHB1Pîùh_GPIOB
 27 
 	#ENCRB_SOURCE
  
-GPIO_PöSour˚7
+GPIO_PöSour˚11
 
 
 	)
@@ -109718,7 +111298,7 @@ GPIO_PöSour˚7
 28 
 	#ENCRB_AF
  
-GPIO_AF_TIM4
+GPIO_AF_TIM1
 
 
 	)
@@ -109742,7 +111322,7 @@ RCC_APB1Pîùh_TIM3
 33 
 	#ENCR_TIMER
  
-TIM4
+TIM1
 
 
 	)
@@ -109750,7 +111330,7 @@ TIM4
 34 
 	#ENCR_TIMER_CLK
  
-RCC_APB1Pîùh_TIM4
+RCC_APB2Pîùh_TIM1
 
 
 	)
@@ -158249,63 +159829,123 @@ ORIGIN
 
 	)
 
-29 vﬁ©ûê
+21 vﬁ©ûê
 	gª˚ived_°rög
 [
 MAX_STRLEN
 +1];
 
-30 
+22 
 uöt32_t
  
 	gmu…ùlõr
 ;
 
-31 
+23 
 	gcou¡î
 =0;
 
-32 
+24 
 	gcou¡î1
 =0;
 
-33 
+25 
 	g•ìd
 =0;
 
-34 
+26 
 	g•ìd1
 =0;
 
-35 
+27 
 	gs
  = 255;
 
-36 
+28 
 	g•
  = 90;
 
-37 
-	gã°
-;
+29 
+	ghÆl1
+=0;
 
-40 
+30 
+	ghÆl1_0
+=0;
+
+31 
+	ghÆl2
+=0;
+
+32 
+	ghÆl2_0
+=0;
+
+33 
+	gdúe˘i⁄
+ = 0;
+
+34 
+	gÊag
+ = 0;
+
+35 
+	gLa°_tick
+=0;
+
+36 
+	g∑s£d_tick
+ = 0 ;
+
+37 
+	gèsk
+=0;
+
+38 
+	gèsk_•ìd
+ = 0;
+
+39 
+	g•ìadc1
+ = 0;
+
+40 
+	g•ìadc2
+ = 0;
+
+41 
+	g•ìadc3
+ = 0;
+
+42 
+	gÊag_ã°•ìd
+=0;
+
+43 
+	gÊag_°›•ìd
+=0;
+
+44 
+	gtimëe°•ìd
+ = 0;
+
+46 
 	$TM_Dñay_Inô
 () {
 
-41 
+47 
 RCC_ClocksTy≥Def
  
 RCC_Clocks
 ;
 
-44 
+50 
 	`RCC_GëClocksFªq
 (&
 RCC_Clocks
 );
 
-48 
+54 
 mu…ùlõr
  = 
 RCC_Clocks
@@ -158313,11 +159953,11 @@ RCC_Clocks
 HCLK_Fªquícy
  / 4000000;
 
-49 
+55 
 	}
 }
 
-51 
+57 
 	$TM_DñayMi¸os
 (
 uöt32_t
@@ -158325,21 +159965,21 @@ uöt32_t
 mi¸os
 ) {
 
-54 
+60 
 mi¸os
  = mi¸o†* 
 mu…ùlõr
  - 10;
 
-56 
+62 
 mi¸os
 --);
 
-57 
+63 
 	}
 }
 
-59 
+65 
 	$TM_DñayMûlis
 (
 uöt32_t
@@ -158347,21 +159987,21 @@ uöt32_t
 mûlis
 ) {
 
-62 
+68 
 mûlis
  = 1000 * mûli†* 
 mu…ùlõr
  - 10;
 
-64 
+70 
 mûlis
 --);
 
-65 
+71 
 	}
 }
 
-67 
+73 
 	$Dñay
 (
 __IO
@@ -158371,27 +160011,43 @@ uöt32_t
 nCou¡
 ) {
 
-68 
+74 
 nCou¡
 --) {
 
-70 
+76 
 	}
 }
 
-76 
+82 
 	$RCC_C⁄figuøti⁄
 ()
 
-78 
+90 
 	`RCC_AHB1PîùhClockCmd
 (
-RCC_AHB1Pîùh_DMA2
+RCC_AHB1Pîùh_CRC
 , 
 ENABLE
 );
 
-79 
+91 
+	`RCC_AHB1PîùhClockCmd
+(
+RCC_AHB1Pîùh_GPIOA
+, 
+ENABLE
+);
+
+92 
+	`RCC_AHB1PîùhClockCmd
+(
+RCC_AHB1Pîùh_GPIOB
+, 
+ENABLE
+);
+
+93 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_GPIOC
@@ -158399,15 +160055,31 @@ RCC_AHB1Pîùh_GPIOC
 ENABLE
 );
 
-80 
-	`RCC_APB2PîùhClockCmd
+94 
+	`RCC_AHB1PîùhClockCmd
 (
-RCC_APB2Pîùh_ADC1
+RCC_AHB1Pîùh_GPIOD
 , 
 ENABLE
 );
 
-81 
+95 
+	`RCC_AHB1PîùhClockCmd
+(
+RCC_AHB1Pîùh_GPIOE
+, 
+ENABLE
+);
+
+97 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_TIM1
+, 
+ENABLE
+);
+
+98 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM2
@@ -158415,21 +160087,157 @@ RCC_APB1Pîùh_TIM2
 ENABLE
 );
 
-82 
+99 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM3
+, 
+ENABLE
+);
+
+100 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM4
+, 
+ENABLE
+);
+
+101 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM5
+, 
+ENABLE
+);
+
+102 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM6
+, 
+ENABLE
+);
+
+103 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM7
+, 
+ENABLE
+);
+
+104 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_TIM8
+, 
+ENABLE
+);
+
+105 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_TIM9
+, 
+ENABLE
+);
+
+106 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_TIM10
+, 
+ENABLE
+);
+
+107 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_TIM11
+, 
+ENABLE
+);
+
+108 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM12
+, 
+ENABLE
+);
+
+109 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_TIM13
+, 
+ENABLE
+);
+
+110 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_ADC1
+, 
+ENABLE
+);
+
+113 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB2Pîùh_USART1
+,
+ENABLE
+);
+
+114 
+	`RCC_APB1PîùhClockCmd
+(
+RCC_APB1Pîùh_USART3
+,
+ENABLE
+);
+
+116 
+	`RCC_AHB1PîùhClockCmd
+(
+RCC_AHB1Pîùh_DMA1
+, 
+ENABLE
+);
+
+117 
+	`RCC_AHB1PîùhClockCmd
+(
+RCC_AHB1Pîùh_DMA2
+, 
+ENABLE
+);
+
+119 
+	`RCC_APB2PîùhClockCmd
+(
+RCC_APB2Pîùh_SYSCFG
+,
+ENABLE
+);
+
+120 
 	}
 }
 
-83 
+121 
 	$GPIO_C⁄figuøti⁄
 ()
 
-85 
+123 
 GPIO_InôTy≥Def
  
 GPIO_InôSåu˘uª
 ;
 
-90 
+124 
 GPIO_InôSåu˘uª
 .
 GPIO_Pö
@@ -158439,7 +160247,7 @@ GPIO_Pö_2
 GPIO_Pö_1
 ;
 
-91 
+125 
 GPIO_InôSåu˘uª
 .
 GPIO_Mode
@@ -158447,7 +160255,7 @@ GPIO_Mode
 GPIO_Mode_AN
 ;
 
-92 
+126 
 GPIO_InôSåu˘uª
 .
 GPIO_PuPd
@@ -158455,7 +160263,7 @@ GPIO_PuPd
 GPIO_PuPd_NOPULL
  ;\
 
-93 
+127 
 	`GPIO_Inô
 (
 GPIOC
@@ -158463,21 +160271,21 @@ GPIOC
 GPIO_InôSåu˘uª
 );
 
-94 
+128 
 	}
 }
 
-96 
+130 
 	$NVIC_C⁄figuøti⁄
 ()
 
-98 
+132 
 NVIC_InôTy≥Def
  
 NVIC_InôSåu˘uª
 ;
 
-101 
+135 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√l
@@ -158485,19 +160293,19 @@ NVIC_IRQCh™√l
 DMA2_Såóm0_IRQn
 ;
 
-102 
+136 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√lPªem±i⁄Pri‹ôy
  = 0;
 
-103 
+137 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√lSubPri‹ôy
  = 0;
 
-104 
+138 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√lCmd
@@ -158505,101 +160313,113 @@ NVIC_IRQCh™√lCmd
 ENABLE
 ;
 
-105 
+139 
 	`NVIC_Inô
 (&
 NVIC_InôSåu˘uª
 );
 
-106 
-	}
-}
-
-117 
-	$maö
-() {
-
-118 
-	`ícodîsInô
-();
-
-119 
-	`RCC_C⁄figuøti⁄
-();
-
-120 
-	`GPIO_C⁄figuøti⁄
-();
-
-121 
-	`NVIC_C⁄figuøti⁄
-();
-
-122 
-	`TIM2_C⁄figuøti⁄
-();
-
-123 
-	`DMA_C⁄figuøti⁄_√w
-();
-
-124 
-	`ADC_C⁄figuøti⁄_√w
-();
-
-125 
-	`TM_Dñay_Inô
-();
-
-126 
-	`öô_USART1_1
-(27500*3);
-
-127 
-	`öô_USART6_1
-(27500*3);
-
-129 
-•ìadc1
- = 0;
-
-130 
-•ìadc2
- = 0;
-
-131 
-•ìadc3
- = 0;
-
-132 
-•ìd
- = 70;
-
-133 
-•ìd1
- = 70;
-
-137 
-	`ícodîsRód
-();
-
-139 
+140 
 	}
 }
 
 144 
+	$maö
+() {
+
+146 
+	`RCC_C⁄figuøti⁄
+();
+
+147 
+	`GPIO_C⁄figuøti⁄
+();
+
+148 
+	`NVIC_C⁄figuøti⁄
+();
+
+149 
+	`TIM6_C⁄fig
+();
+
+150 
+	`TIM7_C⁄fig
+();
+
+152 
+	`InôhÆl
+();
+
+153 
+	`DMA_C⁄figuøti⁄_√w
+();
+
+154 
+	`ADC_C⁄figuøti⁄_√w
+();
+
+157 
+	`öô_USART1_1
+(27500*3);
+
+158 
+	`öô_USART6_1
+(27500*3);
+
+159 
+	`ícodîsInô
+();
+
+162 
+•ìd
+ = -0;
+
+163 
+•ìd1
+ = -0;
+
+164 
+èsk
+ = 16;
+
+165 
+Êag
+ = 1;
+
+168 i‡(
+Êag_ã°•ìd
+Ë{
+	`£t•ìd
+(
+timëe°•ìd
+);}
+
+169 i‡(
+Êag_°›•ìd
+Ë{
+	`°›•ìd
+(
+timëe°•ìd
+);}
+
+171 
+	}
+}
+
+176 
 	gk
  =0;
 
-145 
+177 
 	gkk
  =0;
 
-149 
+181 
 	$USART1_IRQH™dÀr
 (){
 
-151 i‡(
+183 i‡(
 	`USART_GëITSètus
 (
 USART1
@@ -158607,7 +160427,7 @@ USART1
 USART_IT_TC
 ))
 
-153 
+185 
 	`USART_CÀ¨ITPídögBô
 (
 USART1
@@ -158615,133 +160435,133 @@ USART1
 USART_IT_TC
 );
 
-154 i‡(
-cou¡î
- == 0)
-
-156 
-	`USART_SídD©a
-(
-USART1
-,(~
-s
-)& 0xFF);
-
-166 i‡(
-cou¡î
- == 1)
-
-168 
-	`USART_SídD©a
-(
-USART1
-,(~
-s
-)& 0xFF);
-
-170 i‡(
-cou¡î
- == 2)
-
-172 
-	`USART_SídD©a
-(
-USART1
-,256);
-
-174 i‡(
-cou¡î
- == 3)
-
-176 
-	`USART_SídD©a
-(
-USART1
-,
-•ìd
- & 0xFF);
-
-178 i‡(
-cou¡î
- == 4)
-
-180 
-	`USART_SídD©a
-(
-USART1
-,(
-•ìd
- >> 8) & 0xFF);
-
-182 i‡(
-cou¡î
- == 5)
-
-184 
-	`USART_SídD©a
-(
-USART1
-,
-•ìd
- & 0xFF);
-
 186 i‡(
 cou¡î
- == 6)
+ == 0)
 
 188 
 	`USART_SídD©a
 (
 USART1
+,(~
+s
+)& 0xFF);
+
+198 i‡(
+cou¡î
+ == 1)
+
+200 
+	`USART_SídD©a
+(
+USART1
+,(~
+s
+)& 0xFF);
+
+202 i‡(
+cou¡î
+ == 2)
+
+204 
+	`USART_SídD©a
+(
+USART1
+,256);
+
+206 i‡(
+cou¡î
+ == 3)
+
+208 
+	`USART_SídD©a
+(
+USART1
+,
+•ìd
+ & 0xFF);
+
+210 i‡(
+cou¡î
+ == 4)
+
+212 
+	`USART_SídD©a
+(
+USART1
 ,(
 •ìd
  >> 8) & 0xFF);
 
-190 i‡(
+214 i‡(
+cou¡î
+ == 5)
+
+216 
+	`USART_SídD©a
+(
+USART1
+,
+•ìd
+ & 0xFF);
+
+218 i‡(
+cou¡î
+ == 6)
+
+220 
+	`USART_SídD©a
+(
+USART1
+,(
+•ìd
+ >> 8) & 0xFF);
+
+222 i‡(
 cou¡î
  == 7)
 
-192 
+224 
 	`USART_SídD©a
 (
 USART1
 ,85);
 
-193 
+225 
 s
 --;
 
-194 i‡(
+226 i‡(
 s
 ==0Ë{s=255; 
 k
 ++;}
 
-195 i‡(
+227 i‡(
 k
  ==9) k=0;
 
-198 
+230 
 cou¡î
 ++;
 
-199 i‡(
+231 i‡(
 cou¡î
 >7)
 
-200 {
+232 {
 cou¡î
 =0;}
 
-204 
+235 
 	}
 }
 
-206 
+237 
 	$USART6_IRQH™dÀr
 (){
 
-208 i‡–
+239 i‡–
 	`USART_GëITSètus
 (
 USART6
@@ -158749,7 +160569,7 @@ USART6
 USART_IT_TC
 ))
 
-209 { 
+240 { 
 	`USART_CÀ¨ITPídögBô
 (
 USART6
@@ -158757,127 +160577,127 @@ USART6
 USART_IT_TC
 );
 
-210 i‡(
-cou¡î1
- == 0)
-
-212 
-	`USART_SídD©a
-(
-USART6
-,(~
-•
-)& 0xFF);
-
-217 i‡(
-cou¡î1
- == 1)
-
-219 
-	`USART_SídD©a
-(
-USART6
-,(~
-•
-)& 0xFF);
-
-221 i‡(
-cou¡î1
- == 2)
-
-223 
-	`USART_SídD©a
-(
-USART6
-,256);
-
-225 i‡(
-cou¡î1
- == 3)
-
-227 
-	`USART_SídD©a
-(
-USART6
-,
-•ìd1
- & 0xFF);
-
-229 i‡(
-cou¡î1
- == 4)
-
-231 
-	`USART_SídD©a
-(
-USART6
-,(
-•ìd1
- >> 8) & 0xFF);
-
-233 i‡(
-cou¡î1
- == 5)
-
-235 
-	`USART_SídD©a
-(
-USART6
-,
-•ìd1
- & 0xFF);
-
-237 i‡(
-cou¡î1
- == 6)
-
-239 
-	`USART_SídD©a
-(
-USART6
-,(
-•ìd1
- >> 8) & 0xFF);
-
 241 i‡(
 cou¡î1
- == 7)
+ == 0)
 
 243 
 	`USART_SídD©a
 (
 USART6
+,(~
+•
+)& 0xFF);
+
+248 i‡(
+cou¡î1
+ == 1)
+
+250 
+	`USART_SídD©a
+(
+USART6
+,(~
+•
+)& 0xFF);
+
+252 i‡(
+cou¡î1
+ == 2)
+
+254 
+	`USART_SídD©a
+(
+USART6
+,256);
+
+256 i‡(
+cou¡î1
+ == 3)
+
+258 
+	`USART_SídD©a
+(
+USART6
+,
+•ìd1
+ & 0xFF);
+
+260 i‡(
+cou¡î1
+ == 4)
+
+262 
+	`USART_SídD©a
+(
+USART6
+,(
+•ìd1
+ >> 8) & 0xFF);
+
+264 i‡(
+cou¡î1
+ == 5)
+
+266 
+	`USART_SídD©a
+(
+USART6
+,
+•ìd1
+ & 0xFF);
+
+268 i‡(
+cou¡î1
+ == 6)
+
+270 
+	`USART_SídD©a
+(
+USART6
+,(
+•ìd1
+ >> 8) & 0xFF);
+
+272 i‡(
+cou¡î1
+ == 7)
+
+274 
+	`USART_SídD©a
+(
+USART6
 ,85);
 
-245 i‡(
+276 i‡(
 •
-==92) sp=90;
+==92) {sp=90;}
 
-246 i‡(
+277 {
 •
-==90) sp=92;
+=92;}
 
-249 
+280 
 cou¡î1
 ++;
 
-250 i‡(
+281 i‡(
 cou¡î1
 >7)
 
-251 
+282 
 cou¡î1
 =0;
 
-254 
+285 
 	}
 }
 
-256 
+287 
 	$DMA2_Såóm0_IRQH™dÀr
 ()
 
-259 if(
+290 if(
 	`DMA_GëITSètus
 (
 DMA2_Såóm0
@@ -158885,7 +160705,7 @@ DMA2_Såóm0
 DMA_IT_HTIF0
 ))
 
-262 
+293 
 	`DMA_CÀ¨ITPídögBô
 (
 DMA2_Såóm0
@@ -158893,7 +160713,7 @@ DMA2_Såóm0
 DMA_IT_HTIF0
 );
 
-271 if(
+301 if(
 	`DMA_GëITSètus
 (
 DMA2_Såóm0
@@ -158901,7 +160721,7 @@ DMA2_Såóm0
 DMA_IT_TCIF0
 ))
 
-274 
+304 
 	`DMA_CÀ¨ITPídögBô
 (
 DMA2_Såóm0
@@ -158909,7 +160729,405 @@ DMA2_Såóm0
 DMA_IT_TCIF0
 );
 
-278 
+306 
+	}
+}
+
+307 
+	gwhìl•ìdÀ·
+ = 0;
+
+308 
+	gwhìl•ìdright
+ = 0;
+
+311 
+	$TIM6_DAC_IRQH™dÀr
+()
+
+313 i‡(
+	`TIM_GëITSètus
+(
+TIM6
+, 
+TIM_IT_Upd©e
+Ë!
+RESET
+)
+
+315 
+	`TIM_CÀ¨ITPídögBô
+(
+TIM6
+, 
+TIM_IT_Upd©e
+);
+
+316 
+	`ícodîsRód
+();
+
+317 
+whìl•ìdÀ·
+ = 
+À·Cou¡
+ *6/17*10;
+
+318 
+whìl•ìdright
+ = 
+rightCou¡
+ * 6/17*10;
+
+319 
+whìl•ìdÀ·
+>
+	`abs
+(350Ë| 
+whìl•ìdright
+>abs(350) )
+
+321 
+•ìd
+ = 20;
+
+322 
+•ìd1
+ = 20;
+
+323 
+	`ícodîsRód
+();
+
+324 
+whìl•ìdÀ·
+ = 
+À·Cou¡
+ *6/17*10;
+
+325 
+whìl•ìdright
+ = 
+rightCou¡
+ * 6/17*10;
+
+328 
+	}
+}
+
+330 
+	$TIM7_IRQH™dÀr
+()
+
+332 i‡(
+	`TIM_GëITSètus
+(
+TIM7
+, 
+TIM_IT_Upd©e
+Ë!
+RESET
+)
+
+335 
+	`TIM_CÀ¨ITPídögBô
+(
+TIM7
+, 
+TIM_IT_Upd©e
+);
+
+360 
+	}
+}
+
+363 
+	$TIM2_IRQH™dÀr
+()
+
+366 i‡(
+	`TIM_GëITSètus
+(
+TIM2
+, 
+TIM_IT_CC1
+Ë!
+RESET
+)
+
+368 
+•ìadc3
+ = 
+TIM2
+->
+CCR1
+;
+
+369 
+•ìadc2
+ = 
+TIM2
+->
+CCR2
+;
+
+370 
+hÆl1_0
+ = 
+hÆl1
+;
+
+371 
+hÆl1
+ = 
+	`GPIO_RódI≈utD©aBô
+(
+GPIOA
+,
+GPIO_Pö_0
+);
+
+372 
+hÆl2_0
+ = 
+hÆl2
+;
+
+373 
+hÆl2
+ = 
+	`GPIO_RódI≈utD©aBô
+(
+GPIOA
+,
+GPIO_Pö_1
+);
+
+374 i‡(
+hÆl1
+!=
+hÆl1_0
+)
+
+376 i‡(
+hÆl1
+ == 1)
+
+378 i‡(
+hÆl2
+ ==0Ë{
+dúe˘i⁄
+ = 1;}
+
+379 {
+dúe˘i⁄
+ =-1;}
+
+384 i‡(
+hÆl1
+==1) {
+
+392 
+	`TIM_CÀ¨ITPídögBô
+(
+TIM2
+, 
+TIM_IT_CC1
+);
+
+395 i‡(!
+Êag
+) {
+
+400 
+∑s£d_tick
+=passed_tick+ 1;
+
+401 
+•ìd1
+ = 
+èsk_•ìd
+;
+
+404 i‡(
+∑s£d_tick
+ >
+èsk
++1) {
+
+406 
+Êag
+ = 0;
+
+407 
+∑s£d_tick
+=0;}
+
+409 
+	}
+}
+
+413 
+	gœ°_s
+ = 0;
+
+414 
+	gœ°_•
+ = 0;
+
+416 
+	$£t•ìd
+(
+numbî
+){
+
+417 
+numbî_˛⁄e
+ = 
+numbî
+;
+
+418 
+numbî
+>0 & 
+numbî_˛⁄e
+>0)
+
+420 i‡(
+numbî
+>0)
+
+422 i‡(
+œ°_s
+ !=
+s
+Ë{
+numbî
+--; 
+•ìd
+ = 100;}
+
+423 
+œ°_s
+ = 
+s
+;
+
+425 i‡(
+numbî_˛⁄e
+>0){
+
+426 i‡(
+œ°_•
+ !=
+•
+)
+
+428 
+numbî_˛⁄e
+--;
+
+429 
+•ìd1
+ = -100;
+
+430 } 
+œ°_•
+
+•
+;
+
+434 
+•ìd
+=0;
+
+435 
+•ìd1
+=0;
+
+436 
+Êag_ã°•ìd
+ = 0;
+
+437 
+	}
+}
+
+439 
+	$°›•ìd
+(
+numbî
+){
+
+440 
+numbî_˛⁄e
+ = 
+numbî
+;
+
+441 
+numbî
+>0 & 
+numbî_˛⁄e
+>0)
+
+443 i‡(
+numbî
+>0)
+
+445 i‡(
+œ°_s
+ !=
+s
+Ë{
+numbî
+--; 
+•ìd
+ = -100;}
+
+446 
+œ°_s
+ = 
+s
+;
+
+448 i‡(
+numbî_˛⁄e
+>0){
+
+449 i‡(
+œ°_•
+ !=
+•
+)
+
+451 
+numbî_˛⁄e
+--;
+
+452 
+•ìd1
+ = 100;
+
+453 } 
+œ°_•
+
+•
+;
+
+457 
+•ìd
+=0;
+
+458 
+•ìd1
+=0;
+
+459 
+Êag_°›•ìd
+ = 0;
+
+460 
 	}
 }
 
@@ -162413,8 +164631,8 @@ __HópLimô
 1
 .
 0
-83
-6994
+85
+7142
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\misc.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\stm32f4xx_adc.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\stm32f4xx_can.h
@@ -162477,6 +164695,7 @@ C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\DMA.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\TIM.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\USART.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\encoders.c
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\hall.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\arm_common_tables.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\arm_math.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\core_cm4.h
@@ -162487,6 +164706,7 @@ C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\DMA.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\TIM.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\encoders.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\encoders.h
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\hall.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\main.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\stm32f4xx.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\stm32f4xx_conf.h
