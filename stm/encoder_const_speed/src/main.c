@@ -23,6 +23,7 @@ typedef struct{
  float dir;
  float distance;
  int speedtoircuit;
+ float task;
  } wheel;
 
 
@@ -36,7 +37,7 @@ typedef struct{
  float task[3];
 } robotstate;
 
-robotstate telega ={.pidenable = 1, .traekenable = 1, .speed = {0,0}, .center = {0,0,0} , .task={0,0,0}, .leftwheel ={0,0,0,0} , .rightwheel = {0,0,0,0} };
+robotstate telega ={.pidenable = 1, .traekenable = 1, .speed = {0,0}, .center = {0,0,0} , .task={0,0,0}, .leftwheel ={0,0,0,0,0} , .rightwheel = {0,0,0,0,0} };
 float distance[2] = {0,0};
 float regulatorOut[2];
 //float motorSpeed[2];
@@ -59,6 +60,8 @@ int flagmove = 0;
 int Last_tick=0;
 int passed_tick = 0 ;
 float task = 0;
+float taskrot = 0;
+float taskmove = 0;
 int task_speed = 0;
 int speeadc1 = 0;
 int speeadc2 = 0;
@@ -184,12 +187,9 @@ int main(void) {
   encodersInit();
   while (1)
   {
-    if (flagrot == 1) {rotateMe(&task);}
-    if (flagmove == 1) {GoForward(&task);}
-    flagrot = 0;
-    flagmove = 0;
+    {rotateMe(&taskrot);}
+    {GoForward(&taskmove);}
     telega.speed[0]=telega.speed[0];
-
   }
 }
 
@@ -337,13 +337,13 @@ void TIM6_DAC_IRQHandler(void)
         encodersRead();
         if (telega.traekenable == 1)
         {
-            telega.leftwheel.distance -=leftCount;
-            if (abs(telega.leftwheel.distance)<2) {regulatorOut[0] = 0;}
-            telega.leftwheel.distance -=rightCount;
-            if (abs(telega.leftwheel.distance)<2) {regulatorOut[1] = 0;}
+            telega.leftwheel.task -=leftCount;
+            if (abs(telega.leftwheel.task )<5) {regulatorOut[0] = 0;}
+            telega.rightwheel.task -=rightCount;
+            if (abs(telega.rightwheel.task )<5) {regulatorOut[1] = 0;}
         }
         telega.leftwheel.speed = leftCount*10 ;//*6/17*10;
-        telega.rightwheel.speed = rightCount*10 ;//* 6/17*10;
+        telega.rightwheel.speed = -rightCount*10 ;//* 6/17*10;
         pidLowLevel1();
 
        /* while (wheelspeedleft>abs(350) | wheelspeedright>abs(350) )
@@ -364,6 +364,7 @@ void TIM7_IRQHandler(void)
         //encodersRead();
 
         TIM_ClearITPendingBit(TIM7, TIM_IT_Update);
+        checkposition();
         /*if (!flag)
             {
                 //speed = 0;
@@ -539,11 +540,12 @@ void pidLowLevel1(void) //вычисление ПИД регулятора ко�
   for(i =0; i < 2; i++)
   {
     wheelsPidStruct[i].target = regulatorOut[i];//передача требуемых значений от траекторного регулятора
-    wheelsPidStruct[i].current = motorSpeed[i]; // текущие занчения скоростей колес
-    if (pidflag ==1 ){
+    wheelsPidStruct[1].current = telega.rightwheel.speed; // текущие занчения скоростей колес
+    wheelsPidStruct[0].current = telega.leftwheel.speed; // текущие занчения скоростей колес
+    if (telega.pidenable ==1 ){
     pidCalc1(&wheelsPidStruct[i]);
-    if (i==0) {telega.leftwheel.speed = wheelsPidStruct[i].output;}
-    if (i==1) {telega.rightwheel.speed = wheelsPidStruct[i].output;}
+    if (i==0) {telega.leftwheel.speedtoircuit = wheelsPidStruct[0].output;}
+    if (i==1) {telega.rightwheel.speedtoircuit = -wheelsPidStruct[1].output;}
     }
     //if (curState.pidEnabled) setVoltage(WHEELS[i], wheelsPidStruct[i].output);
   }
@@ -561,7 +563,7 @@ void initRegulators1(void){  // инициализация регуляторо�
   	wheelsPidStruct[i].pid_error_end  = 3;
   	wheelsPidStruct[i].pid_output_end = 1000;
   	wheelsPidStruct[i].max_sum_error =3000.0;
-  	wheelsPidStruct[i].max_output = 1000;
+  	wheelsPidStruct[i].max_output = 400;
   	wheelsPidStruct[i].min_output = 0.01;
   }
 }
@@ -582,19 +584,28 @@ typedef struct
 
 
 void rotateMe (float  *angle) {
-
-telega.leftwheel.distance = (*angle)/57.2958*(DISTANCEBTWWHEELS/2)*TICKSPERROTATION*2*PI;//      fi*57.3*L/2
-
-telega.rightwheel.distance= telega.leftwheel.distance;
-regulatorOut[0]=20;
-regulatorOut[1]=20;
+    if (abs(*angle) >0.01){
+        telega.leftwheel.task = (*angle)/57.2958*(DISTANCEBTWWHEELS/2)*TICKSPERROTATION*2*PI;//      fi*57.3*L/2
+        telega.rightwheel.task = telega.leftwheel.task ;
+        *angle =0;
+    }
 }
 
 
 void GoForward(float *point)
 {
-    telega.leftwheel.distance  = (*point) / WHEELDIAM / PI * TICKSPERROTATION; //   mb wrong //R*2*pi* (ticsperrotation)
-    telega.rightwheel.distance = -telega.leftwheel.distance ;
-    regulatorOut[0]=((*point > 0) - (*point < 0)) * 20; //sign(x)*20;
-    regulatorOut[1]=-((*point > 0) - (*point < 0)) * 20;
+    if (abs(*point)>0.001){
+        telega.leftwheel.task  = (*point) / WHEELDIAM / PI * TICKSPERROTATION; //   mb wrong //R*2*pi* (ticsperrotation)
+        telega.rightwheel.task  = -telega.leftwheel.task ;
+        *point=0;
+    }
+}
+
+
+
+
+void checkposition(void)
+{
+    if (abs(telega.leftwheel.task ) >10)  {regulatorOut[0]=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 20;} //sign(x)*20;
+    if (abs(telega.rightwheel.task ) >10) {regulatorOut[1]=-((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 20;}
 }
