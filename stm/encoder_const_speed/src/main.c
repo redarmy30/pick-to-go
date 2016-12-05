@@ -13,63 +13,38 @@
 #include "ADC.h"
 #include "USART.h"
 #include "PID.h"
+#include "interapt.h"
 
 #define MAX_STRLEN 12 // this is the maximum string length of our string in characters
 
 #define MAX_STRLEN 12 // this is the maximum string length of our string in characters
 
-typedef struct{
- float speed;
- float dir;
- float distance;
- int speedtoircuit;
- float task;
- } wheel;
-
-
-typedef struct{
- int pidenable;
- int traekenable;
- int speed[2];
- wheel leftwheel;
- wheel rightwheel;
- float center[3];
- float task[3];
-} robotstate;
-
-robotstate telega ={.pidenable = 1, .traekenable = 1, .speed = {0,0}, .center = {0,0,0} , .task={0,0,0}, .leftwheel ={0,0,0,0,0} , .rightwheel = {0,0,0,0,0} };
 float distance[2] = {0,0};
-float regulatlorOut[2];
+extern robotstate telega;
+float taskrot = 0;
+float taskmove = 0;
+
 //float motorSpeed[2];
 int pidflag = 0;
 uint32_t multiplier;
 
-int counter=1;
-int counter1=1;
-int speed1=0;
-int s = 255;
-int sp = 90;
-int hall1=0;
-int hall1_0=0;
-int hall2=0;
-int hall2_0=0;
-int direction = 0;
-int flag = 0;
-int flagrot = 0;
-int flagmove = 0;
-int Last_tick=0;
-int passed_tick = 0 ;
-float task = 0;
-float taskrot = 0;
-float taskmove = 0;
-int task_speed = 0;
-int speeadc1 = 0;
-int speeadc2 = 0;
-int speeadc3 = 0;
-int flag_testspeed=0;
-int flag_stopspeed=0;
-int timetestspeed = 0;
-int traekt;
+
+
+
+
+typedef struct
+{
+  float center [3];
+  char (*movTask)(void);
+  char (*endTask)(void);
+  float endTaskP1;
+  float (*speedVelTipe);
+  float (*speedRotTipe);
+  char step;
+  float lengthTrace;
+}pathPointStr;
+
+
 
 void TM_Delay_Init(void) {
     RCC_ClocksTypeDef RCC_Clocks;
@@ -108,14 +83,8 @@ void Delay(__IO uint32_t nCount) {
  /* Enable peripheral clocks */
 
 void RCC_Configuration(void)
-{ /*
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-  RCC_AHB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);*/
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_CRC, ENABLE);   // PORTA
+{
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_CRC, ENABLE);   // PORTA
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); // PORTA
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); // PORTB
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE); // PORTC
@@ -168,7 +137,6 @@ void NVIC_Configuration(void)
 }
 
 
-
 int main(void) {
   initRegulators1();
   RCC_Configuration();
@@ -191,446 +159,4 @@ int main(void) {
     {GoForward(&taskmove);}
     telega.speed[0]=telega.speed[0];
   }
-}
-
-
-
-
-int k =0;
-int kk =0;
-
-
-
-void USART1_IRQHandler(void){
-	// check if the USART1 receive interrupt flag was set
-	if (USART_GetITStatus(USART1,USART_IT_TC))
-    {
-         USART_ClearITPendingBit(USART1,USART_IT_TC);
-        if (counter == 0)
-        {   //speed = ((ADCConvertedValues[0]-2055) / 12);
-            USART_SendData(USART1,(~s)& 0xFF);
-           /* if (ADCConvertedValues[0]>3500){speed = 65;speed1=-65;}
-            if (ADCConvertedValues[0]<500){speed = -60;speed1=60;}
-            if (ADCConvertedValues[0]>1000 & ADCConvertedValues[0]<3000){speed = 0;speed1=0;}
-            if (ADCConvertedValues[1]>3700 & (ADCConvertedValues[0]>1000 & ADCConvertedValues[0]<3000)  ) {speed1+=70; speed+=70;}
-            if (ADCConvertedValues[1]<600 & (ADCConvertedValues[0]>1000 & ADCConvertedValues[0]<3000 )  ) {speed1-=70;speed-=70;}
-           */
-
-
-        }
-        if (counter == 1)
-        {
-            USART_SendData(USART1,(~s)& 0xFF);
-
-        }
-        if (counter == 2)
-        {
-            USART_SendData(USART1,256);
-        }
-        if (counter == 3)
-        {
-            USART_SendData(USART1 , telega.leftwheel.speedtoircuit & 0xFF);
-        }
-        if (counter == 4)
-        {
-            USART_SendData(USART1,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
-        }
-        if (counter == 5)
-        {
-            USART_SendData(USART1,telega.leftwheel.speedtoircuit & 0xFF);
-        }
-        if (counter == 6)
-        {
-            USART_SendData(USART1,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
-        }
-        if (counter == 7)
-        {
-            USART_SendData(USART1,85);
-             s--;
-            if (s==0) {s=255; k++;}
-            if (k ==9) k=0;
-        }
-                //USART_ClearITPendingBit(USART1,USART_IT_TC);
-        counter++;
-        if (counter>7)
-        {counter=0;}
-    }
-
-}
-
-void USART6_IRQHandler(void){
-
-    if ( USART_GetITStatus(USART6, USART_IT_TC))
-    {   USART_ClearITPendingBit(USART6,USART_IT_TC);
-        if (counter1 == 0)
-        {
-            USART_SendData(USART6,(~sp)& 0xFF);
-            //speed1 =-((ADCConvertedValues[1]-2055) / 12);
-
-            //speed1 = ((ADCConvertedValues[1] - 2055) / 6);
-        }
-        if (counter1 == 1)
-        {
-            USART_SendData(USART6,(~sp)& 0xFF);
-        }
-        if (counter1 == 2)
-        {
-            USART_SendData(USART6,256);
-        }
-        if (counter1 == 3)
-        {
-            USART_SendData(USART6,telega.rightwheel.speedtoircuit & 0xFF);
-        }
-        if (counter1 == 4)
-        {
-            USART_SendData(USART6,(telega.rightwheel.speedtoircuit >> 8) & 0xFF);
-        }
-        if (counter1 == 5)
-        {
-            USART_SendData(USART6,telega.rightwheel.speedtoircuit & 0xFF);
-        }
-        if (counter1 == 6)
-        {
-            USART_SendData(USART6,(telega.rightwheel.speedtoircuit >> 8) & 0xFF);
-        }
-        if (counter1 == 7)
-        {
-            USART_SendData(USART6,85);
-
-            if (sp==92) {sp=90;}
-            else  {sp=92;}
-        }
-        //USART_ClearITPendingBit(USART1,USART_IT_TC);
-        counter1++;
-        if (counter1>7)
-            counter1=0;
-    }
-
-}
-
-void DMA2_Stream0_IRQHandler(void) // Called at 1 KHz for 200 KHz sample rate, LED Toggles at 500 Hz
-{
-  /* Test on DMA Stream Half Transfer interrupt */
-  if(DMA_GetITStatus(DMA2_Stream0, DMA_IT_HTIF0))
-  {
-    /* Clear DMA Stream Half Transfer interrupt pending bit */
-    DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_HTIF0);
-
-    /* Turn LED3 off: Half Transfer */
-
-
-    // Add code here to process first half of buffer (ping)
-  }
-  /* Test on DMA Stream Transfer Complete interrupt */
-  if(DMA_GetITStatus(DMA2_Stream0, DMA_IT_TCIF0))
-  {
-    /* Clear DMA Stream Transfer Complete interrupt pending bit */
-    DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_TCIF0);
-  }
-}
-
-void TIM6_DAC_IRQHandler(void)
-{
-    if (TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
-    {
-        TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
-        encodersRead();
-
-        telega.leftwheel.speed = leftCount*10 ;//*6/17*10;
-        telega.rightwheel.speed = -rightCount*10 ;//* 6/17*10;
-        pidLowLevel1();
-        checkposition();
-
-       /* while (wheelspeedleft>abs(350) | wheelspeedright>abs(350) )
-        {
-            speed = 20;
-            speed1 = 20;
-            encodersRead();
-            wheelspeedleft = leftCount ;//*6/17*10;
-            wheelspeedright = rightCount;// * 6/17*10;
-        }*/
-    }
-}
-
-void TIM7_IRQHandler(void)
-{
-    if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET)
-    {
-        //encodersRead();
-
-        TIM_ClearITPendingBit(TIM7, TIM_IT_Update);
-
-        /*if (!flag)
-            {
-                //speed = 0;
-                ;
-            }
-        else
-        {
-          if (passed_tick== 0)
-          {
-           Last_tick = leftTotal;
-          // passed_tick = 1;
-          }
-         else
-             //sp = abs(-leftTotal+Last_tick);
-             {  if (sp < 20)
-                    //passed_tick += sp;
-                Last_tick = leftTotal;
-                //speed = -200;
-             }
-
-         //if (passed_tick >= task+1) {speed = 0 ; flag = 0; passed_tick=0;}
-        }
-    */
-    }
-}
-
-// 1 tic == 21.6 mm
-void TIM2_IRQHandler(void)
-{
-
-    if (TIM_GetITStatus(TIM2, TIM_IT_CC1) != RESET)
-  {
-    speeadc3 = TIM2->CCR1;
-    speeadc2 = TIM2->CCR2;
-    hall1_0 = hall1;
-    hall1 = GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0);
-    hall2_0 = hall2;
-    hall2 = GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_1);
-    if (hall1!=hall1_0)
-    {
-        if (hall1 == 1)
-        {
-            if (hall2 ==0) {direction = 1;}
-            else {direction =-1;}
-        }
-    }
-
-    //GPIOA->LCKR;//(GPIOÀ->IDR & GPIO_IDR_IDR0);
-    if (hall1==1) {
-                ;
-    }
-  }
-
-
-
-
-    TIM_ClearITPendingBit(TIM2, TIM_IT_CC1);
-
-
-    if (!flag) {
-                    //speed1 = 0;
-                }
-        else
-        {
-            passed_tick=passed_tick+ 1;
-            speed1 = task_speed;
-
-
-            if (passed_tick >= task+1) {
-                                       // speed1 = 0 ;
-                flag = 0;
-                passed_tick=0;
-            }
-         }
-}
-
-
-
-int last_s = 0;
-int last_sp = 0;
-/*
-void setspeed(int number){
-    int number_clone = number;
-    while ((number>0) & (number_clone>0) )
-    {
-        if (number>0)
-        {
-                if (last_s !=s) {number--; speed[0] = 100;}
-                last_s = s;
-        }
-        if (number_clone>0){
-            if (last_sp !=sp)
-            {
-                number_clone--;
-                speed[1] = -100;
-            }    last_sp= sp;
-
-        }
-    }
-speed[0]=0;
-speed[1]=0;
-flag_testspeed = 0;
-}
-
-void stopspeed(int number){
-    int number_clone = number;
-    while ( (number>0) & (number_clone>0) )
-    {
-        if (number>0)
-        {
-                if (last_s !=s) {number--; speed[0] = -100;}
-                last_s = s;
-        }
-        if (number_clone>0){
-            if (last_sp !=sp)
-            {
-                number_clone--;
-                speed[1] = 100;
-            }    last_sp= sp;
-
-        }
-    }
-    speed[0]=0;
-    speed[1]=0;
-    flag_stopspeed = 0;
-}*/
-
-void pidCalc1(PidStruct *pid_control)  //рассчет ПИД
-{
-  float error, dif_error;
-  error = pid_control->target - pid_control->current;
-  dif_error = error - pid_control->prev_error;
-  pid_control->prev_error = error;
-  pid_control->sum_error += error;
-
-  if (pid_control->sum_error > pid_control->max_sum_error)
-    pid_control->sum_error = pid_control->max_sum_error;
-  if (pid_control->sum_error < -pid_control->max_sum_error)
-    pid_control->sum_error = -pid_control->max_sum_error;
-
-  if (pid_control->pid_on)
-  {
-    pid_control->output = ((float)(pid_control->p_k * error)+(pid_control->i_k * pid_control->sum_error)+
-            (pid_control->d_k * dif_error));
-
-
-    if (pid_control->output > pid_control->max_output)
-      pid_control->output = pid_control->max_output;
-    else if (pid_control->output < -pid_control->max_output)
-      pid_control->output = -pid_control->max_output;
-
-    if (pid_control->output < pid_control->min_output && pid_control->output > -pid_control->min_output)
-      pid_control->output = 0;
-
-    if ((pid_control->output <= pid_control->pid_output_end) &&(
-        pid_control->output >= -pid_control->pid_output_end) &&(
-        error <= pid_control->pid_error_end) && (error >= -pid_control->pid_error_end))
-      pid_control->pid_finish = 1;
-    else
-      pid_control->pid_finish = 0;
-  }
-  else
-  {
-    pid_control->output = 0;
-    pid_control->pid_finish = 0;
-  }
-}
-
-void pidLowLevel1(void) //вычисление ПИД регулятора колес
-{
-//Low level pid target values are set here__________________________________
-  char i;
-  for(i =0; i < 2; i++)
-  {
-    wheelsPidStruct[i].target = regulatorOut[i];//передача требуемых значений от траекторного регулятора
-    wheelsPidStruct[1].current = telega.rightwheel.speed; // текущие занчения скоростей колес
-    wheelsPidStruct[0].current = telega.leftwheel.speed; // текущие занчения скоростей колес
-    if (telega.pidenable ==1 ){
-    pidCalc1(&wheelsPidStruct[i]);
-    if (i==0) {telega.leftwheel.speedtoircuit = wheelsPidStruct[0].output;}
-    if (i==1) {telega.rightwheel.speedtoircuit = -wheelsPidStruct[1].output;}
-    }
-    //if (curState.pidEnabled) setVoltage(WHEELS[i], wheelsPidStruct[i].output);
-  }
-  //speed[1] = 0;
-}
-
-void initRegulators1(void){  // инициализация регуляторов
-  int i = 0;
-  for (i = 0; i<=2; i++)  // пиды колес
-  {
-  	wheelsPidStruct[i].p_k = 1.00; //5.0
-  	wheelsPidStruct[i].i_k = 2.05; //1
-  	wheelsPidStruct[i].d_k = 0.5; //0.5
-  	wheelsPidStruct[i].pid_on = 1;
-  	wheelsPidStruct[i].pid_error_end  = 3;
-  	wheelsPidStruct[i].pid_output_end = 1000;
-  	wheelsPidStruct[i].max_sum_error =3000.0;
-  	wheelsPidStruct[i].max_output = 400;
-  	wheelsPidStruct[i].min_output = 0.01;
-  }
-}
-
-
-
-typedef struct
-{
-  float center [3];
-  char (*movTask)(void);
-  char (*endTask)(void);
-  float endTaskP1;
-  float (*speedVelTipe);
-  float (*speedRotTipe);
-  char step;
-  float lengthTrace;
-}pathPointStr;
-
-
-void rotateMe (float  *angle) {
-    if (telega.traekenable == 1){
-        if (abs(*angle) >0.01){
-            telega.leftwheel.task = (*angle)/360 * PI * DISTANCEBTWWHEELS;//      fi*57.3*L/2
-            telega.rightwheel.task = telega.leftwheel.task;
-            *angle =0;
-        }
-    }
-}
-
-
-void GoForward(float *point)
-{
-    if (telega.traekenable == 1){
-        if (abs(*point)>0.001){
-            telega.leftwheel.task  = (*point) ; //   mb wrong //R*2*pi* (ticsperrotation)
-            telega.rightwheel.task  = -telega.leftwheel.task ;
-            *point=0;
-        }
-    }
-}
-
-void checkposition(void)
-{
-    if (telega.traekenable == 1)
-        {
-            telega.leftwheel.task -=leftCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
-            if (fabs(telega.leftwheel.task )<=0.05)
-                 {
-                     regulatorOut[0] = 0;
-                 }
-            telega.rightwheel.task -=rightCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
-            if (fabs(telega.rightwheel.task )<=0.05)
-                {
-                    regulatorOut[1] = 0;
-                }
-
-            if (fabs(telega.leftwheel.task ) >=0.3)
-                {
-                    regulatorOut[0]=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 20;
-                } //sign(x)*20;
-            if (fabs(telega.rightwheel.task ) >=0.3)
-                {
-                    regulatorOut[1]=-((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 20;
-                }
-
-            if ((fabs(telega.leftwheel.task ) >=0.1) & (fabs(telega.leftwheel.task ) <=0.15  ))
-                {
-                    regulatorOut[0]=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 5;
-                } //sign(x)*20;
-            if ((fabs(telega.rightwheel.task ) >=0.1) &  (fabs(telega.rightwheel.task ) <=0.15 ))
-                {
-                    regulatorOut[1]=-((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 5;
-                }
-        }
 }

@@ -1,6 +1,7 @@
-obj\debug\src\main.o: src\main.c inc/stm32f4xx.h cmsis/core_cm4.h \
- cmsis/core_cmInstr.h cmsis/core_cmFunc.h cmsis/core_cm4_simd.h \
- inc/system_stm32f4xx.h inc/stm32f4xx_conf.h SPL\inc/stm32f4xx_adc.h \
+obj\debug\board\interapt.o: board\interapt.c inc/interapt.h \
+ inc/stm32f4xx.h cmsis/core_cm4.h cmsis/core_cmInstr.h \
+ cmsis/core_cmFunc.h cmsis/core_cm4_simd.h inc/system_stm32f4xx.h \
+ inc/stm32f4xx_conf.h SPL\inc/stm32f4xx_adc.h inc/stm32f4xx.h \
  SPL\inc/stm32f4xx_can.h SPL\inc/stm32f4xx_crc.h SPL\inc/stm32f4xx_cryp.h \
  SPL\inc/stm32f4xx_dac.h SPL\inc/stm32f4xx_dbgmcu.h \
  SPL\inc/stm32f4xx_dcmi.h SPL\inc/stm32f4xx_dma.h \
@@ -11,6 +12,4 @@ obj\debug\src\main.o: src\main.c inc/stm32f4xx.h cmsis/core_cm4.h \
  SPL\inc/stm32f4xx_rng.h SPL\inc/stm32f4xx_rtc.h SPL\inc/stm32f4xx_sdio.h \
  SPL\inc/stm32f4xx_spi.h SPL\inc/stm32f4xx_syscfg.h \
  SPL\inc/stm32f4xx_tim.h SPL\inc/stm32f4xx_usart.h \
- SPL\inc/stm32f4xx_wwdg.h SPL\inc/misc.h inc/USART.h inc/stm32f4xx.h \
- inc/main.h inc/encoders.h inc/DMA.h inc/TIM.h inc/ADC.h inc/PID.h \
- inc/interapt.h inc/PID.h
+ SPL\inc/stm32f4xx_wwdg.h SPL\inc/misc.h inc/PID.h

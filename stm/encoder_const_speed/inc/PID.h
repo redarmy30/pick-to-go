@@ -2,20 +2,33 @@
 #define PID_H
 
 #include "stm32f4xx.h"
-
-
-float regulatorOut[2] = {0,0};
+float regulatorOut[2];
 float motorSpeed[2];
 
+typedef struct{
+ float speed;
+ float dir;
+ float distance;
+ int speedtoircuit;
+ float task;
+ } wheel;
 
-
+typedef struct{
+ int pidenable;
+ int traekenable;
+ int speed[2];
+ wheel leftwheel;
+ wheel rightwheel;
+ float center[3];
+ float task[3];
+ int ready;
+} robotstate;
 
 typedef struct {
  int tps;
  float enspeed;
  float distance;
 } encoderStruct;
-
 
 typedef struct{
  int wheelnumber;
@@ -45,7 +58,6 @@ typedef struct
   float pid_error_end;
   float pid_output_end;
 } PidStruct;
-
 
 PidStruct wheelsPidStruct[2];
 
