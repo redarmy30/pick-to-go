@@ -169,7 +169,7 @@ void TIM2_IRQHandler(void)
 
 void rotateMe (float  *angle) {
     if (telega.traekenable == 1){
-        if (abs(*angle) >0.01){
+        if (fabs(*angle) >0.01){
             telega.leftwheel.task = (*angle)/360 * PI * DISTANCEBTWWHEELS;//      fi*57.3*L/2
             telega.rightwheel.task = telega.leftwheel.task;
             *angle =0;
@@ -181,7 +181,7 @@ void rotateMe (float  *angle) {
 void GoForward(float *point)
 {
     if (telega.traekenable == 1){
-        if (abs(*point)>0.001){
+        if (fabs(*point)>0.001){
             telega.leftwheel.task  = (*point) ; //   mb wrong //R*2*pi* (ticsperrotation)
             telega.rightwheel.task  = -telega.leftwheel.task ;
             *point=0;
@@ -194,33 +194,36 @@ void checkposition(void)
     if (telega.traekenable == 1)
         {
             telega.leftwheel.task -=leftCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
-            if (fabs(telega.leftwheel.task )<=0.05)
-                 {
-                     regulatorOut[0] = 0;
+            if (fabs(telega.leftwheel.task )<=0.1)
+                 { //if (fabs(regulatorOut[0])>0.51)
+                     //regulatorOut[0] -= ((regulatorOut[0]> 0) - (regulatorOut[0]< 0))*0.5;
+                     regulatorOut[0] =0;
                  }
             telega.rightwheel.task -=rightCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
-            if (fabs(telega.rightwheel.task )<=0.05)
-                {
-                    regulatorOut[1] = 0;
+            if (fabs(telega.rightwheel.task )<=0.1)
+                {   //if ( fabs(regulatorOut[1])>0.51)
+                    //regulatorOut[1] -= ((regulatorOut[1]> 0) - (regulatorOut[1]< 0))*0.5;
+                    regulatorOut[1]=0;
                 }
             if (fabs(telega.leftwheel.task ) >=0.1)
                 {
-                    regulatorOut[0]=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 20;
+                    if (fabs(regulatorOut[0])<20)
+                    regulatorOut[0]+=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) *1;
                 }
             if (fabs(telega.rightwheel.task ) >=0.1)
-                {
-                    regulatorOut[1]=-((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 20;
+                {   if (fabs(regulatorOut[1])<20)
+                    regulatorOut[1]+= -((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 1;
                 }
-            if ((fabs(telega.leftwheel.task ) >=0.05) & (fabs(telega.leftwheel.task ) <=0.10  ))
-                {
-                    regulatorOut[0]=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 5;
+            if ((fabs(telega.leftwheel.task ) >=0.1) & (fabs(telega.leftwheel.task ) <=0.1))
+                {   if (fabs(regulatorOut[0])<20)
+                    regulatorOut[0]+=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 1;
                 }
-            if ((fabs(telega.rightwheel.task ) >=0.05) &  (fabs(telega.rightwheel.task ) <=0.10 ))
-                {
-                    regulatorOut[1]=-((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 5;
+            if ((fabs(telega.rightwheel.task ) >=0.1) &  (fabs(telega.rightwheel.task ) <=0.1 ))
+                {   if (fabs(regulatorOut[1])<20)
+                    regulatorOut[1]=-((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 1;
                 }
-            if ((fabs(telega.leftwheel.task )<=0.05) &(fabs(telega.rightwheel.task )<=0.05)) {telega.ready = 1;}
-            if ((fabs(telega.leftwheel.task )>0.05) | (fabs(telega.rightwheel.task )>0.05)) {telega.ready = 0;}
+            if ((fabs(telega.leftwheel.task )<=0.1) &(fabs(telega.rightwheel.task )<=0.1)) {telega.ready = 1;}
+            if ((fabs(telega.leftwheel.task )>0.1) | (fabs(telega.rightwheel.task )>0.1)) {telega.ready = 0;}
         }
 }
 

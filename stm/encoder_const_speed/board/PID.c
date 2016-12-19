@@ -67,13 +67,13 @@ void initRegulators1(void){  // инициализация регуляторов
   int i = 0;
   for (i = 0; i<=2; i++)  // пиды колес
   {
-  	wheelsPidStruct[i].p_k = 1.00; //5.0
-  	wheelsPidStruct[i].i_k = 2.05; //1
-  	wheelsPidStruct[i].d_k = 0.5; //0.5
+  	wheelsPidStruct[i].p_k = 20.00; //1
+  	wheelsPidStruct[i].i_k = 5.05; //2.05
+  	wheelsPidStruct[i].d_k = 10.5; //0.5
   	wheelsPidStruct[i].pid_on = 1;
   	wheelsPidStruct[i].pid_error_end  = 3;
   	wheelsPidStruct[i].pid_output_end = 1000;
-  	wheelsPidStruct[i].max_sum_error =3000.0;
+  	wheelsPidStruct[i].max_sum_error =1000.0;
   	wheelsPidStruct[i].max_output = 400;
   	wheelsPidStruct[i].min_output = 0.01;
   }

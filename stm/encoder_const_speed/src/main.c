@@ -23,6 +23,7 @@ float distance[2] = {0,0};
 extern robotstate telega;
 float taskrot = 0;
 float taskmove = 0;
+int regulatorboth=0;
 
 //float motorSpeed[2];
 int pidflag = 0;
@@ -158,5 +159,10 @@ int main(void) {
     {rotateMe(&taskrot);}
     {GoForward(&taskmove);}
     telega.speed[0]=telega.speed[0];
+    //if (regulatorboth!=0)
+    //{
+      //      regulatorOut[0]=regulatorboth;
+        //    regulatorOut[1]=regulatorboth;
+    //}
   }
 }
