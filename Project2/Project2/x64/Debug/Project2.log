@@ -1,0 +1,5 @@
+﻿  Source.cpp
+c:\users\alex\documents\visual studio 2015\projects\project2\project2\source.cpp(454): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\alex\documents\visual studio 2015\projects\project2\project2\source.cpp(456): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Project2.vcxproj -> C:\Users\Alex\documents\visual studio 2015\Projects\Project2\x64\Debug\opencv_test_3.0.exe
+  Project2.vcxproj -> C:\Users\Alex\documents\visual studio 2015\Projects\Project2\x64\Debug\opencv_test_3.0.pdb (Partial PDB)
