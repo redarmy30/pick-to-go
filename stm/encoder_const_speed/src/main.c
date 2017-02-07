@@ -149,16 +149,15 @@ int main(void) {
   Inithall();
   DMA_Configuration_new();
   ADC_Configuration_new();
-
   //TM_Delay_Init();
   init_USART1_1(27500*3); // initialize USART1 @ 9600 baud \\TC: Transmission complete
   init_USART6_1(27500*3);//26315
   encodersInit();
   while (1)
   {
-    {rotateMe(&taskrot);}
-    {GoForward(&taskmove);}
-    telega.speed[0]=telega.speed[0];
+    {rotateMe(&taskrot);} // задать угол поворота если включен траекторный
+    {GoForward(&taskmove);} // задать длину пути вперед/назад если включен траекторный
+    telega.speed[0]=telega.speed[0]; // чтобы сделать вотч
     //if (regulatorboth!=0)
     //{
       //      regulatorOut[0]=regulatorboth;

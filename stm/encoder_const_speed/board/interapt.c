@@ -1,4 +1,5 @@
 #include "interapt.h"
+#include "TIM.h"
 
 extern robotstate telega;
 extern int16_t leftCount;
@@ -140,9 +141,9 @@ void TIM6_DAC_IRQHandler(void)
     if (TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET)
     {
         TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
-        encodersRead();
-        telega.leftwheel.speed = leftCount*10 ;//*6/17*10;
-        telega.rightwheel.speed = -rightCount*10 ;//* 6/17*10;
+        encodersRead(); // update encoders counters
+        telega.leftwheel.speed = leftCount * WHEELDIAM * PI / TICKSPERROTATION /TIM6_TIME ; //
+        telega.rightwheel.speed = -rightCount* WHEELDIAM * PI / TICKSPERROTATION /TIM6_TIME ;
         pidLowLevel1();
         checkposition();
     }
@@ -171,7 +172,7 @@ void rotateMe (float  *angle) {
     if (telega.traekenable == 1){
         if (fabs(*angle) >0.01){
             telega.leftwheel.task = (*angle)/360 * PI * DISTANCEBTWWHEELS;//      fi*57.3*L/2
-            telega.rightwheel.task = telega.leftwheel.task;
+            telega.rightwheel.task = -telega.leftwheel.task;
             *angle =0;
         }
     }
@@ -183,7 +184,7 @@ void GoForward(float *point)
     if (telega.traekenable == 1){
         if (fabs(*point)>0.001){
             telega.leftwheel.task  = (*point) ; //   mb wrong //R*2*pi* (ticsperrotation)
-            telega.rightwheel.task  = -telega.leftwheel.task ;
+            telega.rightwheel.task  = telega.leftwheel.task ;
             *point=0;
         }
     }
@@ -193,37 +194,30 @@ void checkposition(void)
 {
     if (telega.traekenable == 1)
         {
-            telega.leftwheel.task -=leftCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
-            if (fabs(telega.leftwheel.task )<=0.1)
+            telega.leftwheel.task +=leftCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
+            if (fabs(telega.leftwheel.task )<=0.03) // если осталось ехать меньше 10см остановиться
                  { //if (fabs(regulatorOut[0])>0.51)
                      //regulatorOut[0] -= ((regulatorOut[0]> 0) - (regulatorOut[0]< 0))*0.5;
-                     regulatorOut[0] =0;
+                     regulatorOut[1] =0;
                  }
-            telega.rightwheel.task -=rightCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
-            if (fabs(telega.rightwheel.task )<=0.1)
+            telega.rightwheel.task +=rightCount * WHEELDIAM * PI / TICKSPERROTATION; //tics
+            if (fabs(telega.rightwheel.task )<=0.03) // если осталось ехать меньше 10см остановиться
                 {   //if ( fabs(regulatorOut[1])>0.51)
                     //regulatorOut[1] -= ((regulatorOut[1]> 0) - (regulatorOut[1]< 0))*0.5;
-                    regulatorOut[1]=0;
+                    regulatorOut[0]=0;
                 }
-            if (fabs(telega.leftwheel.task ) >=0.1)
+            if (fabs(telega.leftwheel.task ) >= 0.03)
                 {
-                    if (fabs(regulatorOut[0])<20)
-                    regulatorOut[0]+=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) *1;
+                    if (fabs(regulatorOut[1])<1)
+                    regulatorOut[1]+=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 0.1;  // +-1
                 }
-            if (fabs(telega.rightwheel.task ) >=0.1)
-                {   if (fabs(regulatorOut[1])<20)
-                    regulatorOut[1]+= -((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 1;
+            if (fabs(telega.rightwheel.task ) >= 0.03)
+                {   if (fabs(regulatorOut[0]) < 1)
+                    regulatorOut[0]+= ((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * -0.1; // +-1
                 }
-            if ((fabs(telega.leftwheel.task ) >=0.1) & (fabs(telega.leftwheel.task ) <=0.1))
-                {   if (fabs(regulatorOut[0])<20)
-                    regulatorOut[0]+=((telega.leftwheel.task > 0) - (telega.leftwheel.task < 0)) * 1;
-                }
-            if ((fabs(telega.rightwheel.task ) >=0.1) &  (fabs(telega.rightwheel.task ) <=0.1 ))
-                {   if (fabs(regulatorOut[1])<20)
-                    regulatorOut[1]=-((telega.rightwheel.task > 0) - (telega.rightwheel.task < 0)) * 1;
-                }
-            if ((fabs(telega.leftwheel.task )<=0.1) &(fabs(telega.rightwheel.task )<=0.1)) {telega.ready = 1;}
-            if ((fabs(telega.leftwheel.task )>0.1) | (fabs(telega.rightwheel.task )>0.1)) {telega.ready = 0;}
+
+            if ((fabs(telega.leftwheel.task )<=0.1) &(fabs(telega.rightwheel.task )<=0.1)) {telega.ready = 1;} //movement done
+            if ((fabs(telega.leftwheel.task )>0.1) | (fabs(telega.rightwheel.task )>0.1)) {telega.ready = 0;} // moving
         }
 }
 

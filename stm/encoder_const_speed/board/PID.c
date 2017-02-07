@@ -43,6 +43,7 @@ void pidCalc1(PidStruct *pid_control)  //рассчет ѕ»ƒ
     pid_control->output = 0;
     pid_control->pid_finish = 0;
   }
+  pid_control->output = -1*pid_control->output ;
 }
 
 void pidLowLevel1(void) //вычисление ѕ»ƒ регул€тора колес
@@ -51,13 +52,13 @@ void pidLowLevel1(void) //вычисление ѕ»ƒ регул€тора колес
   char i;
   for(i =0; i < 2; i++)
   {
-    wheelsPidStruct[i].target = regulatorOut[i];//передача требуемых значений от траекторного регул€тора
-    wheelsPidStruct[1].current = telega.rightwheel.speed; // текущие занчени€ скоростей колес
-    wheelsPidStruct[0].current = telega.leftwheel.speed; // текущие занчени€ скоростей колес
+    wheelsPidStruct[i].target = -regulatorOut[i];//передача требуемых значений от траекторного регул€тора
+    wheelsPidStruct[0].current = telega.rightwheel.speed; // текущие занчени€ скоростей колес
+    wheelsPidStruct[1].current = telega.leftwheel.speed; // текущие занчени€ скоростей колес
     if (telega.pidenable ==1 ){
-    pidCalc1(&wheelsPidStruct[i]);
-    if (i==0) {telega.leftwheel.speedtoircuit = wheelsPidStruct[0].output;}
-    if (i==1) {telega.rightwheel.speedtoircuit = -wheelsPidStruct[1].output;}
+        pidCalc1(&wheelsPidStruct[i]);
+        if (i==0) {telega.leftwheel.speedtoircuit = wheelsPidStruct[0].output;}
+        if (i==1) {telega.rightwheel.speedtoircuit = wheelsPidStruct[1].output;}
     }
   }
   //speed[1] = 0;
@@ -67,14 +68,14 @@ void initRegulators1(void){  // инициализаци€ регул€торов
   int i = 0;
   for (i = 0; i<=2; i++)  // пиды колес
   {
-  	wheelsPidStruct[i].p_k = 20.00; //1
-  	wheelsPidStruct[i].i_k = 5.05; //2.05
-  	wheelsPidStruct[i].d_k = 10.5; //0.5
+  	wheelsPidStruct[i].p_k = 70.00; //1
+  	wheelsPidStruct[i].i_k = 30.05; //2.05
+  	wheelsPidStruct[i].d_k = 10; //0.5
   	wheelsPidStruct[i].pid_on = 1;
   	wheelsPidStruct[i].pid_error_end  = 3;
   	wheelsPidStruct[i].pid_output_end = 1000;
-  	wheelsPidStruct[i].max_sum_error =1000.0;
-  	wheelsPidStruct[i].max_output = 400;
+  	wheelsPidStruct[i].max_sum_error =300.0;
+  	wheelsPidStruct[i].max_output = 300;
   	wheelsPidStruct[i].min_output = 0.01;
   }
 }

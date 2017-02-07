@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1481619241 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
+1486378248 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\main.c
 	<stm32f4xx.h>
 	<misc.h>
 	<stm32f4xx_usart.h>
@@ -278,7 +278,7 @@
 1478770808 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\tim.c
 	"TIM.h"
 
-1479986759 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\tim.h
+1486389413 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\tim.h
 	"stm32f4xx.h"
 
 1478769727 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\src\usart.c
@@ -305,7 +305,7 @@
 1478853975 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\dma.c
 	"DMA.h"
 
-1480682994 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
+1486389179 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\tim.c
 	"TIM.h"
 
 1478769727 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\usart.c
@@ -321,7 +321,7 @@
 1480587941 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\hall.h
 	"stm32f4xx.h"
 
-1481886528 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\pid.c
+1486392359 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\pid.c
 	"PID.h"
 
 1480949879 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\pid.h
@@ -329,10 +329,11 @@
 
 1480672313 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\kinematics.c
 
-1481886699 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\interapt.c
+1486394403 source:c:\users\alex\documents\robocvproject\stm\encoder_const_speed\board\interapt.c
 	"interapt.h"
+	"TIM.h"
 
-1480952780 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\interapt.h
+1486377780 c:\users\alex\documents\robocvproject\stm\encoder_const_speed\inc\interapt.h
 	"stm32f4xx.h"
 	"PID.h"
 

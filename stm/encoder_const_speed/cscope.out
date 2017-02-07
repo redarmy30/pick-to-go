@@ -1,4 +1,4 @@
-cscope 15 $HOME\Documents\robocvproject\stm\encoder_const_speed"               0001020621
+cscope 15 $HOME\Documents\robocvproject\stm\encoder_const_speed"               0001025965
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\misc.h
 
 24 #i‚de‡
@@ -84681,6 +84681,422 @@ ENABLE
 	}
 }
 
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\PID.c
+
+1 
+	~"PID.h
+"
+
+4 
+robŸ°©e
+ 
+	gãÀga
+ ={.
+pidíabÀ
+ = 1, .
+	gå´kíabÀ
+ = 1, .
+	g•ìd
+ = {0,0}, .
+	g˚¡î
+ = {0,0,0} , .
+	gèsk
+={0,0,0}, .
+	gÀ·whìl
+ ={0,0,0,0,0} , .
+	grightwhìl
+ = {0,0,0,0,0} ,.
+	gªady
+=1};
+
+7 
+	$pidCÆc1
+(
+PidSåu˘
+ *
+pid_c⁄åﬁ
+)
+
+9 
+îr‹
+, 
+dif_îr‹
+;
+
+10 
+îr‹
+ = 
+pid_c⁄åﬁ
+->
+èrgë
+ -Öid_c⁄åﬁ->
+cuºít
+;
+
+11 
+dif_îr‹
+ = 
+îr‹
+ - 
+pid_c⁄åﬁ
+->
+¥ev_îr‹
+;
+
+12 
+pid_c⁄åﬁ
+->
+¥ev_îr‹
+ = 
+îr‹
+;
+
+13 
+pid_c⁄åﬁ
+->
+sum_îr‹
+ +
+îr‹
+;
+
+15 i‡(
+pid_c⁄åﬁ
+->
+sum_îr‹
+ >Öid_c⁄åﬁ->
+max_sum_îr‹
+)
+
+16 
+pid_c⁄åﬁ
+->
+sum_îr‹
+ =Öid_c⁄åﬁ->
+max_sum_îr‹
+;
+
+17 i‡(
+pid_c⁄åﬁ
+->
+sum_îr‹
+ < -pid_c⁄åﬁ->
+max_sum_îr‹
+)
+
+18 
+pid_c⁄åﬁ
+->
+sum_îr‹
+ = -pid_c⁄åﬁ->
+max_sum_îr‹
+;
+
+20 i‡(
+pid_c⁄åﬁ
+->
+pid_⁄
+)
+
+22 
+pid_c⁄åﬁ
+->
+ouçut
+ = (()’id_c⁄åﬁ->
+p_k
+ * 
+îr‹
+)+’id_c⁄åﬁ->
+i_k
+ *Öid_c⁄åﬁ->
+sum_îr‹
+)+
+
+23 (
+pid_c⁄åﬁ
+->
+d_k
+ * 
+dif_îr‹
+));
+
+26 i‡(
+pid_c⁄åﬁ
+->
+ouçut
+ >Öid_c⁄åﬁ->
+max_ouçut
+)
+
+27 
+pid_c⁄åﬁ
+->
+ouçut
+ =Öid_c⁄åﬁ->
+max_ouçut
+;
+
+28 i‡(
+pid_c⁄åﬁ
+->
+ouçut
+ < -pid_c⁄åﬁ->
+max_ouçut
+)
+
+29 
+pid_c⁄åﬁ
+->
+ouçut
+ = -pid_c⁄åﬁ->
+max_ouçut
+;
+
+31 i‡(
+pid_c⁄åﬁ
+->
+ouçut
+ <Öid_c⁄åﬁ->
+mö_ouçut
+ &&Öid_control->output > -pid_control->min_output)
+
+32 
+pid_c⁄åﬁ
+->
+ouçut
+ = 0;
+
+34 i‡((
+pid_c⁄åﬁ
+->
+ouçut
+ <pid_c⁄åﬁ->
+pid_ouçut_íd
+) &&(
+
+35 
+pid_c⁄åﬁ
+->
+ouçut
+ >-pid_c⁄åﬁ->
+pid_ouçut_íd
+) &&(
+
+36 
+îr‹
+ <
+pid_c⁄åﬁ
+->
+pid_îr‹_íd
+) && (error >= -pid_control->pid_error_end))
+
+37 
+pid_c⁄åﬁ
+->
+pid_föish
+ = 1;
+
+39 
+pid_c⁄åﬁ
+->
+pid_föish
+ = 0;
+
+43 
+pid_c⁄åﬁ
+->
+ouçut
+ = 0;
+
+44 
+pid_c⁄åﬁ
+->
+pid_föish
+ = 0;
+
+46 
+	}
+}
+
+48 
+	$pidLowLevñ1
+()
+
+51 
+i
+;
+
+52 
+i
+ =0; i < 2; i++)
+
+54 
+whìlsPidSåu˘
+[
+i
+].
+èrgë
+ = 
+ªguœt‹Out
+[i];
+
+55 
+whìlsPidSåu˘
+[1].
+cuºít
+ = 
+ãÀga
+.
+rightwhìl
+.
+•ìd
+;
+
+56 
+whìlsPidSåu˘
+[0].
+cuºít
+ = 
+ãÀga
+.
+À·whìl
+.
+•ìd
+;
+
+57 i‡(
+ãÀga
+.
+pidíabÀ
+ ==1 ){
+
+58 
+	`pidCÆc1
+(&
+whìlsPidSåu˘
+[
+i
+]);
+
+59 i‡(
+i
+==0Ë{
+ãÀga
+.
+À·whìl
+.
+•ìdtoúcuô
+ = 
+whìlsPidSåu˘
+[0].
+ouçut
+;}
+
+60 i‡(
+i
+==1Ë{
+ãÀga
+.
+rightwhìl
+.
+•ìdtoúcuô
+ = -
+whìlsPidSåu˘
+[1].
+ouçut
+;}
+
+64 
+	}
+}
+
+66 
+	$öôReguœt‹s1
+(){
+
+67 
+i
+ = 0;
+
+68 
+i
+ = 0; i<=2; i++)
+
+70 
+whìlsPidSåu˘
+[
+i
+].
+p_k
+ = 20.00;
+
+71 
+whìlsPidSåu˘
+[
+i
+].
+i_k
+ = 5.05;
+
+72 
+whìlsPidSåu˘
+[
+i
+].
+d_k
+ = 10.5;
+
+73 
+whìlsPidSåu˘
+[
+i
+].
+pid_⁄
+ = 1;
+
+74 
+whìlsPidSåu˘
+[
+i
+].
+pid_îr‹_íd
+ = 3;
+
+75 
+whìlsPidSåu˘
+[
+i
+].
+pid_ouçut_íd
+ = 1000;
+
+76 
+whìlsPidSåu˘
+[
+i
+].
+max_sum_îr‹
+ =1000.0;
+
+77 
+whìlsPidSåu˘
+[
+i
+].
+max_ouçut
+ = 400;
+
+78 
+whìlsPidSåu˘
+[
+i
+].
+mö_ouçut
+ = 0.01;
+
+80 
+	}
+}
+
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\TIM.c
 
 1 
@@ -84785,7 +85201,7 @@ TIM_Cou¡îMode_Up
 timîInôSåu˘uª
 .
 TIM_Pîiod
- = 10000;
+ = 1000;
 
 29 
 timîInôSåu˘uª
@@ -84891,7 +85307,7 @@ timîInôSåu˘uª
 timîInôSåu˘uª
 .
 TIM_PªsˇÀr
- = 20;
+ = 84;
 
 47 
 timîInôSåu˘uª
@@ -84905,7 +85321,7 @@ TIM_Cou¡îMode_Up
 timîInôSåu˘uª
 .
 TIM_Pîiod
- = 10;
+ = 2000;
 
 49 
 timîInôSåu˘uª
@@ -86161,6 +86577,26 @@ GPIO_PöSour˚7
 GPIO_AF_TIM3
 );
 
+76 
+	`GPIO_PöAFC⁄fig
+(
+GPIOE
+, 
+GPIO_PöSour˚9
+, 
+GPIO_AF_TIM1
+);
+
+77 
+	`GPIO_PöAFC⁄fig
+(
+GPIOE
+, 
+GPIO_PöSour˚11
+, 
+GPIO_AF_TIM1
+);
+
 79 
 	`TIM_SëAut‹ñﬂd
  (
@@ -86173,17 +86609,95 @@ TIM3
 TIM1
 , 0xffffffff);
 
+82 
+	`TIM_EncodîI¡îÁ˚C⁄fig
+(
+TIM1
+, 
+TIM_EncodîMode_TI12
+, 
+TIM_ICPﬁ¨ôy_Risög
+, TIM_ICPolarity_Rising);
+
 83 
 	`TIM_EncodîI¡îÁ˚C⁄fig
 (
 TIM3
 , 
-TIM_EncodîMode_TI1
+TIM_EncodîMode_TI12
 , 
 TIM_ICPﬁ¨ôy_Risög
 , TIM_ICPolarity_Rising);
 
+84 
+TIM_ICInôTy≥Def
+ 
+TIM_ICInôSåu˘uª
+;
+
+85 
+TIM_ICInôSåu˘uª
+.
+TIM_Ch™√l
+ = 
+TIM_Ch™√l_1
+;
+
+86 
+TIM_ICInôSåu˘uª
+.
+TIM_ICFûãr
+ = 0xF;
+
 87 
+TIM_ICInôSåu˘uª
+.
+TIM_ICPﬁ¨ôy
+ = 
+TIM_ICPﬁ¨ôy_BŸhEdge
+;
+
+88 
+TIM_ICInôSåu˘uª
+.
+TIM_ICPªsˇÀr
+ = 
+TIM_ICPSC_DIV1
+;
+
+89 
+TIM_ICInôSåu˘uª
+.
+TIM_ICSñe˘i⁄
+ = 
+TIM_ICSñe˘i⁄_TRC
+;
+
+90 
+	`TIM_ICInô
+(
+TIM1
+, &
+TIM_ICInôSåu˘uª
+);
+
+91 
+	`TIM_ICInô
+(
+TIM3
+, &
+TIM_ICInôSåu˘uª
+);
+
+94 
+	`TIM_Cmd
+(
+TIM1
+, 
+ENABLE
+);
+
+95 
 	`TIM_Cmd
 (
 TIM3
@@ -86191,131 +86705,81 @@ TIM3
 ENABLE
 );
 
-88 
-	`c⁄f_pö
-(
-	`pö_id
-(
-PORTE
-,9), 2, 
-PUSH_PULL
-, 0, 
-PULL_UP
-);
-
-89 
-	`c⁄f_af
-(
-	`pö_id
-(
-PORTE
-,9), 
-AF1
-);
-
-90 
-	`c⁄f_pö
-(
-	`pö_id
-(
-PORTE
-,11), 2, 
-PUSH_PULL
-, 0, 
-PULL_UP
-);
-
-91 
-	`c⁄f_af
-(
-	`pö_id
-(
-PORTE
-,11), 
-AF1
-);
-
-92 
-	`timEncodîC⁄figuª
-(
-TIM1
-);
-
-93 
+101 
 	`ícodîsRe£t
 ();
 
-94 
+102 
 	}
 }
 
-97 
+105 
 	$ícodîsRe£t
  ()
 
-99 
+107 
 	`__dißbÀ_úq
 ();
 
-100 
+108 
 ﬁdLe·Encodî
  = 0;
 
-101 
+109 
 ﬁdRightEncodî
  = 0;
 
-102 
+110 
 À·TŸÆ
  = 0;
 
-103 
+111 
 rightTŸÆ
  = 0;
 
-104 
+112 
 fwdTŸÆ
  = 0;
 
-105 
+113 
 rŸTŸÆ
  = 0;
 
-106 
+114 
 	`TIM_SëCou¡î
  (
 TIM1
 , 0);
 
-107 
+115 
 	`TIM_SëCou¡î
  (
 TIM3
 , 0);
 
-108 
+116 
 	`ícodîsRód
 ();
 
-109 
+117 
 	`__íabÀ_úq
 ();
 
-110 
+118 
 	}
 }
 
-116 
+124 
 	$ícodîsRód
  ()
 
-118 
+126 
 ﬁdLe·Encodî
  = 
 À·Encodî
 ;
 
-119 
+127 
 À·Encodî
  = 
 	`TIM_GëCou¡î
@@ -86323,13 +86787,13 @@ TIM3
 TIM1
 ) ;
 
-120 
+128 
 ﬁdRightEncodî
  = 
 rightEncodî
 ;
 
-121 
+129 
 rightEncodî
  = -
 	`TIM_GëCou¡î
@@ -86337,7 +86801,7 @@ rightEncodî
 TIM3
 ) ;
 
-122 
+130 
 À·Cou¡
  = 
 À·Encodî
@@ -86345,7 +86809,7 @@ TIM3
 ﬁdLe·Encodî
 ;
 
-123 
+131 
 rightCou¡
  = 
 rightEncodî
@@ -86353,7 +86817,7 @@ rightEncodî
 ﬁdRightEncodî
 ;
 
-124 
+132 
 fwdCou¡
  = 
 À·Cou¡
@@ -86361,7 +86825,7 @@ fwdCou¡
 rightCou¡
 ;
 
-125 
+133 
 rŸCou¡
  = - (
 À·Cou¡
@@ -86369,31 +86833,31 @@ rŸCou¡
 rightCou¡
 );
 
-126 
+134 
 fwdTŸÆ
  +
 fwdCou¡
 ;
 
-127 
+135 
 rŸTŸÆ
  +
 rŸCou¡
 ;
 
-128 
+136 
 À·TŸÆ
  +
 À·Cou¡
 ;
 
-129 
+137 
 rightTŸÆ
  +
 rightCou¡
 ;
 
-130 
+138 
 	}
 }
 
@@ -86726,6 +87190,832 @@ ENABLE
 77 
 	}
 }
+
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\interapt.c
+
+1 
+	~"öãø±.h
+"
+
+3 
+robŸ°©e
+ 
+ãÀga
+;
+
+4 
+öt16_t
+ 
+À·Cou¡
+;
+
+5 
+öt16_t
+ 
+rightCou¡
+;
+
+7 
+	gcou¡î
+=1;
+
+8 
+	gcou¡î1
+=1;
+
+9 
+	gs
+ = 255;
+
+10 
+	g•
+ = 90;
+
+11 
+	ghÆl1
+=0;
+
+12 
+	ghÆl1_0
+=0;
+
+13 
+	ghÆl2
+=0;
+
+14 
+	ghÆl2_0
+=0;
+
+25 
+	$USART1_IRQH™dÀr
+(){
+
+27 i‡(
+	`USART_GëITSètus
+(
+USART1
+,
+USART_IT_TC
+))
+
+29 
+	`USART_CÀ¨ITPídögBô
+(
+USART1
+,
+USART_IT_TC
+);
+
+30 i‡(
+cou¡î
+ == 0)
+
+32 
+	`USART_SídD©a
+(
+USART1
+,(~
+s
+)& 0xFF);
+
+35 i‡(
+cou¡î
+ == 1)
+
+37 
+	`USART_SídD©a
+(
+USART1
+,(~
+s
+)& 0xFF);
+
+40 i‡(
+cou¡î
+ == 2)
+
+42 
+	`USART_SídD©a
+(
+USART1
+,256);
+
+44 i‡(
+cou¡î
+ == 3)
+
+46 
+	`USART_SídD©a
+(
+USART1
+ , 
+ãÀga
+.
+À·whìl
+.
+•ìdtoúcuô
+ & 0xFF);
+
+48 i‡(
+cou¡î
+ == 4)
+
+50 
+	`USART_SídD©a
+(
+USART1
+,(
+ãÀga
+.
+À·whìl
+.
+•ìdtoúcuô
+ >> 8) & 0xFF);
+
+52 i‡(
+cou¡î
+ == 5)
+
+54 
+	`USART_SídD©a
+(
+USART1
+,
+ãÀga
+.
+À·whìl
+.
+•ìdtoúcuô
+ & 0xFF);
+
+56 i‡(
+cou¡î
+ == 6)
+
+58 
+	`USART_SídD©a
+(
+USART1
+,(
+ãÀga
+.
+À·whìl
+.
+•ìdtoúcuô
+ >> 8) & 0xFF);
+
+60 i‡(
+cou¡î
+ == 7)
+
+62 
+	`USART_SídD©a
+(
+USART1
+,85);
+
+63 
+s
+--;
+
+64 i‡(
+s
+==0) {s=255;}
+
+68 
+cou¡î
+++;
+
+69 i‡(
+cou¡î
+>7)
+
+70 {
+cou¡î
+=0;}
+
+73 
+	}
+}
+
+75 
+	$USART6_IRQH™dÀr
+(){
+
+77 i‡–
+	`USART_GëITSètus
+(
+USART6
+, 
+USART_IT_TC
+))
+
+78 { 
+	`USART_CÀ¨ITPídögBô
+(
+USART6
+,
+USART_IT_TC
+);
+
+79 i‡(
+cou¡î1
+ == 0)
+
+81 
+	`USART_SídD©a
+(
+USART6
+,(~
+•
+)& 0xFF);
+
+83 i‡(
+cou¡î1
+ == 1)
+
+85 
+	`USART_SídD©a
+(
+USART6
+,(~
+•
+)& 0xFF);
+
+87 i‡(
+cou¡î1
+ == 2)
+
+89 
+	`USART_SídD©a
+(
+USART6
+,256);
+
+91 i‡(
+cou¡î1
+ == 3)
+
+93 
+	`USART_SídD©a
+(
+USART6
+,
+ãÀga
+.
+rightwhìl
+.
+•ìdtoúcuô
+ & 0xFF);
+
+95 i‡(
+cou¡î1
+ == 4)
+
+97 
+	`USART_SídD©a
+(
+USART6
+,(
+ãÀga
+.
+rightwhìl
+.
+•ìdtoúcuô
+ >> 8) & 0xFF);
+
+99 i‡(
+cou¡î1
+ == 5)
+
+101 
+	`USART_SídD©a
+(
+USART6
+,
+ãÀga
+.
+rightwhìl
+.
+•ìdtoúcuô
+ & 0xFF);
+
+103 i‡(
+cou¡î1
+ == 6)
+
+105 
+	`USART_SídD©a
+(
+USART6
+,(
+ãÀga
+.
+rightwhìl
+.
+•ìdtoúcuô
+ >> 8) & 0xFF);
+
+107 i‡(
+cou¡î1
+ == 7)
+
+109 
+	`USART_SídD©a
+(
+USART6
+,85);
+
+111 i‡(
+•
+==92) {sp=90;}
+
+112 {
+•
+=92;}
+
+114 
+cou¡î1
+++;
+
+115 i‡(
+cou¡î1
+>7)
+
+116 
+cou¡î1
+=0;
+
+119 
+	}
+}
+
+121 
+	$DMA2_Såóm0_IRQH™dÀr
+()
+
+124 if(
+	`DMA_GëITSètus
+(
+DMA2_Såóm0
+, 
+DMA_IT_HTIF0
+))
+
+127 
+	`DMA_CÀ¨ITPídögBô
+(
+DMA2_Såóm0
+, 
+DMA_IT_HTIF0
+);
+
+131 if(
+	`DMA_GëITSètus
+(
+DMA2_Såóm0
+, 
+DMA_IT_TCIF0
+))
+
+134 
+	`DMA_CÀ¨ITPídögBô
+(
+DMA2_Såóm0
+, 
+DMA_IT_TCIF0
+);
+
+136 
+	}
+}
+
+138 
+	$TIM6_DAC_IRQH™dÀr
+()
+
+140 i‡(
+	`TIM_GëITSètus
+(
+TIM6
+, 
+TIM_IT_Upd©e
+Ë!
+RESET
+)
+
+142 
+	`TIM_CÀ¨ITPídögBô
+(
+TIM6
+, 
+TIM_IT_Upd©e
+);
+
+143 
+	`ícodîsRód
+();
+
+144 
+ãÀga
+.
+À·whìl
+.
+•ìd
+ = 
+À·Cou¡
+*10 ;
+
+145 
+ãÀga
+.
+rightwhìl
+.
+•ìd
+ = -
+rightCou¡
+*10 ;
+
+146 
+	`pidLowLevñ1
+();
+
+147 
+	`checkposôi⁄
+();
+
+149 
+	}
+}
+
+151 
+	$TIM7_IRQH™dÀr
+()
+
+153 i‡(
+	`TIM_GëITSètus
+(
+TIM7
+, 
+TIM_IT_Upd©e
+Ë!
+RESET
+)
+
+155 
+	`TIM_CÀ¨ITPídögBô
+(
+TIM7
+, 
+TIM_IT_Upd©e
+);
+
+157 
+	}
+}
+
+160 
+	$TIM2_IRQH™dÀr
+()
+
+163 i‡(
+	`TIM_GëITSètus
+(
+TIM2
+, 
+TIM_IT_CC1
+Ë!
+RESET
+)
+
+165 
+	`TIM_CÀ¨ITPídögBô
+(
+TIM2
+, 
+TIM_IT_CC1
+);
+
+167 
+	}
+}
+
+170 
+	$rŸ©eMe
+ (*
+™gÀ
+) {
+
+171 i‡(
+ãÀga
+.
+å´kíabÀ
+ == 1){
+
+172 i‡(
+	`Ábs
+(*
+™gÀ
+) >0.01){
+
+173 
+ãÀga
+.
+À·whìl
+.
+èsk
+ = (*
+™gÀ
+)/360 * 
+PI
+ * 
+DISTANCEBTWWHEELS
+;
+
+174 
+ãÀga
+.
+rightwhìl
+.
+èsk
+ =Åñega.
+À·whìl
+.task;
+
+175 *
+™gÀ
+ =0;
+
+178 
+	}
+}
+
+181 
+	$GoF‹w¨d
+(*
+poöt
+)
+
+183 i‡(
+ãÀga
+.
+å´kíabÀ
+ == 1){
+
+184 i‡(
+	`Ábs
+(*
+poöt
+)>0.001){
+
+185 
+ãÀga
+.
+À·whìl
+.
+èsk
+ = (*
+poöt
+) ;
+
+186 
+ãÀga
+.
+rightwhìl
+.
+èsk
+ = -ãÀga.
+À·whìl
+.task ;
+
+187 *
+poöt
+=0;
+
+190 
+	}
+}
+
+192 
+	$checkposôi⁄
+()
+
+194 i‡(
+ãÀga
+.
+å´kíabÀ
+ == 1)
+
+196 
+ãÀga
+.
+À·whìl
+.
+èsk
+ -=
+À·Cou¡
+ * 
+WHEELDIAM
+ * 
+PI
+ / 
+TICKSPERROTATION
+;
+
+197 i‡(
+	`Ábs
+(
+ãÀga
+.
+À·whìl
+.
+èsk
+ )<=0.1)
+
+200 
+ªguœt‹Out
+[0] =0;
+
+202 
+ãÀga
+.
+rightwhìl
+.
+èsk
+ -=
+rightCou¡
+ * 
+WHEELDIAM
+ * 
+PI
+ / 
+TICKSPERROTATION
+;
+
+203 i‡(
+	`Ábs
+(
+ãÀga
+.
+rightwhìl
+.
+èsk
+ )<=0.1)
+
+206 
+ªguœt‹Out
+[1]=0;
+
+208 i‡(
+	`Ábs
+(
+ãÀga
+.
+À·whìl
+.
+èsk
+ ) >=0.1)
+
+210 i‡(
+	`Ábs
+(
+ªguœt‹Out
+[0])<20)
+
+211 
+ªguœt‹Out
+[0]+=((
+ãÀga
+.
+À·whìl
+.
+èsk
+ > 0) - (telega.leftwheel.task < 0)) *10;
+
+213 i‡(
+	`Ábs
+(
+ãÀga
+.
+rightwhìl
+.
+èsk
+ ) >=0.1)
+
+214 { i‡(
+	`Ábs
+(
+ªguœt‹Out
+[1])<20)
+
+215 
+ªguœt‹Out
+[1]+-((
+ãÀga
+.
+rightwhìl
+.
+èsk
+ > 0) - (telega.rightwheel.task < 0)) * 10;
+
+217 i‡((
+	`Ábs
+(
+ãÀga
+.
+À·whìl
+.
+èsk
+ ) >=0.1) & (fabs(telega.leftwheel.task ) <=0.1))
+
+218 { i‡(
+	`Ábs
+(
+ªguœt‹Out
+[0])<20)
+
+219 
+ªguœt‹Out
+[0]+=((
+ãÀga
+.
+À·whìl
+.
+èsk
+ > 0) - (telega.leftwheel.task < 0)) * 1;
+
+221 i‡((
+	`Ábs
+(
+ãÀga
+.
+rightwhìl
+.
+èsk
+ ) >=0.1) & (fabs(telega.rightwheel.task ) <=0.1 ))
+
+222 { i‡(
+	`Ábs
+(
+ªguœt‹Out
+[1])<20)
+
+223 
+ªguœt‹Out
+[1]=-((
+ãÀga
+.
+rightwhìl
+.
+èsk
+ > 0) - (telega.rightwheel.task < 0)) * 1;
+
+225 i‡((
+	`Ábs
+(
+ãÀga
+.
+À·whìl
+.
+èsk
+ )<=0.1Ë&(Ábs—ñega.
+rightwhìl
+.èsk )<=0.1)Ë{ãÀga.
+ªady
+ = 1;}
+
+226 i‡((
+	`Ábs
+(
+ãÀga
+.
+À·whìl
+.
+èsk
+ )>0.1Ë| (Ábs—ñega.
+rightwhìl
+.èsk )>0.1)Ë{ãÀga.
+ªady
+ = 0;}
+
+228 
+	}
+}
+
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\kinematics.c
+
+1 
+	gMLöeS≥ed
+[4][3] = { 1, 0.0, 0.0,
+
+5 
+	gMRŸS≥ed
+[4][3] = { 0.0, 0.0, -0.1 ,
+
+18 
+	gInvî£Köem©ics
+[4][4] =
 
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\arm_common_tables.h
 
@@ -110231,6 +111521,218 @@ DMA_C⁄figuøti⁄
 DMA_C⁄figuøti⁄_√w
 ();
 
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\PID.h
+
+1 #i‚de‡
+PID_H
+
+
+2 
+	#PID_H
+
+
+	)
+
+4 
+	~"°m32f4xx.h
+"
+
+5 
+	gªguœt‹Out
+[2];
+
+6 
+	gmŸ‹S≥ed
+[2];
+
+9 
+	m•ìd
+;
+
+10 
+	mdú
+;
+
+11 
+	mdi°™˚
+;
+
+12 
+	m•ìdtoúcuô
+;
+
+13 
+	mèsk
+;
+
+14 } 
+	twhìl
+;
+
+17 
+	mpidíabÀ
+;
+
+18 
+	må´kíabÀ
+;
+
+19 
+	m•ìd
+[2];
+
+20 
+whìl
+ 
+	mÀ·whìl
+;
+
+21 
+whìl
+ 
+	mrightwhìl
+;
+
+22 
+	m˚¡î
+[3];
+
+23 
+	mèsk
+[3];
+
+24 
+	mªady
+;
+
+25 } 
+	trobŸ°©e
+;
+
+28 
+	mçs
+;
+
+29 
+	mí•ìd
+;
+
+30 
+	mdi°™˚
+;
+
+31 } 
+	tícodîSåu˘
+;
+
+34 
+	mwhì umbî
+;
+
+35 
+ícodîSåu˘
+ 
+	mícodî
+;
+
+36 } 
+	twhìlSåu˘
+;
+
+43 
+	mp_k
+;
+
+44 
+	mi_k
+;
+
+45 
+	md_k
+;
+
+46 
+	mèrgë
+;
+
+47 
+	mcuºít
+;
+
+48 
+	m¥ev_îr‹
+;
+
+49 
+	msum_îr‹
+;
+
+50 
+	mmax_sum_îr‹
+;
+
+51 
+	mmax_ouçut
+;
+
+52 
+	mmö_ouçut
+;
+
+53 
+	mcut_ouçut
+;
+
+54 
+	mouçut
+;
+
+55 
+	mpid_⁄
+;
+
+56 
+	mpid_föish
+;
+
+57 
+	mîr‹_dú
+;
+
+58 
+	mpid_îr‹_íd
+;
+
+59 
+	mpid_ouçut_íd
+;
+
+60 } 
+	tPidSåu˘
+;
+
+62 
+PidSåu˘
+ 
+	gwhìlsPidSåu˘
+[2];
+
+64 
+öôReguœt‹s1
+();
+
+65 
+pidLowLevñ1
+();
+
+66 
+pidCÆc1
+(
+PidSåu˘
+ *
+pid_c⁄åﬁ
+);
+
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\TIM.h
 
 2 #i‚de‡
@@ -111123,9 +112625,95 @@ HALL_H
 	~"°m32f4xx.h
 "
 
-5 
+8 
 InôhÆl
 ();
+
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\interapt.h
+
+1 #i‚de‡
+INTERA_H
+
+
+2 
+	#INTERA_H
+
+
+	)
+
+3 
+	~"°m32f4xx.h
+"
+
+4 
+	~"PID.h
+"
+
+12 
+	#WHEELDIAM
+ 0.19
+
+	)
+
+13 
+	#TICKSPERROTATION
+ 3400
+
+	)
+
+14 
+	#PI
+ 3.1415926535897932384626433832795
+
+	)
+
+15 
+	#DISTANCEBTWWHEELS
+ 0.73
+
+	)
+
+17 
+USART1_IRQH™dÀr
+();
+
+18 
+USART6_IRQH™dÀr
+();
+
+19 
+DMA2_Såóm0_IRQH™dÀr
+();
+
+20 
+TIM6_DAC_IRQH™dÀr
+();
+
+21 
+TIM7_IRQH™dÀr
+();
+
+22 
+TIM2_IRQH™dÀr
+();
+
+23 
+rŸ©eMe
+ (*
+™gÀ
+);
+
+24 
+GoF‹w¨d
+(*
+poöt
+);
+
+25 
+checkposôi⁄
+();
+
+	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\kinematics.h
 
 	@C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\main.h
 
@@ -159813,13 +161401,13 @@ ORIGIN
 	~"USART.h
 "
 
-16 
-	#MAX_STRLEN
- 12
+15 
+	~"PID.h
+"
 
-17 
-
-	)
+16 
+	~"öãø±.h
+"
 
 18 
 	#MAX_STRLEN
@@ -159829,123 +161417,99 @@ ORIGIN
 
 	)
 
-21 vﬁ©ûê
-	gª˚ived_°rög
-[
-MAX_STRLEN
-+1];
+20 
+	#MAX_STRLEN
+ 12
 
-22 
+21 
+
+	)
+
+22 
+	gdi°™˚
+[2] = {0,0};
+
+23 
+robŸ°©e
+ 
+ãÀga
+;
+
+24 
+	gèskrŸ
+ = 0;
+
+25 
+	gèskmove
+ = 0;
+
+26 
+	gªguœt‹bŸh
+=0;
+
+29 
+	gpidÊag
+ = 0;
+
+30 
 uöt32_t
  
 	gmu…ùlõr
 ;
 
-23 
-	gcou¡î
-=0;
+38 
+	m˚¡î
+ [3];
 
-24 
-	gcou¡î1
-=0;
+39 (*
+	mmovTask
+)();
 
-25 
-	g•ìd
-=0;
+40 (*
+	mídTask
+)();
 
-26 
-	g•ìd1
-=0;
+41 
+	mídTaskP1
+;
 
-27 
-	gs
- = 255;
+42 (*
+	m•ìdVñTùe
+);
 
-28 
-	g•
- = 90;
+43 (*
+	m•ìdRŸTùe
+);
 
-29 
-	ghÆl1
-=0;
+44 
+	m°ï
+;
 
-30 
-	ghÆl1_0
-=0;
+45 
+	mÀngthTø˚
+;
 
-31 
-	ghÆl2
-=0;
+46 }
+	t∑thPoötSå
+;
 
-32 
-	ghÆl2_0
-=0;
-
-33 
-	gdúe˘i⁄
- = 0;
-
-34 
-	gÊag
- = 0;
-
-35 
-	gLa°_tick
-=0;
-
-36 
-	g∑s£d_tick
- = 0 ;
-
-37 
-	gèsk
-=0;
-
-38 
-	gèsk_•ìd
- = 0;
-
-39 
-	g•ìadc1
- = 0;
-
-40 
-	g•ìadc2
- = 0;
-
-41 
-	g•ìadc3
- = 0;
-
-42 
-	gÊag_ã°•ìd
-=0;
-
-43 
-	gÊag_°›•ìd
-=0;
-
-44 
-	gtimëe°•ìd
- = 0;
-
-46 
+50 
 	$TM_Dñay_Inô
 () {
 
-47 
+51 
 RCC_ClocksTy≥Def
  
 RCC_Clocks
 ;
 
-50 
+54 
 	`RCC_GëClocksFªq
 (&
 RCC_Clocks
 );
 
-54 
+58 
 mu…ùlõr
  = 
 RCC_Clocks
@@ -159953,11 +161517,11 @@ RCC_Clocks
 HCLK_Fªquícy
  / 4000000;
 
-55 
+59 
 	}
 }
 
-57 
+61 
 	$TM_DñayMi¸os
 (
 uöt32_t
@@ -159965,21 +161529,21 @@ uöt32_t
 mi¸os
 ) {
 
-60 
+64 
 mi¸os
  = mi¸o†* 
 mu…ùlõr
  - 10;
 
-62 
+66 
 mi¸os
 --);
 
-63 
+67 
 	}
 }
 
-65 
+69 
 	$TM_DñayMûlis
 (
 uöt32_t
@@ -159987,21 +161551,21 @@ uöt32_t
 mûlis
 ) {
 
-68 
+72 
 mûlis
  = 1000 * mûli†* 
 mu…ùlõr
  - 10;
 
-70 
+74 
 mûlis
 --);
 
-71 
+75 
 	}
 }
 
-73 
+77 
 	$Dñay
 (
 __IO
@@ -160011,19 +161575,19 @@ uöt32_t
 nCou¡
 ) {
 
-74 
+78 
 nCou¡
 --) {
 
-76 
+80 
 	}
 }
 
-82 
+86 
 	$RCC_C⁄figuøti⁄
 ()
 
-90 
+88 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_CRC
@@ -160031,7 +161595,7 @@ RCC_AHB1Pîùh_CRC
 ENABLE
 );
 
-91 
+89 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_GPIOA
@@ -160039,7 +161603,7 @@ RCC_AHB1Pîùh_GPIOA
 ENABLE
 );
 
-92 
+90 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_GPIOB
@@ -160047,7 +161611,7 @@ RCC_AHB1Pîùh_GPIOB
 ENABLE
 );
 
-93 
+91 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_GPIOC
@@ -160055,7 +161619,7 @@ RCC_AHB1Pîùh_GPIOC
 ENABLE
 );
 
-94 
+92 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_GPIOD
@@ -160063,7 +161627,7 @@ RCC_AHB1Pîùh_GPIOD
 ENABLE
 );
 
-95 
+93 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_GPIOE
@@ -160071,7 +161635,7 @@ RCC_AHB1Pîùh_GPIOE
 ENABLE
 );
 
-97 
+95 
 	`RCC_APB2PîùhClockCmd
 (
 RCC_APB2Pîùh_TIM1
@@ -160079,7 +161643,7 @@ RCC_APB2Pîùh_TIM1
 ENABLE
 );
 
-98 
+96 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM2
@@ -160087,7 +161651,7 @@ RCC_APB1Pîùh_TIM2
 ENABLE
 );
 
-99 
+97 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM3
@@ -160095,7 +161659,7 @@ RCC_APB1Pîùh_TIM3
 ENABLE
 );
 
-100 
+98 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM4
@@ -160103,7 +161667,7 @@ RCC_APB1Pîùh_TIM4
 ENABLE
 );
 
-101 
+99 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM5
@@ -160111,7 +161675,7 @@ RCC_APB1Pîùh_TIM5
 ENABLE
 );
 
-102 
+100 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM6
@@ -160119,7 +161683,7 @@ RCC_APB1Pîùh_TIM6
 ENABLE
 );
 
-103 
+101 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM7
@@ -160127,7 +161691,7 @@ RCC_APB1Pîùh_TIM7
 ENABLE
 );
 
-104 
+102 
 	`RCC_APB2PîùhClockCmd
 (
 RCC_APB2Pîùh_TIM8
@@ -160135,7 +161699,7 @@ RCC_APB2Pîùh_TIM8
 ENABLE
 );
 
-105 
+103 
 	`RCC_APB2PîùhClockCmd
 (
 RCC_APB2Pîùh_TIM9
@@ -160143,7 +161707,7 @@ RCC_APB2Pîùh_TIM9
 ENABLE
 );
 
-106 
+104 
 	`RCC_APB2PîùhClockCmd
 (
 RCC_APB2Pîùh_TIM10
@@ -160151,7 +161715,7 @@ RCC_APB2Pîùh_TIM10
 ENABLE
 );
 
-107 
+105 
 	`RCC_APB2PîùhClockCmd
 (
 RCC_APB2Pîùh_TIM11
@@ -160159,7 +161723,7 @@ RCC_APB2Pîùh_TIM11
 ENABLE
 );
 
-108 
+106 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM12
@@ -160167,7 +161731,7 @@ RCC_APB1Pîùh_TIM12
 ENABLE
 );
 
-109 
+107 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_TIM13
@@ -160175,7 +161739,7 @@ RCC_APB1Pîùh_TIM13
 ENABLE
 );
 
-110 
+108 
 	`RCC_APB2PîùhClockCmd
 (
 RCC_APB2Pîùh_ADC1
@@ -160183,7 +161747,7 @@ RCC_APB2Pîùh_ADC1
 ENABLE
 );
 
-113 
+111 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB2Pîùh_USART1
@@ -160191,7 +161755,7 @@ RCC_APB2Pîùh_USART1
 ENABLE
 );
 
-114 
+112 
 	`RCC_APB1PîùhClockCmd
 (
 RCC_APB1Pîùh_USART3
@@ -160199,7 +161763,7 @@ RCC_APB1Pîùh_USART3
 ENABLE
 );
 
-116 
+114 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_DMA1
@@ -160207,7 +161771,7 @@ RCC_AHB1Pîùh_DMA1
 ENABLE
 );
 
-117 
+115 
 	`RCC_AHB1PîùhClockCmd
 (
 RCC_AHB1Pîùh_DMA2
@@ -160215,7 +161779,7 @@ RCC_AHB1Pîùh_DMA2
 ENABLE
 );
 
-119 
+117 
 	`RCC_APB2PîùhClockCmd
 (
 RCC_APB2Pîùh_SYSCFG
@@ -160223,21 +161787,21 @@ RCC_APB2Pîùh_SYSCFG
 ENABLE
 );
 
-120 
+118 
 	}
 }
 
-121 
+119 
 	$GPIO_C⁄figuøti⁄
 ()
 
-123 
+121 
 GPIO_InôTy≥Def
  
 GPIO_InôSåu˘uª
 ;
 
-124 
+122 
 GPIO_InôSåu˘uª
 .
 GPIO_Pö
@@ -160247,7 +161811,7 @@ GPIO_Pö_2
 GPIO_Pö_1
 ;
 
-125 
+123 
 GPIO_InôSåu˘uª
 .
 GPIO_Mode
@@ -160255,7 +161819,7 @@ GPIO_Mode
 GPIO_Mode_AN
 ;
 
-126 
+124 
 GPIO_InôSåu˘uª
 .
 GPIO_PuPd
@@ -160263,7 +161827,7 @@ GPIO_PuPd
 GPIO_PuPd_NOPULL
  ;\
 
-127 
+125 
 	`GPIO_Inô
 (
 GPIOC
@@ -160271,21 +161835,21 @@ GPIOC
 GPIO_InôSåu˘uª
 );
 
-128 
+126 
 	}
 }
 
-130 
+128 
 	$NVIC_C⁄figuøti⁄
 ()
 
-132 
+130 
 NVIC_InôTy≥Def
  
 NVIC_InôSåu˘uª
 ;
 
-135 
+133 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√l
@@ -160293,19 +161857,19 @@ NVIC_IRQCh™√l
 DMA2_Såóm0_IRQn
 ;
 
-136 
+134 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√lPªem±i⁄Pri‹ôy
  = 0;
 
-137 
+135 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√lSubPri‹ôy
  = 0;
 
-138 
+136 
 NVIC_InôSåu˘uª
 .
 NVIC_IRQCh™√lCmd
@@ -160313,821 +161877,87 @@ NVIC_IRQCh™√lCmd
 ENABLE
 ;
 
-139 
+137 
 	`NVIC_Inô
 (&
 NVIC_InôSåu˘uª
 );
 
-140 
+138 
 	}
 }
 
-144 
+141 
 	$maö
 () {
 
-146 
+142 
+	`öôReguœt‹s1
+();
+
+143 
 	`RCC_C⁄figuøti⁄
 ();
 
-147 
+144 
 	`GPIO_C⁄figuøti⁄
 ();
 
-148 
+145 
 	`NVIC_C⁄figuøti⁄
 ();
 
-149 
+146 
 	`TIM6_C⁄fig
 ();
 
-150 
+147 
 	`TIM7_C⁄fig
 ();
 
-152 
+149 
 	`InôhÆl
 ();
 
-153 
+150 
 	`DMA_C⁄figuøti⁄_√w
 ();
 
-154 
+151 
 	`ADC_C⁄figuøti⁄_√w
 ();
 
-157 
+153 
 	`öô_USART1_1
 (27500*3);
 
-158 
+154 
 	`öô_USART6_1
 (27500*3);
 
-159 
+155 
 	`ícodîsInô
 ();
 
-162 
-•ìd
- = -0;
-
-163 
-•ìd1
- = -0;
-
-164 
-èsk
- = 16;
-
-165 
-Êag
- = 1;
-
-168 i‡(
-Êag_ã°•ìd
-Ë{
-	`£t•ìd
-(
-timëe°•ìd
+158 {
+	`rŸ©eMe
+(&
+èskrŸ
 );}
 
-169 i‡(
-Êag_°›•ìd
-Ë{
-	`°›•ìd
-(
-timëe°•ìd
+159 {
+	`GoF‹w¨d
+(&
+èskmove
 );}
 
-171 
-	}
-}
-
-176 
-	gk
- =0;
-
-177 
-	gkk
- =0;
-
-181 
-	$USART1_IRQH™dÀr
-(){
-
-183 i‡(
-	`USART_GëITSètus
-(
-USART1
-,
-USART_IT_TC
-))
-
-185 
-	`USART_CÀ¨ITPídögBô
-(
-USART1
-,
-USART_IT_TC
-);
-
-186 i‡(
-cou¡î
- == 0)
-
-188 
-	`USART_SídD©a
-(
-USART1
-,(~
-s
-)& 0xFF);
-
-198 i‡(
-cou¡î
- == 1)
-
-200 
-	`USART_SídD©a
-(
-USART1
-,(~
-s
-)& 0xFF);
-
-202 i‡(
-cou¡î
- == 2)
-
-204 
-	`USART_SídD©a
-(
-USART1
-,256);
-
-206 i‡(
-cou¡î
- == 3)
-
-208 
-	`USART_SídD©a
-(
-USART1
-,
+160 
+ãÀga
+.
 •ìd
- & 0xFF);
+[0]=telega.speed[0];
 
-210 i‡(
-cou¡î
- == 4)
-
-212 
-	`USART_SídD©a
-(
-USART1
-,(
-•ìd
- >> 8) & 0xFF);
-
-214 i‡(
-cou¡î
- == 5)
-
-216 
-	`USART_SídD©a
-(
-USART1
-,
-•ìd
- & 0xFF);
-
-218 i‡(
-cou¡î
- == 6)
-
-220 
-	`USART_SídD©a
-(
-USART1
-,(
-•ìd
- >> 8) & 0xFF);
-
-222 i‡(
-cou¡î
- == 7)
-
-224 
-	`USART_SídD©a
-(
-USART1
-,85);
-
-225 
-s
---;
-
-226 i‡(
-s
-==0Ë{s=255; 
-k
-++;}
-
-227 i‡(
-k
- ==9) k=0;
-
-230 
-cou¡î
-++;
-
-231 i‡(
-cou¡î
->7)
-
-232 {
-cou¡î
-=0;}
-
-235 
-	}
-}
-
-237 
-	$USART6_IRQH™dÀr
-(){
-
-239 i‡–
-	`USART_GëITSètus
-(
-USART6
-, 
-USART_IT_TC
-))
-
-240 { 
-	`USART_CÀ¨ITPídögBô
-(
-USART6
-,
-USART_IT_TC
-);
-
-241 i‡(
-cou¡î1
- == 0)
-
-243 
-	`USART_SídD©a
-(
-USART6
-,(~
-•
-)& 0xFF);
-
-248 i‡(
-cou¡î1
- == 1)
-
-250 
-	`USART_SídD©a
-(
-USART6
-,(~
-•
-)& 0xFF);
-
-252 i‡(
-cou¡î1
- == 2)
-
-254 
-	`USART_SídD©a
-(
-USART6
-,256);
-
-256 i‡(
-cou¡î1
- == 3)
-
-258 
-	`USART_SídD©a
-(
-USART6
-,
-•ìd1
- & 0xFF);
-
-260 i‡(
-cou¡î1
- == 4)
-
-262 
-	`USART_SídD©a
-(
-USART6
-,(
-•ìd1
- >> 8) & 0xFF);
-
-264 i‡(
-cou¡î1
- == 5)
-
-266 
-	`USART_SídD©a
-(
-USART6
-,
-•ìd1
- & 0xFF);
-
-268 i‡(
-cou¡î1
- == 6)
-
-270 
-	`USART_SídD©a
-(
-USART6
-,(
-•ìd1
- >> 8) & 0xFF);
-
-272 i‡(
-cou¡î1
- == 7)
-
-274 
-	`USART_SídD©a
-(
-USART6
-,85);
-
-276 i‡(
-•
-==92) {sp=90;}
-
-277 {
-•
-=92;}
-
-280 
-cou¡î1
-++;
-
-281 i‡(
-cou¡î1
->7)
-
-282 
-cou¡î1
-=0;
-
-285 
-	}
-}
-
-287 
-	$DMA2_Såóm0_IRQH™dÀr
-()
-
-290 if(
-	`DMA_GëITSètus
-(
-DMA2_Såóm0
-, 
-DMA_IT_HTIF0
-))
-
-293 
-	`DMA_CÀ¨ITPídögBô
-(
-DMA2_Såóm0
-, 
-DMA_IT_HTIF0
-);
-
-301 if(
-	`DMA_GëITSètus
-(
-DMA2_Såóm0
-, 
-DMA_IT_TCIF0
-))
-
-304 
-	`DMA_CÀ¨ITPídögBô
-(
-DMA2_Såóm0
-, 
-DMA_IT_TCIF0
-);
-
-306 
-	}
-}
-
-307 
-	gwhìl•ìdÀ·
- = 0;
-
-308 
-	gwhìl•ìdright
- = 0;
-
-311 
-	$TIM6_DAC_IRQH™dÀr
-()
-
-313 i‡(
-	`TIM_GëITSètus
-(
-TIM6
-, 
-TIM_IT_Upd©e
-Ë!
-RESET
-)
-
-315 
-	`TIM_CÀ¨ITPídögBô
-(
-TIM6
-, 
-TIM_IT_Upd©e
-);
-
-316 
-	`ícodîsRód
-();
-
-317 
-whìl•ìdÀ·
- = 
-À·Cou¡
- *6/17*10;
-
-318 
-whìl•ìdright
- = 
-rightCou¡
- * 6/17*10;
-
-319 
-whìl•ìdÀ·
->
-	`abs
-(350Ë| 
-whìl•ìdright
->abs(350) )
-
-321 
-•ìd
- = 20;
-
-322 
-•ìd1
- = 20;
-
-323 
-	`ícodîsRód
-();
-
-324 
-whìl•ìdÀ·
- = 
-À·Cou¡
- *6/17*10;
-
-325 
-whìl•ìdright
- = 
-rightCou¡
- * 6/17*10;
-
-328 
-	}
-}
-
-330 
-	$TIM7_IRQH™dÀr
-()
-
-332 i‡(
-	`TIM_GëITSètus
-(
-TIM7
-, 
-TIM_IT_Upd©e
-Ë!
-RESET
-)
-
-335 
-	`TIM_CÀ¨ITPídögBô
-(
-TIM7
-, 
-TIM_IT_Upd©e
-);
-
-360 
-	}
-}
-
-363 
-	$TIM2_IRQH™dÀr
-()
-
-366 i‡(
-	`TIM_GëITSètus
-(
-TIM2
-, 
-TIM_IT_CC1
-Ë!
-RESET
-)
-
-368 
-•ìadc3
- = 
-TIM2
-->
-CCR1
-;
-
-369 
-•ìadc2
- = 
-TIM2
-->
-CCR2
-;
-
-370 
-hÆl1_0
- = 
-hÆl1
-;
-
-371 
-hÆl1
- = 
-	`GPIO_RódI≈utD©aBô
-(
-GPIOA
-,
-GPIO_Pö_0
-);
-
-372 
-hÆl2_0
- = 
-hÆl2
-;
-
-373 
-hÆl2
- = 
-	`GPIO_RódI≈utD©aBô
-(
-GPIOA
-,
-GPIO_Pö_1
-);
-
-374 i‡(
-hÆl1
-!=
-hÆl1_0
-)
-
-376 i‡(
-hÆl1
- == 1)
-
-378 i‡(
-hÆl2
- ==0Ë{
-dúe˘i⁄
- = 1;}
-
-379 {
-dúe˘i⁄
- =-1;}
-
-384 i‡(
-hÆl1
-==1) {
-
-392 
-	`TIM_CÀ¨ITPídögBô
-(
-TIM2
-, 
-TIM_IT_CC1
-);
-
-395 i‡(!
-Êag
-) {
-
-400 
-∑s£d_tick
-=passed_tick+ 1;
-
-401 
-•ìd1
- = 
-èsk_•ìd
-;
-
-404 i‡(
-∑s£d_tick
- >
-èsk
-+1) {
-
-406 
-Êag
- = 0;
-
-407 
-∑s£d_tick
-=0;}
-
-409 
-	}
-}
-
-413 
-	gœ°_s
- = 0;
-
-414 
-	gœ°_•
- = 0;
-
-416 
-	$£t•ìd
-(
-numbî
-){
-
-417 
-numbî_˛⁄e
- = 
-numbî
-;
-
-418 
-numbî
->0 & 
-numbî_˛⁄e
->0)
-
-420 i‡(
-numbî
->0)
-
-422 i‡(
-œ°_s
- !=
-s
-Ë{
-numbî
---; 
-•ìd
- = 100;}
-
-423 
-œ°_s
- = 
-s
-;
-
-425 i‡(
-numbî_˛⁄e
->0){
-
-426 i‡(
-œ°_•
- !=
-•
-)
-
-428 
-numbî_˛⁄e
---;
-
-429 
-•ìd1
- = -100;
-
-430 } 
-œ°_•
-
-•
-;
-
-434 
-•ìd
-=0;
-
-435 
-•ìd1
-=0;
-
-436 
-Êag_ã°•ìd
- = 0;
-
-437 
-	}
-}
-
-439 
-	$°›•ìd
-(
-numbî
-){
-
-440 
-numbî_˛⁄e
- = 
-numbî
-;
-
-441 
-numbî
->0 & 
-numbî_˛⁄e
->0)
-
-443 i‡(
-numbî
->0)
-
-445 i‡(
-œ°_s
- !=
-s
-Ë{
-numbî
---; 
-•ìd
- = -100;}
-
-446 
-œ°_s
- = 
-s
-;
-
-448 i‡(
-numbî_˛⁄e
->0){
-
-449 i‡(
-œ°_•
- !=
-•
-)
-
-451 
-numbî_˛⁄e
---;
-
-452 
-•ìd1
- = 100;
-
-453 } 
-œ°_•
-
-•
-;
-
-457 
-•ìd
-=0;
-
-458 
-•ìd1
-=0;
-
-459 
-Êag_°›•ìd
- = 0;
-
-460 
+167 
 	}
 }
 
@@ -164631,8 +165461,8 @@ __HópLimô
 1
 .
 0
-85
-7142
+91
+7604
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\misc.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\stm32f4xx_adc.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\inc\stm32f4xx_can.h
@@ -164692,10 +165522,13 @@ C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\src\stm32f4xx_
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\SPL\src\stm32f4xx_wwdg.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\ADC.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\DMA.c
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\PID.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\TIM.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\USART.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\encoders.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\hall.c
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\interapt.c
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\board\kinematics.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\arm_common_tables.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\arm_math.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\core_cm4.h
@@ -164703,10 +165536,13 @@ C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\core_cm4_sim
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\core_cmFunc.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\cmsis\core_cmInstr.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\DMA.h
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\PID.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\TIM.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\encoders.c
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\encoders.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\hall.h
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\interapt.h
+C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\kinematics.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\main.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\stm32f4xx.h
 C:\Users\Alex\Documents\robocvproject\stm\encoder_const_speed\inc\stm32f4xx_conf.h

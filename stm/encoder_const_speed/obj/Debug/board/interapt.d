@@ -12,4 +12,4 @@ obj\debug\board\interapt.o: board\interapt.c inc/interapt.h \
  SPL\inc/stm32f4xx_rng.h SPL\inc/stm32f4xx_rtc.h SPL\inc/stm32f4xx_sdio.h \
  SPL\inc/stm32f4xx_spi.h SPL\inc/stm32f4xx_syscfg.h \
  SPL\inc/stm32f4xx_tim.h SPL\inc/stm32f4xx_usart.h \
- SPL\inc/stm32f4xx_wwdg.h SPL\inc/misc.h inc/PID.h
+ SPL\inc/stm32f4xx_wwdg.h SPL\inc/misc.h inc/PID.h inc/TIM.h
