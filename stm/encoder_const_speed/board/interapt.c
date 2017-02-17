@@ -14,53 +14,48 @@ int hall1_0=0;
 int hall2=0;
 int hall2_0=0;
 
-
-
-
-
-
-
-
-
-
 void USART1_IRQHandler(void){
+counter = counter;
+USART_ClearITPendingBit(USART1,USART_IT_TC);
+}
+void USART2_IRQHandler(void){
 	// check if the USART1 receive interrupt flag was set
-	if (USART_GetITStatus(USART1,USART_IT_TC))
+	if (USART_GetITStatus(USART2,USART_IT_TC))
     {
-         USART_ClearITPendingBit(USART1,USART_IT_TC);
+         USART_ClearITPendingBit(USART2,USART_IT_TC);
         if (counter == 0)
         {
-            USART_SendData(USART1,(~s)& 0xFF);
+            USART_SendData(USART2,(~s)& 0xFF);
 
         }
         if (counter == 1)
         {
-            USART_SendData(USART1,(~s)& 0xFF);
+            USART_SendData(USART2,(~s)& 0xFF);
 
         }
         if (counter == 2)
         {
-            USART_SendData(USART1,256);
+            USART_SendData(USART2,256);
         }
         if (counter == 3)
         {
-            USART_SendData(USART1 , telega.leftwheel.speedtoircuit & 0xFF);
+            USART_SendData(USART2 , telega.leftwheel.speedtoircuit & 0xFF);
         }
         if (counter == 4)
         {
-            USART_SendData(USART1,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
+            USART_SendData(USART2,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
         }
         if (counter == 5)
         {
-            USART_SendData(USART1,telega.leftwheel.speedtoircuit & 0xFF);
+            USART_SendData(USART2,telega.leftwheel.speedtoircuit & 0xFF);
         }
         if (counter == 6)
         {
-            USART_SendData(USART1,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
+            USART_SendData(USART2,(telega.leftwheel.speedtoircuit >> 8) & 0xFF);
         }
         if (counter == 7)
         {
-            USART_SendData(USART1,85);
+            USART_SendData(USART2,85);
              s--;
             if (s==0) {s=255;}
             //if (k ==9) k=0;

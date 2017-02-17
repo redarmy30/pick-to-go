@@ -1,0 +1,2318 @@
+# depslib dependency file v1.0
+1481359984 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\adc.c
+	"adc.h"
+	"math.h"
+	"stm32f4xx.h"
+	"robot.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\adc.h
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\stm32f4xx.h
+	"core_cm4.h"
+	"system_stm32f4xx.h"
+	<stdint.h>
+	"stm32f4xx_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\system_stm32f4xx.h
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\stm32f4xx_conf.h
+	"stm32f4xx_adc.h"
+	"stm32f4xx_can.h"
+	"stm32f4xx_crc.h"
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_dac.h"
+	"stm32f4xx_dbgmcu.h"
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_dma.h"
+	"stm32f4xx_exti.h"
+	"stm32f4xx_flash.h"
+	"stm32f4xx_fsmc.h"
+	"stm32f4xx_hash.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_iwdg.h"
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rtc.h"
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_spi.h"
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_tim.h"
+	"stm32f4xx_usart.h"
+	"stm32f4xx_wwdg.h"
+	"misc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_adc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_can.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_crc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_cryp.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_dac.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_dbgmcu.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_dcmi.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_dma.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_exti.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_flash.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_fsmc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_hash.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_gpio.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_i2c.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_iwdg.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_pwr.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_rcc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_rng.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_rtc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_sdio.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_spi.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_syscfg.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_tim.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_usart.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_wwdg.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\misc.h
+	"stm32f4xx.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\robot.h
+	"Communication.h"
+	"gpio.h"
+	<stdbool.h>
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\communication.h
+	"robot.h"
+	"usbd_conf.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usbd_conf.h
+	"usb_conf.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usb_conf.h
+	"stm322xg_eval.h"
+	"stm322xg_eval_lcd.h"
+	"stm32f4xx.h"
+	"stm32f4xx.h"
+	"stm324x9i_eval.h"
+	"stm324x9i_eval_lcd.h"
+	"stm32f10x.h"
+	"stm3210c_eval.h"
+	"stm3210c_eval_lcd.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\gpio.h
+	"stm32f4xx.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_conf.h"
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\board.c
+	"Board.h"
+	"stm32f4xx.h"
+	"Pins.h"
+	"i2c.h"
+	"Interrupts.h"
+	"usart.h"
+	"tim.h"
+	"adc.h"
+	"Regulator.h"
+	"Manipulators.h"
+	"Dynamixel_control.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\board.h
+	"stdint.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\pins.h
+	"gpio.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\i2c.h
+	"stm32f4xx.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\interrupts.h
+	"stm32f4xx.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\usart.h
+	"stm32f4xx.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\tim.h
+	"stm32f4xx.h"
+
+1481363823 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\regulator.h
+	"stm32f4xx.h"
+	"Path.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\path.h
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\manipulators.h
+	<stdbool.h>
+	<stdint.h>
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\dynamixel_control.h
+	<inttypes.h>
+	<stdbool.h>
+	<stdlib.h>
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\interrupts.c
+	"Interrupts.h"
+	"gpio.h"
+	"Regulator.h"
+	"Path.h"
+	"Pins.h"
+	<math.h>
+	"usart.h"
+	"robot.h"
+	"board.h"
+	"Manipulators.h"
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\tim.c
+	"tim.h"
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\board\usart.c
+	"usart.h"
+	"Dynamixel_control.h"
+	"robot.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\cdc\src\usbd_cdc_core.c
+	"usbd_cdc_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\cdc\inc\usbd_cdc_core.h
+	"usbd_ioreq.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usbd_ioreq.h
+	"usbd_def.h"
+	"usbd_core.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usbd_def.h
+	"usbd_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usbd_core.h
+	"usb_dcd.h"
+	"usbd_def.h"
+	"usbd_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usb_dcd.h
+	"usb_core.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usb_core.h
+	"usb_conf.h"
+	"usb_regs.h"
+	"usb_defines.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usb_regs.h
+	"usb_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usb_defines.h
+	"usb_conf.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usbd_desc.h
+	"usbd_req.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usbd_req.h
+	"usbd_def.h"
+	"usbd_core.h"
+	"usbd_conf.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\src\usb_core.c
+	"usb_core.h"
+	"usb_bsp.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usb_bsp.h
+	"usb_core.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\src\usb_dcd.c
+	"usb_dcd.h"
+	"usb_bsp.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\src\usb_dcd_int.c
+	"usb_dcd_int.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usb_dcd_int.h
+	"usb_dcd.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\src\usbd_core.c
+	"usbd_core.h"
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usb_dcd_int.h"
+	"usb_bsp.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\src\usbd_ioreq.c
+	"usbd_ioreq.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\src\usbd_req.c
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usbd_desc.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\communication.c
+	"Communication.h"
+	"stdint.h"
+	"robot.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\dynamixel_control.c
+	"stm32f4xx_conf.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_usart.h"
+	"Dynamixel_control.h"
+
+1481370079 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\kinematics.c
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\manipulators.c
+	"Manipulators.h"
+	"Dynamixel_control.h"
+	"Regulator.h"
+	"Board.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\path.c
+	"Path.h"
+
+1481376728 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\regulator.c
+	"Regulator.h"
+	"robot.h"
+	"matrix.h"
+	"stdlib.h"
+	"gpio.h"
+	<math.h>
+	"adc.h"
+	"Board.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\matrix.h
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\matrix.c
+	"matrix.h"
+	"stdlib.h"
+
+1481382823 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\robot\robot.c
+	"robot.h"
+	"pins.h"
+	"usart.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"stm32fxxx_it.h"
+	"usbd_cdc_vcp.h"
+	"string.h"
+	"regulator.h"
+	"interrupts.h"
+	"Board.h"
+	"Communication.h"
+	"manipulators.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\library\core\inc\usbd_usr.h
+	"usbd_ioreq.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\stm32fxxx_it.h
+	"usbd_cdc_core.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usbd_cdc_vcp.h
+	"usbd_cdc_core.h"
+	"usbd_conf.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\stm32fxxx_it.c
+	"stm32fxxx_it.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usb_bsp.c
+	"usb_bsp.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usbd_cdc_vcp.c
+	"usbd_cdc_vcp.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usbd_desc.c
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+	"usbd_conf.h"
+	"usb_regs.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\usb app\usbd_usr.c
+	"usbd_usr.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\misc.c
+	"misc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_adc.c
+	"stm32f4xx_adc.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_can.c
+	"stm32f4xx_can.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_cec.c
+	"stm32f4xx_cec.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_cec.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_crc.c
+	"stm32f4xx_crc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_cryp.c
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_cryp_aes.c
+	"stm32f4xx_cryp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_cryp_des.c
+	"stm32f4xx_cryp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_cryp_tdes.c
+	"stm32f4xx_cryp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_dac.c
+	"stm32f4xx_dac.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_dbgmcu.c
+	"stm32f4xx_dbgmcu.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_dcmi.c
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_dma.c
+	"stm32f4xx_dma.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_dma2d.c
+	"stm32f4xx_dma2d.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_dma2d.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_dsi.c
+	"stm32f4xx_dsi.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_dsi.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_exti.c
+	"stm32f4xx_exti.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_gpio.c
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_hash.c
+	"stm32f4xx_hash.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_hash_md5.c
+	"stm32f4xx_hash.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_hash_sha1.c
+	"stm32f4xx_hash.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_i2c.c
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_iwdg.c
+	"stm32f4xx_iwdg.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_lptim.c
+	"stm32f4xx_lptim.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_lptim.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_ltdc.c
+	"stm32f4xx_ltdc.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_ltdc.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_pwr.c
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_qspi.c
+	"stm32f4xx_qspi.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_qspi.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_rcc.c
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_rng.c
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_rtc.c
+	"stm32f4xx_rtc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_sai.c
+	"stm32f4xx_sai.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_sai.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_sdio.c
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_spdifrx.c
+	"stm32f4xx_spdifrx.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\inc\stm32f4xx_spdifrx.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_spi.c
+	"stm32f4xx_spi.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_syscfg.c
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_tim.c
+	"stm32f4xx_tim.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_usart.c
+	"stm32f4xx_usart.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\spl\src\stm32f4xx_wwdg.c
+	"stm32f4xx_wwdg.h"
+	"stm32f4xx_rcc.h"
+
+1481360756 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\src\main.c
+	"stm32f4xx_conf.h"
+	"stm32f4xx.h"
+	"Board.h"
+	"gpio.h"
+	"Pins.h"
+	"Interrupts.h"
+	"regulator.h"
+	"usart.h"
+	"robot.h"
+	"Manipulators.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"usbd_cdc_vcp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\src\startup_stm32f4xx.s
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\repo\small_robot\stm-code\src\system_stm32f4xx.c
+	"stm32f4xx.h"
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\adc.c
+	"adc.h"
+	"math.h"
+	"stm32f4xx.h"
+	"robot.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\adc.h
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\stm32f4xx.h
+	"core_cm4.h"
+	"system_stm32f4xx.h"
+	<stdint.h>
+	"stm32f4xx_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\system_stm32f4xx.h
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\stm32f4xx_conf.h
+	"stm32f4xx_adc.h"
+	"stm32f4xx_can.h"
+	"stm32f4xx_crc.h"
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_dac.h"
+	"stm32f4xx_dbgmcu.h"
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_dma.h"
+	"stm32f4xx_exti.h"
+	"stm32f4xx_flash.h"
+	"stm32f4xx_fsmc.h"
+	"stm32f4xx_hash.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_iwdg.h"
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rtc.h"
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_spi.h"
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_tim.h"
+	"stm32f4xx_usart.h"
+	"stm32f4xx_wwdg.h"
+	"misc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_adc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_can.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_crc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_cryp.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_dac.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_dbgmcu.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_dcmi.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_dma.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_exti.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_flash.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_fsmc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_hash.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_gpio.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_i2c.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_iwdg.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_pwr.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_rcc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_rng.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_rtc.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_sdio.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_spi.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_syscfg.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_tim.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_usart.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_wwdg.h
+	"stm32f4xx.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\misc.h
+	"stm32f4xx.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\robot.h
+	"Communication.h"
+	"gpio.h"
+	<stdbool.h>
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\communication.h
+	"robot.h"
+	"usbd_conf.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usbd_conf.h
+	"usb_conf.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usb_conf.h
+	"stm322xg_eval.h"
+	"stm322xg_eval_lcd.h"
+	"stm32f4xx.h"
+	"stm32f4xx.h"
+	"stm324x9i_eval.h"
+	"stm324x9i_eval_lcd.h"
+	"stm32f10x.h"
+	"stm3210c_eval.h"
+	"stm3210c_eval_lcd.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\gpio.h
+	"stm32f4xx.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_conf.h"
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\board.c
+	"Board.h"
+	"stm32f4xx.h"
+	"Pins.h"
+	"i2c.h"
+	"Interrupts.h"
+	"usart.h"
+	"tim.h"
+	"adc.h"
+	"Regulator.h"
+	"Manipulators.h"
+	"Dynamixel_control.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\board.h
+	"stdint.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\pins.h
+	"gpio.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\i2c.h
+	"stm32f4xx.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\interrupts.h
+	"stm32f4xx.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\usart.h
+	"stm32f4xx.h"
+
+1481359984 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\tim.h
+	"stm32f4xx.h"
+
+1481363823 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\regulator.h
+	"stm32f4xx.h"
+	"Path.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\path.h
+
+1481744090 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\manipulators.h
+	<stdbool.h>
+	<stdint.h>
+	"pins.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\dynamixel_control.h
+	<inttypes.h>
+	<stdbool.h>
+	<stdlib.h>
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\interrupts.c
+	"Interrupts.h"
+	"gpio.h"
+	"Regulator.h"
+	"Path.h"
+	"Pins.h"
+	<math.h>
+	"usart.h"
+	"robot.h"
+	"board.h"
+	"Manipulators.h"
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\tim.c
+	"tim.h"
+
+1481359984 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\board\usart.c
+	"usart.h"
+	"Dynamixel_control.h"
+	"robot.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\cdc\src\usbd_cdc_core.c
+	"usbd_cdc_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\cdc\inc\usbd_cdc_core.h
+	"usbd_ioreq.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usbd_ioreq.h
+	"usbd_def.h"
+	"usbd_core.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usbd_def.h
+	"usbd_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usbd_core.h
+	"usb_dcd.h"
+	"usbd_def.h"
+	"usbd_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usb_dcd.h
+	"usb_core.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usb_core.h
+	"usb_conf.h"
+	"usb_regs.h"
+	"usb_defines.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usb_regs.h
+	"usb_conf.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usb_defines.h
+	"usb_conf.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usbd_desc.h
+	"usbd_req.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usbd_req.h
+	"usbd_def.h"
+	"usbd_core.h"
+	"usbd_conf.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\src\usb_core.c
+	"usb_core.h"
+	"usb_bsp.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usb_bsp.h
+	"usb_core.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\src\usb_dcd.c
+	"usb_dcd.h"
+	"usb_bsp.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\src\usb_dcd_int.c
+	"usb_dcd_int.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usb_dcd_int.h
+	"usb_dcd.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\src\usbd_core.c
+	"usbd_core.h"
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usb_dcd_int.h"
+	"usb_bsp.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\src\usbd_ioreq.c
+	"usbd_ioreq.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\src\usbd_req.c
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usbd_desc.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\communication.c
+	"Communication.h"
+	"stdint.h"
+	"robot.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\dynamixel_control.c
+	"stm32f4xx_conf.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_usart.h"
+	"Dynamixel_control.h"
+
+1481744485 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\manipulators.c
+	"Manipulators.h"
+	"Dynamixel_control.h"
+	"Regulator.h"
+	"Board.h"
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\path.c
+	"Path.h"
+
+1481376728 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\regulator.c
+	"Regulator.h"
+	"robot.h"
+	"matrix.h"
+	"stdlib.h"
+	"gpio.h"
+	<math.h>
+	"adc.h"
+	"Board.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\matrix.h
+
+1481359985 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\matrix.c
+	"matrix.h"
+	"stdlib.h"
+
+1481743062 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\robot.c
+	"robot.h"
+	"pins.h"
+	"usart.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"stm32fxxx_it.h"
+	"usbd_cdc_vcp.h"
+	"string.h"
+	"regulator.h"
+	"interrupts.h"
+	"Board.h"
+	"Communication.h"
+	"manipulators.h"
+
+1481359985 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\library\core\inc\usbd_usr.h
+	"usbd_ioreq.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\stm32fxxx_it.h
+	"usbd_cdc_core.h"
+
+1481359986 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usbd_cdc_vcp.h
+	"usbd_cdc_core.h"
+	"usbd_conf.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\stm32fxxx_it.c
+	"stm32fxxx_it.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usb_bsp.c
+	"usb_bsp.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usbd_cdc_vcp.c
+	"usbd_cdc_vcp.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usbd_desc.c
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+	"usbd_conf.h"
+	"usb_regs.h"
+
+1481359986 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\usb app\usbd_usr.c
+	"usbd_usr.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\misc.c
+	"misc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_adc.c
+	"stm32f4xx_adc.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_can.c
+	"stm32f4xx_can.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_cec.c
+	"stm32f4xx_cec.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_cec.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_crc.c
+	"stm32f4xx_crc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_cryp.c
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_cryp_aes.c
+	"stm32f4xx_cryp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_cryp_des.c
+	"stm32f4xx_cryp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_cryp_tdes.c
+	"stm32f4xx_cryp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_dac.c
+	"stm32f4xx_dac.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_dbgmcu.c
+	"stm32f4xx_dbgmcu.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_dcmi.c
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_dma.c
+	"stm32f4xx_dma.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_dma2d.c
+	"stm32f4xx_dma2d.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_dma2d.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_dsi.c
+	"stm32f4xx_dsi.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_dsi.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_exti.c
+	"stm32f4xx_exti.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_gpio.c
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_hash.c
+	"stm32f4xx_hash.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_hash_md5.c
+	"stm32f4xx_hash.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_hash_sha1.c
+	"stm32f4xx_hash.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_i2c.c
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_iwdg.c
+	"stm32f4xx_iwdg.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_lptim.c
+	"stm32f4xx_lptim.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_lptim.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_ltdc.c
+	"stm32f4xx_ltdc.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_ltdc.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_pwr.c
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_qspi.c
+	"stm32f4xx_qspi.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_qspi.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_rcc.c
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_rng.c
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_rtc.c
+	"stm32f4xx_rtc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_sai.c
+	"stm32f4xx_sai.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_sai.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_sdio.c
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_spdifrx.c
+	"stm32f4xx_spdifrx.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\inc\stm32f4xx_spdifrx.h
+	"stm32f4xx.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_spi.c
+	"stm32f4xx_spi.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_syscfg.c
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_tim.c
+	"stm32f4xx_tim.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_usart.c
+	"stm32f4xx_usart.h"
+	"stm32f4xx_rcc.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\spl\src\stm32f4xx_wwdg.c
+	"stm32f4xx_wwdg.h"
+	"stm32f4xx_rcc.h"
+
+1481360756 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\src\main.c
+	"stm32f4xx_conf.h"
+	"stm32f4xx.h"
+	"Board.h"
+	"gpio.h"
+	"Pins.h"
+	"Interrupts.h"
+	"regulator.h"
+	"usart.h"
+	"robot.h"
+	"Manipulators.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"usbd_cdc_vcp.h"
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\src\startup_stm32f4xx.s
+
+1481359988 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\src\system_stm32f4xx.c
+	"stm32f4xx.h"
+
+1481726609 source:c:\users\student\desktop\shipitko oleg\eurobot 2017 repo\lowlevel\robot\kinematics.c
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\adc.c
+	"adc.h"
+	"math.h"
+	"stm32f4xx.h"
+	"robot.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\adc.h
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\stm32f4xx.h
+	"core_cm4.h"
+	"system_stm32f4xx.h"
+	<stdint.h>
+	"stm32f4xx_conf.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\system_stm32f4xx.h
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\stm32f4xx_conf.h
+	"stm32f4xx_adc.h"
+	"stm32f4xx_can.h"
+	"stm32f4xx_crc.h"
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_dac.h"
+	"stm32f4xx_dbgmcu.h"
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_dma.h"
+	"stm32f4xx_exti.h"
+	"stm32f4xx_flash.h"
+	"stm32f4xx_fsmc.h"
+	"stm32f4xx_hash.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_iwdg.h"
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rtc.h"
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_spi.h"
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_tim.h"
+	"stm32f4xx_usart.h"
+	"stm32f4xx_wwdg.h"
+	"misc.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_adc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_can.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_crc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_cryp.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_dac.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_dbgmcu.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_dcmi.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_dma.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_exti.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_flash.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_fsmc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_hash.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_gpio.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_i2c.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_iwdg.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_pwr.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_rcc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_rng.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_rtc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_sdio.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_spi.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_syscfg.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_tim.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_usart.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_wwdg.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\misc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\robot.h
+	"Communication.h"
+	"gpio.h"
+	<stdbool.h>
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\communication.h
+	"robot.h"
+	"usbd_conf.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usbd_conf.h
+	"usb_conf.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usb_conf.h
+	"stm322xg_eval.h"
+	"stm322xg_eval_lcd.h"
+	"stm32f4xx.h"
+	"stm32f4xx.h"
+	"stm324x9i_eval.h"
+	"stm324x9i_eval_lcd.h"
+	"stm32f10x.h"
+	"stm3210c_eval.h"
+	"stm3210c_eval_lcd.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\gpio.h
+	"stm32f4xx.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_conf.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\board.c
+	"Board.h"
+	"stm32f4xx.h"
+	"Pins.h"
+	"i2c.h"
+	"Interrupts.h"
+	"usart.h"
+	"tim.h"
+	"adc.h"
+	"Regulator.h"
+	"Manipulators.h"
+	"Dynamixel_control.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\board.h
+	"stdint.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\pins.h
+	"gpio.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\i2c.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\interrupts.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\usart.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\tim.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\regulator.h
+	"stm32f4xx.h"
+	"Path.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\path.h
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\manipulators.h
+	<stdbool.h>
+	<stdint.h>
+	"pins.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\dynamixel_control.h
+	<inttypes.h>
+	<stdbool.h>
+	<stdlib.h>
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\interrupts.c
+	"Interrupts.h"
+	"gpio.h"
+	"Regulator.h"
+	"Path.h"
+	"Pins.h"
+	<math.h>
+	"usart.h"
+	"robot.h"
+	"board.h"
+	"Manipulators.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\tim.c
+	"tim.h"
+
+1486021237 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\board\usart.c
+	"usart.h"
+	"Dynamixel_control.h"
+	"robot.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\cdc\src\usbd_cdc_core.c
+	"usbd_cdc_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\cdc\inc\usbd_cdc_core.h
+	"usbd_ioreq.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usbd_ioreq.h
+	"usbd_def.h"
+	"usbd_core.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usbd_def.h
+	"usbd_conf.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usbd_core.h
+	"usb_dcd.h"
+	"usbd_def.h"
+	"usbd_conf.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usb_dcd.h
+	"usb_core.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usb_core.h
+	"usb_conf.h"
+	"usb_regs.h"
+	"usb_defines.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usb_regs.h
+	"usb_conf.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usb_defines.h
+	"usb_conf.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usbd_desc.h
+	"usbd_req.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usbd_req.h
+	"usbd_def.h"
+	"usbd_core.h"
+	"usbd_conf.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\src\usb_core.c
+	"usb_core.h"
+	"usb_bsp.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usb_bsp.h
+	"usb_core.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\src\usb_dcd.c
+	"usb_dcd.h"
+	"usb_bsp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\src\usb_dcd_int.c
+	"usb_dcd_int.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usb_dcd_int.h
+	"usb_dcd.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\src\usbd_core.c
+	"usbd_core.h"
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usb_dcd_int.h"
+	"usb_bsp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\src\usbd_ioreq.c
+	"usbd_ioreq.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\src\usbd_req.c
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usbd_desc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\communication.c
+	"Communication.h"
+	"stdint.h"
+	"robot.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\dynamixel_control.c
+	"stm32f4xx_conf.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_usart.h"
+	"Dynamixel_control.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\kinematics.c
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\manipulators.c
+	"Manipulators.h"
+	"Dynamixel_control.h"
+	"Regulator.h"
+	"Board.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\path.c
+	"Path.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\regulator.c
+	"Regulator.h"
+	"robot.h"
+	"matrix.h"
+	"stdlib.h"
+	"gpio.h"
+	<math.h>
+	"adc.h"
+	"Board.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\matrix.h
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\matrix.c
+	"matrix.h"
+	"stdlib.h"
+
+1486033172 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\robot\robot.c
+	"robot.h"
+	"pins.h"
+	"usart.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"stm32fxxx_it.h"
+	"usbd_cdc_vcp.h"
+	"string.h"
+	"regulator.h"
+	"interrupts.h"
+	"Board.h"
+	"Communication.h"
+	"manipulators.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\library\core\inc\usbd_usr.h
+	"usbd_ioreq.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\stm32fxxx_it.h
+	"usbd_cdc_core.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usbd_cdc_vcp.h
+	"usbd_cdc_core.h"
+	"usbd_conf.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\stm32fxxx_it.c
+	"stm32fxxx_it.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usb_bsp.c
+	"usb_bsp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usbd_cdc_vcp.c
+	"usbd_cdc_vcp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usbd_desc.c
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+	"usbd_conf.h"
+	"usb_regs.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\usb app\usbd_usr.c
+	"usbd_usr.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\misc.c
+	"misc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_adc.c
+	"stm32f4xx_adc.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_can.c
+	"stm32f4xx_can.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_cec.c
+	"stm32f4xx_cec.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_cec.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_crc.c
+	"stm32f4xx_crc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_cryp.c
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_cryp_aes.c
+	"stm32f4xx_cryp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_cryp_des.c
+	"stm32f4xx_cryp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_cryp_tdes.c
+	"stm32f4xx_cryp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_dac.c
+	"stm32f4xx_dac.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_dbgmcu.c
+	"stm32f4xx_dbgmcu.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_dcmi.c
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_dma.c
+	"stm32f4xx_dma.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_dma2d.c
+	"stm32f4xx_dma2d.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_dma2d.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_dsi.c
+	"stm32f4xx_dsi.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_dsi.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_exti.c
+	"stm32f4xx_exti.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_gpio.c
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_hash.c
+	"stm32f4xx_hash.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_hash_md5.c
+	"stm32f4xx_hash.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_hash_sha1.c
+	"stm32f4xx_hash.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_i2c.c
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_iwdg.c
+	"stm32f4xx_iwdg.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_lptim.c
+	"stm32f4xx_lptim.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_lptim.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_ltdc.c
+	"stm32f4xx_ltdc.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_ltdc.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_pwr.c
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_qspi.c
+	"stm32f4xx_qspi.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_qspi.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_rcc.c
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_rng.c
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_rtc.c
+	"stm32f4xx_rtc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_sai.c
+	"stm32f4xx_sai.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_sai.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_sdio.c
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_spdifrx.c
+	"stm32f4xx_spdifrx.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\inc\stm32f4xx_spdifrx.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_spi.c
+	"stm32f4xx_spi.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_syscfg.c
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_tim.c
+	"stm32f4xx_tim.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_usart.c
+	"stm32f4xx_usart.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\spl\src\stm32f4xx_wwdg.c
+	"stm32f4xx_wwdg.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\src\main.c
+	"stm32f4xx_conf.h"
+	"stm32f4xx.h"
+	"Board.h"
+	"gpio.h"
+	"Pins.h"
+	"Interrupts.h"
+	"regulator.h"
+	"usart.h"
+	"robot.h"
+	"Manipulators.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"usbd_cdc_vcp.h"
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\src\startup_stm32f4xx.s
+
+1484281488 source:c:\users\alex\downloads\eurobot-2017-master\eurobot-2017-master\lowlevel\src\system_stm32f4xx.c
+	"stm32f4xx.h"
+
+1485475138 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\adc.c
+	"ADC.h"
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\adc.h
+	"stm32f4xx.h"
+
+1486054886 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\stm32f4xx.h
+	"core_cm4.h"
+	"system_stm32f4xx.h"
+	<stdint.h>
+	"stm32f4xx_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\cmsis\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\system_stm32f4xx.h
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\stm32f4xx_conf.h
+	"stm32f4xx_adc.h"
+	"stm32f4xx_can.h"
+	"stm32f4xx_crc.h"
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_dac.h"
+	"stm32f4xx_dbgmcu.h"
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_dma.h"
+	"stm32f4xx_exti.h"
+	"stm32f4xx_flash.h"
+	"stm32f4xx_fsmc.h"
+	"stm32f4xx_hash.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_iwdg.h"
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rtc.h"
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_spi.h"
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_tim.h"
+	"stm32f4xx_usart.h"
+	"stm32f4xx_wwdg.h"
+	"misc.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_adc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_can.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_crc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_cryp.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_dac.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_dbgmcu.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_dcmi.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_dma.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_exti.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_flash.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_fsmc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_hash.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_gpio.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_i2c.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_iwdg.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_pwr.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_rcc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_rng.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_rtc.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_sdio.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_spi.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_syscfg.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_tim.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_usart.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_wwdg.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\misc.h
+	"stm32f4xx.h"
+
+1486483945 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\board.c
+	"Board.h"
+	"stm32f4xx.h"
+	"Pins.h"
+	"i2c.h"
+	"Interrupts.h"
+	"usart.h"
+	"tim.h"
+	"adc.h"
+	"Regulator.h"
+	"Manipulators.h"
+	"Dynamixel_control.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\board.h
+	"stdint.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\pins.h
+	"gpio.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\gpio.h
+	"stm32f4xx.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\i2c.h
+	"stm32f4xx.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\interrupts.h
+	"stm32f4xx.h"
+
+1486568330 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\usart.h
+	"stm32f4xx.h"
+
+1487263638 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\tim.h
+	"stm32f4xx.h"
+
+1486056283 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\regulator.h
+	"stm32f4xx.h"
+	"Path.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\path.h
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\manipulators.h
+	<stdbool.h>
+	<stdint.h>
+	"pins.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\dynamixel_control.h
+	<inttypes.h>
+	<stdbool.h>
+	<stdlib.h>
+
+1485475138 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\dma.c
+	"DMA.h"
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\dma.h
+	"stm32f4xx.h"
+
+1486054100 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\interrupts.c
+	"gpio.h"
+	"Regulator.h"
+	"Path.h"
+	"Pins.h"
+	<math.h>
+	"usart.h"
+	"robot.h"
+	"board.h"
+	"Manipulators.h"
+
+1486056261 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\robot.h
+	"Communication.h"
+	"gpio.h"
+	<stdbool.h>
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\communication.h
+	"robot.h"
+	"usbd_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usbd_conf.h
+	"usb_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usb_conf.h
+	"stm322xg_eval.h"
+	"stm322xg_eval_lcd.h"
+	"stm32f4xx.h"
+	"stm32f4xx.h"
+	"stm324x9i_eval.h"
+	"stm324x9i_eval_lcd.h"
+	"stm32f10x.h"
+	"stm3210c_eval.h"
+	"stm3210c_eval_lcd.h"
+
+1487327750 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\pid.c
+	"PID.h"
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\pid.h
+	"stm32f4xx.h"
+
+1486056483 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\encoders.c
+	"encoders.h"
+	"main.h"
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\encoders.h
+	"stm32f4xx.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx_conf.h"
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\main.h
+	"stm32f4xx.h"
+
+1485475138 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\hall.c
+	"hall.h"
+
+1485475138 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\hall.h
+	"stm32f4xx.h"
+
+1487327129 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\interapt.c
+	"interapt.h"
+	"TIM.h"
+
+1487323738 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\interapt.h
+	"stm32f4xx.h"
+	"PID.h"
+
+1485475138 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\kinematics.c
+
+1487263644 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\tim.c
+	"TIM.h"
+
+1486568063 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\board\usart.c
+	"usart.h"
+	"Dynamixel_control.h"
+	"robot.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\cdc\src\usbd_cdc_core.c
+	"usbd_cdc_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\cdc\inc\usbd_cdc_core.h
+	"usbd_ioreq.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usbd_ioreq.h
+	"usbd_def.h"
+	"usbd_core.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usbd_def.h
+	"usbd_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usbd_core.h
+	"usb_dcd.h"
+	"usbd_def.h"
+	"usbd_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usb_dcd.h
+	"usb_core.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usb_core.h
+	"usb_conf.h"
+	"usb_regs.h"
+	"usb_defines.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usb_regs.h
+	"usb_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usb_defines.h
+	"usb_conf.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usbd_desc.h
+	"usbd_req.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usbd_req.h
+	"usbd_def.h"
+	"usbd_core.h"
+	"usbd_conf.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\src\usb_core.c
+	"usb_core.h"
+	"usb_bsp.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usb_bsp.h
+	"usb_core.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\src\usb_dcd.c
+	"usb_dcd.h"
+	"usb_bsp.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\src\usb_dcd_int.c
+	"usb_dcd_int.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usb_dcd_int.h
+	"usb_dcd.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\src\usbd_core.c
+	"usbd_core.h"
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usb_dcd_int.h"
+	"usb_bsp.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\src\usbd_ioreq.c
+	"usbd_ioreq.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\src\usbd_req.c
+	"usbd_req.h"
+	"usbd_ioreq.h"
+	"usbd_desc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\communication.c
+	"Communication.h"
+	"stdint.h"
+	"robot.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\dynamixel_control.c
+	"stm32f4xx_conf.h"
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_usart.h"
+	"Dynamixel_control.h"
+
+1486131796 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\kinematics.c
+
+1486056145 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\manipulators.c
+	"Manipulators.h"
+	"Dynamixel_control.h"
+	"Regulator.h"
+	"Board.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\path.c
+	"Path.h"
+
+1486487587 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\regulator.c
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\matrix.c
+	"matrix.h"
+	"stdlib.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\matrix.h
+
+1486568485 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\robot\robot.c
+	"robot.h"
+	"pins.h"
+	"usart.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"stm32fxxx_it.h"
+	"usbd_cdc_vcp.h"
+	"string.h"
+	"regulator.h"
+	"interrupts.h"
+	"Board.h"
+	"Communication.h"
+	"manipulators.h"
+	"PID.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\library\core\inc\usbd_usr.h
+	"usbd_ioreq.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\stm32fxxx_it.h
+	"usbd_cdc_core.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usbd_cdc_vcp.h
+	"usbd_cdc_core.h"
+	"usbd_conf.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\stm32fxxx_it.c
+	"stm32fxxx_it.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usb_bsp.c
+	"usb_bsp.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usbd_cdc_vcp.c
+	"usbd_cdc_vcp.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usbd_desc.c
+	"usbd_core.h"
+	"usbd_desc.h"
+	"usbd_req.h"
+	"usbd_conf.h"
+	"usb_regs.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\usb app\usbd_usr.c
+	"usbd_usr.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\misc.c
+	"misc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_adc.c
+	"stm32f4xx_adc.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_can.c
+	"stm32f4xx_can.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_cec.c
+	"stm32f4xx_cec.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_cec.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_crc.c
+	"stm32f4xx_crc.h"
+
+1486054726 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_cryp.c
+	"stm32f4xx_cryp.h"
+	"stm32f4xx_rcc.h"
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_cryp_aes.c
+	"stm32f4xx_cryp.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_cryp_des.c
+	"stm32f4xx_cryp.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_cryp_tdes.c
+	"stm32f4xx_cryp.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_dac.c
+	"stm32f4xx_dac.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_dbgmcu.c
+	"stm32f4xx_dbgmcu.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_dcmi.c
+	"stm32f4xx_dcmi.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_dma.c
+	"stm32f4xx_dma.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_dma2d.c
+	"stm32f4xx_dma2d.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_dma2d.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_dsi.c
+	"stm32f4xx_dsi.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_dsi.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_exti.c
+	"stm32f4xx_exti.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_gpio.c
+	"stm32f4xx_gpio.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_hash.c
+	"stm32f4xx_hash.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_hash_md5.c
+	"stm32f4xx_hash.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_hash_sha1.c
+	"stm32f4xx_hash.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_i2c.c
+	"stm32f4xx_i2c.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_iwdg.c
+	"stm32f4xx_iwdg.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_lptim.c
+	"stm32f4xx_lptim.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_lptim.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_ltdc.c
+	"stm32f4xx_ltdc.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_ltdc.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_pwr.c
+	"stm32f4xx_pwr.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_qspi.c
+	"stm32f4xx_qspi.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_qspi.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_rcc.c
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_rng.c
+	"stm32f4xx_rng.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_rtc.c
+	"stm32f4xx_rtc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_sai.c
+	"stm32f4xx_sai.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_sai.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_sdio.c
+	"stm32f4xx_sdio.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_spdifrx.c
+	"stm32f4xx_spdifrx.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\inc\stm32f4xx_spdifrx.h
+	"stm32f4xx.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_spi.c
+	"stm32f4xx_spi.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_syscfg.c
+	"stm32f4xx_syscfg.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_tim.c
+	"stm32f4xx_tim.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_usart.c
+	"stm32f4xx_usart.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\spl\src\stm32f4xx_wwdg.c
+	"stm32f4xx_wwdg.h"
+	"stm32f4xx_rcc.h"
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\src\startup_stm32f4xx.s
+
+1484281488 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\src\system_stm32f4xx.c
+	"stm32f4xx.h"
+
+1487260994 source:c:\users\alex\documents\my_eurobot\fromgitstmcode\lowlevel\src\main.c
+	<misc.h>
+	<stm32f4xx_usart.h>
+	<stdio.h>
+	<stdlib.h>
+	"main.h"
+	"encoders.h"
+	"DMA.h"
+	"TIM.h"
+	"ADC.h"
+	"PID.h"
+	"Dynamixel_control.h"
+	"stm32f4xx_conf.h"
+	"stm32f4xx.h"
+	"Board.h"
+	"gpio.h"
+	"Pins.h"
+	"Interrupts.h"
+	"regulator.h"
+	"usart.h"
+	"robot.h"
+	"Manipulators.h"
+	"usbd_cdc_core.h"
+	"usbd_usr.h"
+	"usb_conf.h"
+	"usbd_desc.h"
+	"usbd_cdc_vcp.h"
+

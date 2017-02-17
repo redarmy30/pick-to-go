@@ -108,7 +108,7 @@ void RCC_Configuration(void)
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1,  ENABLE); // ADC1
 
 
-  RCC_APB1PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE); // USART1
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2,ENABLE); // USART1
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,ENABLE); // USART3
 
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1,  ENABLE); // DMA1
