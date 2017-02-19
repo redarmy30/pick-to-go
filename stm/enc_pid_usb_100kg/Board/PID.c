@@ -1,7 +1,7 @@
 #include "PID.h"
 
 
-robotstate telega ={.pidenable = 1, .traekenable = 1, .speed = {0,0}, .center = {0,0,0} , .task={0,0,0}, .leftwheel ={0,0,0,0,0} , .rightwheel = {0,0,0,0,0} ,.ready=1};
+robotstate telega ={.pidenable = 1, .traekenable = 1, .speed = {0,0}, .center = {0,0,0} , .task={0,0,0}, .leftwheel ={0,0,0,0,0,0} , .rightwheel = {0,0,0,0,0,0} ,.ready=1};
 
 
 void pidCalc1(PidStruct *pid_control)  //рассчет ПИД

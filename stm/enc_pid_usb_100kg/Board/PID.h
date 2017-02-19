@@ -11,6 +11,7 @@ typedef struct{
  float distance;
  int speedtoircuit;
  float task;
+ float PassedDist
  } wheel;
 
 typedef struct{
