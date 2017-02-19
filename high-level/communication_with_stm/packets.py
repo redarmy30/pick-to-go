@@ -70,6 +70,7 @@ def decode_params(cmd, params):
 
 
 def decode_packet(data):
+    #print ([i for i in data])
     if data[0] != SYNC or data[1] != ADDR_RECV:
         raise ValueError('Wrong packet header: %s' % data)
     msg_len = data[2]

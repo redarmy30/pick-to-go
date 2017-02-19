@@ -15,6 +15,7 @@
 #include "manipulators.h"
 #include "PID.h"
 int contrr=0;
+extern robotstate telega;
 //float distanceData[3][4] = {0,0,0,0,0,0,0,0,0,0,0,0};
 float distanceData[3][6] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 float distanceFromIR;
@@ -69,7 +70,52 @@ char execCommand(InPackStruct* cmd) //обработать входящую ко
           char * str ="Ok";
           sendAnswer(cmd->command,str, 3);
     }
-      break;
+    break;
+    case 0x03:
+    {   char speed_l[12];
+        snprintf(speed_l, sizeof(speed_l),"%f",telega.leftwheel.speed);
+        sendAnswer(cmd->command,speed_l, sizeof (speed_l));
+    }
+    break;
+    case 0x04:
+    {
+            char speed_r[12];
+            snprintf(speed_r, sizeof(speed_r),"%f",telega.rightwheel.speed);
+            sendAnswer(cmd->command,speed_r, sizeof (speed_r));
+    }
+    case 0x05: // set speed of left wheel and disable traekenable
+    {
+      float* (temp) =(float*)cmd->param;
+      telega.pidenable = 1 ;
+      wheelsPidStruct[1].pid_on=0;
+      wheelsPidStruct[0].d_k=0;
+      wheelsPidStruct[0].i_k=0;
+      telega.traekenable=0;
+      regulatorOut[0]= 0.5;
+      regulatorOut[1]=0.0;
+      char * str ="Ok";
+      sendAnswer(cmd->command,str, 3);
+    }
+    break;
+    case 0x06: // enable traekt , set current  speed to 0
+    {
+      telega.pidenable=0;
+      telega.leftwheel.speedtoircuit=0;
+      telega.rightwheel.speedtoircuit=0;
+      telega.leftwheel.task=0;
+      telega.rightwheel.task=0;
+      wheelsPidStruct[1].pid_on=1;
+      regulatorOut[0]=0.0;
+      regulatorOut[1]=0.0;
+      telega.pidenable=0;
+      telega.traekenable=1;
+
+      char * str ="Ok";
+      sendAnswer(cmd->command,str, 3);
+    }
+    break;
+
+
         default:
         return 0;
       break;

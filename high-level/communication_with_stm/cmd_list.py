@@ -1,11 +1,17 @@
+
+
 # float * speedType[6] = {normalVelFast, stopVelFast, standVelFast, normalVelSlow, stopVelSlow, standVelSlow }
 CMD_LIST = {
     'echo': 0x01, #expected parameters: char[4] = 'ECHO'
     'setCoordinates': 0x02,   #expected parameters: float32[3]
-    'dutyCycle': 0x03,    #expected parameters: int[1], float32[1]
-    'setDirectionBit': 0x04, #expected parameters: int[1]
-    'removeDirectionBit': 0x05,   #expected parameters: int[1]
-    'setMotorVoltage': 0x06,  #expected parameters: int[1], float32[1]
+    'getSpeedOfLeftWheel' : 0x03,
+    'getSpeedOfRightWheel' : 0x04,
+    #'dutyCycle': 0x03,    #expected parameters: int[1], float32[1]
+    #'setDirectionBit': 0x04, #expected parameters: int[1]
+    'setspeedofleftwheel': 0x05,
+    'enableTraektAndStop': 0x06,
+    #'removeDirectionBit': 0x05,   #expected parameters: int[1]
+    #'setMotorVoltage': 0x06,  #expected parameters: int[1], float32[1]
     'setPidParameters': 0x08, #expected parameters: float32[3]
     'setRotatoinSpeed': 0x09, #expected parameters: float32[4]
     'switchOnKinematicCalculation': 0xB,
@@ -61,3 +67,5 @@ CMD_LIST = {
 }
 
 REVERSED_CMD_LIST = dict((v,k) for k, v in  CMD_LIST.items())
+
+

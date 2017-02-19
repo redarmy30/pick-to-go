@@ -201,7 +201,13 @@ float r=5.0, angle = 90, lr =1;
   {
     {rotateMe(&taskrot);}
     {GoForward(&taskmove);}
+
+
+    //char speed[2];
+
     telega.speed[0]=telega.speed[0];
+
+    //speed[1] =(char)telega.rightwheel.speed;
     //if (regulatorboth!=0)
     //{
       //      regulatorOut[0]=regulatorboth;

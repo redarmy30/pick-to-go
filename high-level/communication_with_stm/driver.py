@@ -7,10 +7,10 @@ from cmd_list import CMD_LIST
 from packets import encode_packet, decode_packet
 
 
-PORT_VID = 1155
-PORT_PID = 22336
-PORT_SNR = '3677346C3034'
-DEVICE_NAME = '/dev/tty.usbmodem1411'
+PORT_VID = '0483'
+PORT_PID = '5740'
+PORT_SNR = '325936843235'
+DEVICE_NAME = '/dev/ttyACM1'
 
 class DriverException(Exception):
     pass
@@ -39,11 +39,11 @@ class Driver(Process):
         self.lz_output = lz_output
 
     def connect(self):
-        for port in list_ports.comports():
-            if (port.serial_number == PORT_SNR) and \
-                    (port.pid == PORT_PID) and (port.vid == PORT_VID):
-                self.device = port.device
-                break
+		
+        for port in list_ports.comports():		
+				if (port.serial_number == PORT_SNR) and (port.pid == PORT_PID) and (port.vid == PORT_VID):
+					self.device = port.device
+					break
         self.device = DEVICE_NAME  ## Time-Limited correction!
         if self.device is None:
             raise DriverException('Device not found')
@@ -63,11 +63,12 @@ class Driver(Process):
         self.port.write(packet)
         data  = self.port.read(size=3)
         data = bytearray(data)
-        data += self.port.read(size = int(data[2])) # TODO check correctness
+        data += self.port.read(size = int(data[2]) - 3) # TODO check correctness
         # clear buffer if error!
         return decode_packet(data)
 
     def run(self):
+
         self.connect()
         try:
             while True:
@@ -83,3 +84,8 @@ class Driver(Process):
                     raise DriverException('Incorrect source')
         finally:
             self.close()
+
+dr = Driver(1, 2, 3)
+dr.connect()
+command = {'source': 'fsm', 'cmd': 'echo', 'params': 'ECHO'}
+print dr.process_cmd(command)

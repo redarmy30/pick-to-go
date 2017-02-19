@@ -1,9 +1,9 @@
 import  cmd_list
-import  driver
+import  driver_test
 import  packets
 import time
-import ParticleFilter as pf
-from hokuyolx import HokuyoLX
+#import ParticleFilter as pf
+#from hokuyolx import HokuyoLX
 import matplotlib.pyplot as plt
 
 
@@ -13,10 +13,10 @@ import matplotlib.pyplot as plt
 class Robotishe():
     def __init__(self,lidar_on=True):
         if lidar_on:
-            self.lidar = HokuyoLX(tsync=False)
+            #self.lidar = HokuyoLX(tsync=False)
             self.lidar.convert_time = False
         self.lidar_on = lidar_on
-        self.particles = [pf.Robot() for i in range(pf.particle_number)]
+        #self.particles = [pf.Robot() for i in range(pf.particle_number)]
         self.dr = driver.Driver(1, 2, 3)
         self.dr.connect()
         self.x = 170  # mm
@@ -162,7 +162,9 @@ def func_test():
 def t():
     rb = Robotishe(False)
     rb.go_to_coord_rotation([300, 170, 0.0, 4])
-t()
+
+
+rb = Robotishe(False)
 
 
 

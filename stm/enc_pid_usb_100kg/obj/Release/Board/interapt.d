@@ -12,7 +12,4 @@ obj\release\board\interapt.o: Board\interapt.c Board\interapt.h \
  SPL\inc/stm32f4xx_rng.h SPL\inc/stm32f4xx_rtc.h SPL\inc/stm32f4xx_sdio.h \
  SPL\inc/stm32f4xx_spi.h SPL\inc/stm32f4xx_syscfg.h \
  SPL\inc/stm32f4xx_tim.h SPL\inc/stm32f4xx_usart.h \
- SPL\inc/stm32f4xx_wwdg.h SPL\inc/misc.h Board\PID.h Robot/robot.h \
- Robot/Communication.h Robot/robot.h USB\ App/usbd_conf.h \
- USB\ App/usb_conf.h Board/gpio.h Board/stm32f4xx.h \
- Board/stm32f4xx_conf.h
+ SPL\inc/stm32f4xx_wwdg.h SPL\inc/misc.h Board\PID.h Board\TIM.h
